@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)/include;$(SolutionDir)/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Lib/tmp;$(SolutionDir)/Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)/include;$(ProjectDir)/source;$(SolutionDir)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Lib;$(LibraryPath)</LibraryPath>
     <ReferencePath>$(SolutionDir)/Lib;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -51,14 +51,14 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLUT_BUILDING_LIB;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libpng.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL.lib;libpng.lib;glut32.lib;OpenGL32.Lib;Glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,42 +79,164 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="source\Graphics\fonts\gentium.txf" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\GL\GL.h" />
-    <ClInclude Include="..\include\GL\GLU.h" />
-    <ClInclude Include="..\include\GL\glut.h" />
-    <ClInclude Include="Parti\include\gfx\config.h" />
-    <ClInclude Include="Parti\include\gfx\geom3d.h" />
-    <ClInclude Include="Parti\include\gfx\geom4d.h" />
-    <ClInclude Include="Parti\include\gfx\gfx.h" />
-    <ClInclude Include="Parti\include\gfx\mat2.h" />
-    <ClInclude Include="Parti\include\gfx\mat3.h" />
-    <ClInclude Include="Parti\include\gfx\mat4.h" />
-    <ClInclude Include="Parti\include\gfx\quat.h" />
-    <ClInclude Include="Parti\include\gfx\symmat2.h" />
-    <ClInclude Include="Parti\include\gfx\symmat3.h" />
-    <ClInclude Include="Parti\include\gfx\symmat4.h" />
-    <ClInclude Include="Parti\include\gfx\vec2.h" />
-    <ClInclude Include="Parti\include\gfx\vec3.h" />
-    <ClInclude Include="Parti\include\gfx\vec4.h" />
-    <ClInclude Include="source\CircularWireConstraint.h" />
+    <ClInclude Include="include\config-vc.h" />
+    <ClInclude Include="include\config.h" />
+    <ClInclude Include="source\Vector\geom3d.h" />
+    <ClInclude Include="source\Vector\geom4d.h" />
+    <ClInclude Include="include\gfx.h" />
+    <ClInclude Include="source\Vector\mat2.h" />
+    <ClInclude Include="source\Vector\mat3.h" />
+    <ClInclude Include="source\Vector\mat4.h" />
+    <ClInclude Include="source\Vector\quat.h" />
+    <ClInclude Include="source\Vector\symmat2.h" />
+    <ClInclude Include="source\Vector\symmat3.h" />
+    <ClInclude Include="source\Vector\symmat4.h" />
+    <ClInclude Include="source\Vector\vec2.h" />
+    <ClInclude Include="source\Vector\vec3.h" />
+    <ClInclude Include="source\Vector\vec4.h" />
+    <ClInclude Include="include\glut.h" />
+    <ClInclude Include="source\Camera.h" />
+    <ClInclude Include="source\Cloth\Cloth.hpp" />
+    <ClInclude Include="source\Graphics\Cache.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Font.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\FrameDumper.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\glext.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\GLExtensions.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\GLSLShader.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Graphics.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Material.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\ShadowStencil.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\texfont.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Texture.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="source\imageio.h" />
-    <ClInclude Include="source\linearSolver.h" />
-    <ClInclude Include="source\Particle.h" />
-    <ClInclude Include="source\RodConstraint.h" />
-    <ClInclude Include="source\SpringForce.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="source\Integrators\linearSolver.h" />
+    <ClInclude Include="source\Integrators\tmp\EulerIntegrater.hpp" />
+    <ClInclude Include="source\Integrators\tmp\Integrater.hpp" />
+    <ClInclude Include="source\Integrators\tmp\VerletIntegrater.hpp" />
+    <ClInclude Include="source\Particle\Constrain\CircularWireConstraint.h" />
+    <ClInclude Include="source\Particle\Force\Force.hpp" />
+    <ClInclude Include="source\Particle\Particle.h" />
+    <ClInclude Include="source\Particle\Constrain\RodConstraint.h" />
+    <ClInclude Include="source\Particle\Force\SpringForce.h" />
+    <ClInclude Include="source\Particle\tmp\Constrain.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\Force.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\GravityForce.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\Particle.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\PointConstrain.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\SpringForce.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Particle\tmp\WindForce.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\Vector\Box.hpp" />
+    <ClInclude Include="source\Vector\Matrix.hpp" />
+    <ClInclude Include="source\Vector\Misc.hpp" />
+    <ClInclude Include="source\Vector\Quat.hpp" />
+    <ClInclude Include="source\Vector\QuatGL.hpp" />
+    <ClInclude Include="source\Vector\RootedVector.hpp" />
+    <ClInclude Include="source\Vector\Vector.hpp" />
+    <ClInclude Include="source\Vector\VectorGL.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\CircularWireConstraint.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Cloth\Cloth.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Cache.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Font.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\FrameDumper.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\GLExtensions.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\GLSLShader.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Graphics.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\ShadowStencil.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\texfont.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Texture.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\imageio.cpp" />
-    <ClCompile Include="source\linearSolver.cpp" />
-    <ClCompile Include="source\Particle.cpp" />
-    <ClCompile Include="source\RodConstraint.cpp" />
-    <ClCompile Include="source\Solver.cpp" />
-    <ClCompile Include="source\SpringForce.cpp" />
+    <ClCompile Include="source\Integrators\linearSolver.cpp" />
+    <ClCompile Include="source\Integrators\Solver.cpp" />
+    <ClCompile Include="source\Integrators\tmp\EulerIntegrater.cpp" />
+    <ClCompile Include="source\Integrators\tmp\Integrater.cpp" />
+    <ClCompile Include="source\Integrators\tmp\VerletIntegrater.cpp" />
+    <ClCompile Include="source\Particle\Constrain\CircularWireConstraint.cpp" />
+    <ClCompile Include="source\Particle\Force\Force.cpp" />
+    <ClCompile Include="source\Particle\Particle.cpp" />
+    <ClCompile Include="source\Particle\Constrain\RodConstraint.cpp" />
+    <ClCompile Include="source\Particle\Force\SpringForce.cpp" />
+    <ClCompile Include="source\Particle\tmp\Constrain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\Force.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\GravityForce.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\Particle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\PointConstrain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\SpringForce.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\Particle\tmp\WindForce.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\TinkerToy.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

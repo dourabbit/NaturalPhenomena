@@ -1,15 +1,18 @@
 // TinkerToy.cpp : Defines the entry point for the console application.
 //
+#include <stdio.h>
+#include <stdlib.h>
 
-#include "Particle.h"
-#include "SpringForce.h"
-#include "RodConstraint.h"
-#include "CircularWireConstraint.h"
+#include <Particle\Particle.h>
+#include <Particle\Force\SpringForce.h>
+#include <Particle\Constrain\RodConstraint.h>
+#include <Particle\Constrain\CircularWireConstraint.h>
 #include "imageio.h"
 
 #include <vector>
-#include <stdlib.h>
-#include <stdio.h>
+
+#include <gfx/vec3.h>
+#include "Camera.h"
 #include <GL/glut.h>
 
 /* macros */
@@ -24,6 +27,10 @@ static float dt, d;
 static int dsim;
 static int dump_frames;
 static int frame_number;
+
+//static Vec3f CAMPOS;
+//static Vec3f CAMTARGET;
+CCamera* Cam;
 
 // static Particle *pList;
 static std::vector<Particle*> pVector;
@@ -76,15 +83,22 @@ static void clear_data ( void )
 static void init_system(void)
 {
 	const double dist = 0.2;
-	const Vec2f center(0.0, 0.0);
-	const Vec2f offset(dist, 0.0);
+	const Vec3f center(0.0, 0.0, 0.0);
+	const Vec3f offset(dist, 0.0,0.0);
 
+	/*CAMPOS= Vec3f(0.0,0.0,5.0);
+	CAMTARGET = Vec3f(0.0,0.0,0.0);*/
+
+	Cam = new CCamera();
 	// Create three particles, attach them to each other, then add a
 	// circular wire constraint to the first.
 
-	pVector.push_back(new Particle(center + offset));
-	pVector.push_back(new Particle(center + offset + offset));
-	pVector.push_back(new Particle(center + offset + offset + offset));
+	
+	pVector.push_back(new Particle(center + offset,10,10, 0.1f));
+	pVector.push_back(new Particle(center + offset + offset,10,10, 0.1f));
+	pVector.push_back(new Particle(center + offset + offset + offset,10,10, 0.1f));
+
+
 	
 	// You shoud replace these with a vector generalized forces and one of
 	// constraints...
@@ -101,12 +115,19 @@ OpenGL specific drawing routines
 
 static void pre_display ( void )
 {
-	glViewport ( 0, 0, win_x, win_y );
-	glMatrixMode ( GL_PROJECTION );
-	glLoadIdentity ();
-	gluOrtho2D ( -1.0, 1.0, -1.0, 1.0 );
-	glClearColor ( 0.0f, 0.0f, 0.0f, 1.0f );
-	glClear ( GL_COLOR_BUFFER_BIT );
+	//glViewport ( 0, 0, win_x, win_y );
+	//glMatrixMode ( GL_PROJECTION );
+	//glLoadIdentity ();
+	////gluOrtho2D ( -1.0, 1.0, -1.0, 1.0 );
+	//gluPerspective(60.0, 1.0, 1.5, 20.0);
+	//gluLookAt(	CAMPOS[0],CAMPOS[1],CAMPOS[2], 
+	//			CAMTARGET[0],CAMTARGET[1],CAMTARGET[2], 
+	//			0.0, 1.0, 0.0);
+
+
+	//glClearColor ( 0.0f, 0.0f, 0.0f, 1.0f );
+	//glClear ( GL_COLOR_BUFFER_BIT );
+	Cam->Render(win_x,win_y);
 }
 
 static void post_display ( void )
@@ -216,6 +237,23 @@ static void key_func ( unsigned char key, int x, int y )
 {
 	switch ( key )
 	{
+		case 'a':
+			Cam->Move(Vec3f(-1,0,0));
+			break;
+		case 'd':
+			Cam->Move(Vec3f(1,0,0));
+			break;
+		case 'w':
+			Cam->Move(Vec3f(0,0,-1));
+			break;
+		case 's':
+			Cam->Move(Vec3f(0,0,1));
+			break;
+
+
+
+/*
+
 	case 'c':
 	case 'C':
 		clear_data ();
@@ -225,7 +263,7 @@ static void key_func ( unsigned char key, int x, int y )
 	case 'D':
 		dump_frames = !dump_frames;
 		break;
-
+*/
 	case 'q':
 	case 'Q':
 		free_data ();
