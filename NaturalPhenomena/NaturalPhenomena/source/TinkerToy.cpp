@@ -7,18 +7,25 @@
 #include <Particle\Force\SpringForce.h>
 #include <Particle\Constrain\RodConstraint.h>
 #include <Particle\Constrain\CircularWireConstraint.h>
+#include <Particle\Constrain\Constraint.hpp>
 #include "imageio.h"
 
 #include <vector>
 
-#include <gfx/vec3.h>
+//#include <gfx/vec3.h>
+#include <Vector\Vector.hpp>
+#include <Vector\Matrix.hpp>
 #include "Camera.h"
 #include <GL/glut.h>
-
+#include <Integrators\Solver.hpp>
+#include <Integrators\Integrator.hpp>
+//#include <Integrators\ImplicitIntegrator.h>
+#include <Integrators\ImplicitIntegrator.h>
 /* macros */
 
 /* external definitions (from solver) */
-extern void simulation_step( std::vector<Particle*> pVector, float dt );
+
+//extern void simulation_step( std::vector<Particle*> pVector, float dt, Integrator* integrator);
 
 /* global variables */
 
@@ -30,11 +37,13 @@ static int frame_number;
 
 //static Vec3f CAMPOS;
 //static Vec3f CAMTARGET;
-CCamera* Cam;
+CCamera* pCam;
 
 // static Particle *pList;
 static std::vector<Particle*> pVector;
 
+static Solver* pSolver;
+static Integrator* pCurIntegrator;
 static int win_id;
 static int win_x, win_y;
 static int mouse_down[3];
@@ -43,11 +52,13 @@ static int mouse_shiftclick[3];
 static int omx, omy, mx, my;
 static int hmx, hmy;
 
-static SpringForce * delete_this_dummy_spring = NULL;
-static RodConstraint * delete_this_dummy_rod = NULL;
-static CircularWireConstraint * delete_this_dummy_wire = NULL;
+//static SpringForce * delete_this_dummy_spring = NULL;
+//static RodConstraint * delete_this_dummy_rod = NULL;
+//static CircularWireConstraint * delete_this_dummy_wire = NULL;
 
-
+static std::vector<Force*> pForces;
+static std::vector<Constraint*> pConstraints;
+static std::vector<Integrator*> pIntegrators;
 /*
 ----------------------------------------------------------------------
 free/clear/allocate simulation data
@@ -57,7 +68,7 @@ free/clear/allocate simulation data
 static void free_data ( void )
 {
 	pVector.clear();
-	if (delete_this_dummy_rod) {
+	/*if (delete_this_dummy_rod) {
 		delete delete_this_dummy_rod;
 		delete_this_dummy_rod = NULL;
 	}
@@ -68,7 +79,17 @@ static void free_data ( void )
 	if (delete_this_dummy_wire) {
 		delete delete_this_dummy_wire;
 		delete_this_dummy_wire = NULL;
+	}*/
+
+
+	for(int ii=0; ii<pForces.size();ii++){
+		delete pForces[ii];
 	}
+	for(int ii=0; ii<pConstraints.size();ii++){
+		delete pConstraints[ii];
+	}
+	
+
 }
 
 static void clear_data ( void )
@@ -82,17 +103,17 @@ static void clear_data ( void )
 
 static void init_system(void)
 {
-	const double dist = 0.2;
-	const Vec3f center(0.0, 0.0, 0.0);
-	const Vec3f offset(dist, 0.0,0.0);
+	const float dist = 0.2;
+	const Vector<float,3> center=make_vector(0.0f, 0.0f, 0.0f);
+	const Vector<float,3> offset=make_vector(dist, 0.0f,0.0f);
 
 	/*CAMPOS= Vec3f(0.0,0.0,5.0);
 	CAMTARGET = Vec3f(0.0,0.0,0.0);*/
 
-	Cam = new CCamera();
+	pCam = new CCamera();
 	// Create three particles, attach them to each other, then add a
 	// circular wire constraint to the first.
-
+	pSolver = new Solver();
 	
 	pVector.push_back(new Particle(center + offset,10,10, 0.1f));
 	pVector.push_back(new Particle(center + offset + offset,10,10, 0.1f));
@@ -102,9 +123,16 @@ static void init_system(void)
 	
 	// You shoud replace these with a vector generalized forces and one of
 	// constraints...
-	delete_this_dummy_spring = new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0);
+	/*delete_this_dummy_spring = new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0);
 	delete_this_dummy_rod = new RodConstraint(pVector[1], pVector[2], dist);
-	delete_this_dummy_wire = new CircularWireConstraint(pVector[0], center, dist);
+	delete_this_dummy_wire = new CircularWireConstraint(pVector[0], center, dist);*/
+
+
+
+	pForces.push_back(new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0));
+	pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
+	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
+	//pIntegrators.push_back(new ImplicitIntegrator());
 }
 
 /*
@@ -127,7 +155,7 @@ static void pre_display ( void )
 
 	//glClearColor ( 0.0f, 0.0f, 0.0f, 1.0f );
 	//glClear ( GL_COLOR_BUFFER_BIT );
-	Cam->Render(win_x,win_y);
+	pCam->Render(win_x,win_y);
 }
 
 static void post_display ( void )
@@ -167,17 +195,29 @@ static void draw_particles ( void )
 static void draw_forces ( void )
 {
 	// change this to iteration over full set
-	if (delete_this_dummy_spring)
-		delete_this_dummy_spring->draw();
+	/*if (delete_this_dummy_spring)
+		delete_this_dummy_spring->draw();*/
+
+	for(int ii=0; ii<pForces.size();ii++){
+		pForces[ii]->draw();
+	}
+
 }
 
 static void draw_constraints ( void )
 {
 	// change this to iteration over full set
-	if (delete_this_dummy_rod)
+	/*if (delete_this_dummy_rod)
 		delete_this_dummy_rod->draw();
 	if (delete_this_dummy_wire)
-		delete_this_dummy_wire->draw();
+		delete_this_dummy_wire->draw();*/
+
+
+	for(int ii=0; ii<pConstraints.size();ii++){
+		pConstraints[ii]->draw();
+	}
+
+
 }
 
 /*
@@ -238,16 +278,16 @@ static void key_func ( unsigned char key, int x, int y )
 	switch ( key )
 	{
 		case 'a':
-			Cam->Move(Vec3f(-1,0,0));
+			pCam->Move(make_vector(-1.0f,0.0f,0.0f));
 			break;
 		case 'd':
-			Cam->Move(Vec3f(1,0,0));
+			pCam->Move(make_vector(1.0f,0.0f,0.0f));
 			break;
 		case 'w':
-			Cam->Move(Vec3f(0,0,-1));
+			pCam->Move(make_vector(0.0f,0.0f,-1.0f));
 			break;
 		case 's':
-			Cam->Move(Vec3f(0,0,1));
+			pCam->Move(make_vector(0.0f,0.0f,1.0f));
 			break;
 
 
@@ -304,7 +344,11 @@ static void reshape_func ( int width, int height )
 
 static void idle_func ( void )
 {
-	if ( dsim ) simulation_step( pVector, dt );
+	if ( dsim ) //simulation_step( pVector, dt );
+	{
+		pSolver->update(pVector,dt, pCurIntegrator);
+		
+	}
 	else        {get_from_UI();remap_GUI();}
 
 	glutSetWindow ( win_id );

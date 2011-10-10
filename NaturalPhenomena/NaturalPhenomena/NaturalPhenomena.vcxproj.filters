@@ -48,51 +48,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\gfx\config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\config-vc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\geom3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\geom4d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\gfx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\mat2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\mat3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\mat4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\quat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\symmat2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\symmat3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\symmat4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\vec3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gfx\vec4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\glut.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -101,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="source\Camera.h">
       <Filter>Source Files\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Cloth\Cloth.hpp">
-      <Filter>Source Files\Cloth</Filter>
     </ClInclude>
     <ClInclude Include="source\Vector\Box.hpp">
       <Filter>Source Files\Vector</Filter>
@@ -150,15 +102,6 @@
     <ClInclude Include="source\Particle\tmp\WindForce.hpp">
       <Filter>Source Files\Particle\tmp</Filter>
     </ClInclude>
-    <ClInclude Include="source\Particle\CircularWireConstraint.h">
-      <Filter>Source Files\Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\RodConstraint.h">
-      <Filter>Source Files\Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\SpringForce.h">
-      <Filter>Source Files\Particle</Filter>
-    </ClInclude>
     <ClInclude Include="source\Particle\Particle.h">
       <Filter>Source Files\Particle</Filter>
     </ClInclude>
@@ -198,19 +141,82 @@
     <ClInclude Include="source\Integrators\tmp\EulerIntegrater.hpp">
       <Filter>Source Files\Integrators\tmp</Filter>
     </ClInclude>
-    <ClInclude Include="source\Integrators\tmp\Integrater.hpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
-    </ClInclude>
     <ClInclude Include="source\Integrators\tmp\VerletIntegrater.hpp">
       <Filter>Source Files\Integrators\tmp</Filter>
     </ClInclude>
     <ClInclude Include="source\Integrators\linearSolver.h">
       <Filter>Source Files\Integrators</Filter>
     </ClInclude>
-    <ClInclude Include="source\Integrators\Integrater.hpp">
+    <ClInclude Include="include\config-vc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Integrators\EulerIntegrater.hpp">
+    <ClInclude Include="include\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\geom3d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\geom4d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\mat2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\mat3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\mat4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\quat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\symmat2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\symmat3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\symmat4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\vec2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\vec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constrain\CircularWireConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Force\Force.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constrain\RodConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Force\SpringForce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constrain\Constraint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Force\Gravity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\Integrator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\Solver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\ImplicitIntegrator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -226,9 +232,6 @@
     </ClCompile>
     <ClCompile Include="source\Camera.cpp">
       <Filter>Source Files\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Cloth\Cloth.cpp">
-      <Filter>Source Files\Cloth</Filter>
     </ClCompile>
     <ClCompile Include="source\Particle\tmp\Constrain.cpp">
       <Filter>Source Files\Particle\tmp</Filter>
@@ -251,16 +254,7 @@
     <ClCompile Include="source\Particle\tmp\WindForce.cpp">
       <Filter>Source Files\Particle\tmp</Filter>
     </ClCompile>
-    <ClCompile Include="source\Particle\CircularWireConstraint.cpp">
-      <Filter>Source Files\Particle</Filter>
-    </ClCompile>
     <ClCompile Include="source\Particle\Particle.cpp">
-      <Filter>Source Files\Particle</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\RodConstraint.cpp">
-      <Filter>Source Files\Particle</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\SpringForce.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
     <ClCompile Include="source\Graphics\Cache.cpp">
@@ -293,9 +287,6 @@
     <ClCompile Include="source\Integrators\tmp\EulerIntegrater.cpp">
       <Filter>Source Files\Integrators\tmp</Filter>
     </ClCompile>
-    <ClCompile Include="source\Integrators\tmp\Integrater.cpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
-    </ClCompile>
     <ClCompile Include="source\Integrators\tmp\VerletIntegrater.cpp">
       <Filter>Source Files\Integrators\tmp</Filter>
     </ClCompile>
@@ -305,11 +296,29 @@
     <ClCompile Include="source\Integrators\Solver.cpp">
       <Filter>Source Files\Integrators</Filter>
     </ClCompile>
-    <ClCompile Include="source\Integrators\Integrater.cpp">
+    <ClCompile Include="source\Particle\Constrain\CircularWireConstraint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Integrators\EulerIntegrater.cpp">
+    <ClCompile Include="source\Particle\Force\Force.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Constrain\RodConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Force\SpringForce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Constrain\Constraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Force\Gravity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\Integrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\ImplicitIntegrator.cpp">
+      <Filter>Source Files\Integrators\tmp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
