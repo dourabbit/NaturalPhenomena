@@ -87,7 +87,7 @@
     <ClInclude Include="source\Integrators\ImplicitIntegrator.h" />
     <ClInclude Include="source\Integrators\Integrator.hpp" />
     <ClInclude Include="source\Integrators\Solver.hpp" />
-    <ClInclude Include="source\Particle\Constrain\Constraint.hpp" />
+    <ClInclude Include="source\Particle\Constraint\Constraint.hpp" />
     <ClInclude Include="source\Particle\Force\Gravity.h" />
     <ClInclude Include="source\Vector\geom3d.h" />
     <ClInclude Include="source\Vector\geom4d.h" />
@@ -145,10 +145,10 @@
     <ClInclude Include="source\Integrators\tmp\VerletIntegrater.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="source\Particle\Constrain\CircularWireConstraint.h" />
+    <ClInclude Include="source\Particle\Constraint\CircularWireConstraint.h" />
     <ClInclude Include="source\Particle\Force\Force.hpp" />
     <ClInclude Include="source\Particle\Particle.h" />
-    <ClInclude Include="source\Particle\Constrain\RodConstraint.h" />
+    <ClInclude Include="source\Particle\Constraint\RodConstraint.h" />
     <ClInclude Include="source\Particle\Force\SpringForce.h" />
     <ClInclude Include="source\Particle\tmp\Constrain.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -220,12 +220,12 @@
     <ClCompile Include="source\Integrators\tmp\VerletIntegrater.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="source\Particle\Constrain\CircularWireConstraint.cpp" />
-    <ClCompile Include="source\Particle\Constrain\Constraint.cpp" />
+    <ClCompile Include="source\Particle\Constraint\CircularWireConstraint.cpp" />
+    <ClCompile Include="source\Particle\Constraint\Constraint.cpp" />
     <ClCompile Include="source\Particle\Force\Force.cpp" />
     <ClCompile Include="source\Particle\Force\Gravity.cpp" />
     <ClCompile Include="source\Particle\Particle.cpp" />
-    <ClCompile Include="source\Particle\Constrain\RodConstraint.cpp" />
+    <ClCompile Include="source\Particle\Constraint\RodConstraint.cpp" />
     <ClCompile Include="source\Particle\Force\SpringForce.cpp" />
     <ClCompile Include="source\Particle\tmp\Constrain.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

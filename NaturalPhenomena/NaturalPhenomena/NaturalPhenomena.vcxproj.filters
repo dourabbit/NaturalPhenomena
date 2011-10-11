@@ -192,19 +192,10 @@
     <ClInclude Include="source\Vector\vec4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Particle\Constrain\CircularWireConstraint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\Particle\Force\Force.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Particle\Constrain\RodConstraint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\Particle\Force\SpringForce.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\Constrain\Constraint.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Particle\Force\Gravity.h">
@@ -217,6 +208,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Integrators\ImplicitIntegrator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constraint\CircularWireConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constraint\Constraint.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Particle\Constraint\RodConstraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -296,19 +296,10 @@
     <ClCompile Include="source\Integrators\Solver.cpp">
       <Filter>Source Files\Integrators</Filter>
     </ClCompile>
-    <ClCompile Include="source\Particle\Constrain\CircularWireConstraint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Particle\Force\Force.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Particle\Constrain\RodConstraint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Particle\Force\SpringForce.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\Constrain\Constraint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Particle\Force\Gravity.cpp">
@@ -319,6 +310,15 @@
     </ClCompile>
     <ClCompile Include="source\Integrators\ImplicitIntegrator.cpp">
       <Filter>Source Files\Integrators\tmp</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Constraint\CircularWireConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Constraint\Constraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Particle\Constraint\RodConstraint.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

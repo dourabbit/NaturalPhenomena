@@ -5,9 +5,9 @@
 
 #include <Particle\Particle.h>
 #include <Particle\Force\SpringForce.h>
-#include <Particle\Constrain\RodConstraint.h>
-#include <Particle\Constrain\CircularWireConstraint.h>
-#include <Particle\Constrain\Constraint.hpp>
+#include <Particle\Constraint\RodConstraint.h>
+#include <Particle\Constraint\CircularWireConstraint.h>
+#include <Particle\Constraint\Constraint.hpp>
 #include "imageio.h"
 
 #include <vector>
@@ -19,7 +19,6 @@
 #include <GL/glut.h>
 #include <Integrators\Solver.hpp>
 #include <Integrators\Integrator.hpp>
-//#include <Integrators\ImplicitIntegrator.h>
 #include <Integrators\ImplicitIntegrator.h>
 /* macros */
 
@@ -43,7 +42,7 @@ CCamera* pCam;
 static std::vector<Particle*> pVector;
 
 static Solver* pSolver;
-static Integrator* pCurIntegrator;
+static int indexOfIntegrator=0;
 static int win_id;
 static int win_x, win_y;
 static int mouse_down[3];
@@ -132,7 +131,7 @@ static void init_system(void)
 	pForces.push_back(new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0));
 	pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
 	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
-	//pIntegrators.push_back(new ImplicitIntegrator());
+	pIntegrators.push_back(new ImplicitIntegrator());
 }
 
 /*
@@ -346,7 +345,7 @@ static void idle_func ( void )
 {
 	if ( dsim ) //simulation_step( pVector, dt );
 	{
-		pSolver->update(pVector,dt, pCurIntegrator);
+		pSolver->update(pVector,dt, pIntegrators[indexOfIntegrator]);
 		
 	}
 	else        {get_from_UI();remap_GUI();}
