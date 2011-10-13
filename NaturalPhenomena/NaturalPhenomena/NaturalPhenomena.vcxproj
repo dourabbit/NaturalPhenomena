@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="include\config-vc.h" />
     <ClInclude Include="include\config.h" />
+    <ClInclude Include="source\Integrators\common.h" />
     <ClInclude Include="source\Integrators\ImplicitIntegrator.h" />
     <ClInclude Include="source\Integrators\Integrator.hpp" />
     <ClInclude Include="source\Integrators\Solver.hpp" />

@@ -18,7 +18,7 @@
 #include "Camera.h"
 #include <GL/glut.h>
 #include <Integrators\Solver.hpp>
-#include <Integrators\Integrator.hpp>
+#include <Integrators\common.h>
 #include <Integrators\ImplicitIntegrator.h>
 /* macros */
 
@@ -131,7 +131,7 @@ static void init_system(void)
 	pForces.push_back(new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0));
 	pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
 	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
-	pIntegrators.push_back(new ImplicitIntegrator());
+	pIntegrators.push_back(new ImplicitIntegrator(pSolver));
 }
 
 /*

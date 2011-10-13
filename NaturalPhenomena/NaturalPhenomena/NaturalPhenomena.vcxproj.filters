@@ -219,6 +219,9 @@
     <ClInclude Include="source\Particle\Constraint\RodConstraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\Integrators\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\imageio.cpp">

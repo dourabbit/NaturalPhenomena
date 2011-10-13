@@ -61,4 +61,7 @@ Vector<float,3> SpringForce::partialDDx()
 	result.x = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
 	result.y = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
 	result.z = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
+
+
+	return result;
 }

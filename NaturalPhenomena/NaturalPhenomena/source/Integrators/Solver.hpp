@@ -18,13 +18,16 @@
 #include <Integrators\Integrator.hpp>
 #include <Particle\Force\Force.hpp>
 #include <Particle\Constraint\Constraint.hpp>
+class Integrator;
 class Solver{
 public: 
 
 		Solver();
 		~Solver();
-		void Initialize(const int _numOfParti, std::vector<Particle*> pVector, std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
-		void update( std::vector<Particle*> pVector, float dt, Integrator* integrator);
+		void Initialize(const int _numOfParti, std::vector<Particle*> pVector, 
+						std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
+		void update(std::vector<Particle*> pVector, float dt, 
+					Integrator* integrator);
 		float*  getState();
 		int _numOfParti;
 private:

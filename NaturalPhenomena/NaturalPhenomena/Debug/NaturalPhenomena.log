@@ -1,42 +1,12 @@
-﻿Build started 10/10/2011 6:18:51 PM.
-     1>Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\NaturalPhenomena.lastbuildstate".
-       InitializeBuildStatus:
+﻿Build started 10/12/2011 2:30:42 PM.
+     1>Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Touching "Debug\NaturalPhenomena.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D GLUT_BUILDING_LIB /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\NaturalPhenomena.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D GLUT_BUILDING_LIB /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt source\Camera.cpp source\imageio.cpp source\Integrators\Integrator.cpp source\Integrators\linearSolver.cpp source\Integrators\Solver.cpp source\Integrators\ImplicitIntegrator.cpp source\Particle\Constraint\CircularWireConstraint.cpp source\Particle\Constraint\Constraint.cpp source\Particle\Force\Force.cpp source\Particle\Force\Gravity.cpp source\Particle\Particle.cpp source\Particle\Constraint\RodConstraint.cpp source\Particle\Force\SpringForce.cpp source\TinkerToy.cpp
-         TinkerToy.cpp
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(84): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(87): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(174): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(200): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(215): warning C4018: '<' : signed/unsigned mismatch
-         SpringForce.cpp
-         RodConstraint.cpp
-         Particle.cpp
-         Gravity.cpp
-         Force.cpp
-         Constraint.cpp
-         CircularWireConstraint.cpp
-         ImplicitIntegrator.cpp
-         Solver.cpp
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\integrators\solver.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\integrators\solver.cpp(32): warning C4018: '<' : signed/unsigned mismatch
-         linearSolver.cpp
-         Integrator.cpp
-         imageio.cpp
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\imageio.cpp(50): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\imageio.cpp(139): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
-         Camera.cpp
-         Generating Code...
+         All outputs are up-to-date.
+         All outputs are up-to-date.
        ManifestResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\NaturalPhenomena.exe.embed.manifest.res" Debug\NaturalPhenomena_manifest.rc 
+         All outputs are up-to-date.
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.exe" /INCREMENTAL /NOLOGO SDL.lib libpng.lib glut32.lib OpenGL32.Lib Glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\NaturalPhenomena.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.lib" /MACHINE:X86 Debug\NaturalPhenomena.exe.embed.manifest.res
          Debug\Camera.obj
@@ -57,34 +27,16 @@
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
        Manifest:
-         Deleting file "Debug\NaturalPhenomena.exe.embed.manifest".
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\NaturalPhenomena.exe.embed.manifest" /manifest Debug\NaturalPhenomena.exe.intermediate.manifest
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\NaturalPhenomena.exe.embed.manifest.res" Debug\NaturalPhenomena_manifest.rc 
+         All outputs are up-to-date.
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.exe" /INCREMENTAL /NOLOGO SDL.lib libpng.lib glut32.lib OpenGL32.Lib Glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\NaturalPhenomena.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.lib" /MACHINE:X86 Debug\NaturalPhenomena.exe.embed.manifest.res
-         Debug\Camera.obj
-         Debug\imageio.obj
-         Debug\Integrator.obj
-         Debug\linearSolver.obj
-         Debug\Solver.obj
-         Debug\ImplicitIntegrator.obj
-         Debug\CircularWireConstraint.obj
-         Debug\Constraint.obj
-         Debug\Force.obj
-         Debug\Gravity.obj
-         Debug\Particle.obj
-         Debug\RodConstraint.obj
-         Debug\SpringForce.obj
-         Debug\TinkerToy.obj
-         Debug\stdafx.obj
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         All outputs are up-to-date.
          NaturalPhenomena.vcxproj -> C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\Debug\NaturalPhenomena.exe
        FinalizeBuildStatus:
          Deleting file "Debug\NaturalPhenomena.unsuccessfulbuild".
          Touching "Debug\NaturalPhenomena.lastbuildstate".
-     1>Done Building Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.91
+Time Elapsed 00:00:01.35

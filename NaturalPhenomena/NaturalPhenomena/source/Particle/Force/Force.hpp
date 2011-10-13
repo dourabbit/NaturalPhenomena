@@ -11,8 +11,8 @@ public:
 	virtual ~Force();
 	virtual void draw() = 0;
 	virtual void apply_force() = 0;
-	virtual Vector<float,3> Dx() = 0;
-	virtual Vector<float,3> DDx() = 0;
+	virtual Vector<float,3> partialDx() = 0;
+	virtual Vector<float,3> partialDDx() = 0;
 
 	//Cloth* _cloth;
 };

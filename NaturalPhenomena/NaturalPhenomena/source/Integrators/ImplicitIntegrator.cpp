@@ -1,11 +1,19 @@
 
 
 //#include <Integrators\ImplicitIntegrator.h>
-#include <Integrators\common.h>
+//#include <Integrators\common.h>
+#include <Integrators\Solver.hpp>
 #include <Integrators\linearSolver.h>
-ImplicitIntegrator::ImplicitIntegrator(){}
+#include <Integrators\ImplicitIntegrator.h>
+#include <Integrators\Integrator.hpp>
+ImplicitIntegrator::ImplicitIntegrator(Solver* pSolver):Integrator(pSolver)
+{
+	//this->_pSolver = pSolver;
 
-void ImplicitIntegrator::Integrate(Solver solver,std::vector<Particle*> pVector,float elaspedTime,float* px,float* pDx){
+
+}
+
+void ImplicitIntegrator::Integrate(std::vector<Particle*> pVector,float elaspedTime,float* px,float* pDx){
 
 
 

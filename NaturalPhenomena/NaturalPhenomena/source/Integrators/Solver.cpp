@@ -3,9 +3,9 @@
 //#include <vector>
 //#include <Integrators\Integrator.hpp>
 
-//#include <Integrators\Solver.hpp>;
-#include <Integrators\common.h>
- Solver::Solver(){}
+//#include <Integrators\common.h>
+#include <Integrators\Solver.hpp>
+Solver::Solver(){}
 
 void Solver::update( std::vector<Particle*> pVector, float dt, Integrator* integrator)
 {
