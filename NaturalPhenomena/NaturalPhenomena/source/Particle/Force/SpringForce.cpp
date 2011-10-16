@@ -1,6 +1,6 @@
 #include "SpringForce.h"
 #include <GL/glut.h>
-
+#include <Vector\Vector.hpp>
 SpringForce::SpringForce(Particle *p1, Particle * p2, double dist, double ks, double kd) :
   m_p1(p1), m_p2(p2), m_dist(dist), m_ks(ks), m_kd(kd) {
 	
@@ -27,9 +27,9 @@ void SpringForce::apply_force()
 	//Spring Force
 	Vector<float,3> force;
 	_direction= m_p2->m_Position-m_p1->m_Position;
-	double length=length_squared(_direction);
+	double len=(double)length(_direction); //length_squared(_direction);
 	_direction=normalize(_direction);
-	force= (m_ks)*((length-m_dist)*_direction);
+	force= (m_ks)*((len-m_dist)*_direction);
 	
 	//Spring Damp
 	//float dampFactor=-1* (m_kd)*dot_product(m_p1->m_Velocity-m_p2->m_Velocity,direction);
@@ -45,23 +45,24 @@ void SpringForce::apply_force()
 }
 
 
-Vector<float,3> SpringForce::partialDx()
+void SpringForce::partialDx(float &pResult)
 {
-	Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
-	result.x = this->m_ks * this->_direction*make_vector(1.0f,0.0f,0.0f);
-	result.y = this->m_ks * this->_direction*make_vector(0.0f,1.0f,0.0f);
-	result.z = this->m_ks * this->_direction*make_vector(0.0f,0.0f,1.0f);
+	//Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
+	pResult = this->m_ks * this->_direction*make_vector(1.0f,0.0f,0.0f);
+	pResult++;
+	pResult = this->m_ks * this->_direction*make_vector(0.0f,1.0f,0.0f);
+	pResult++;
+	pResult = this->m_ks * this->_direction*make_vector(0.0f,0.0f,1.0f);
 
-	return result;
 }
 
-Vector<float,3> SpringForce::partialDDx()
+void SpringForce::partialDDx(float &x)
 {
-	Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
+	/*Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
 	result.x = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
 	result.y = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
 	result.z = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);
 
 
-	return result;
+	return result;*/
 }

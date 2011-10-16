@@ -15,10 +15,18 @@ void Gravity::draw()
   glEnd();
 }
 
-
+void Gravity::partialDx(float &x) 
+{
+	//return make_vector(0.0f, 0.0f, 0.0f);
+}
+void Gravity::partialDDx(float &x) 
+{
+	//return make_vector(0.0f, 0.0f, 0.0f);
+}
 
 void Gravity::apply_force()
 {
-
+	this->m_p1->m_ForceAccumulator += 
+		make_vector(0.0f,-9.8f*this->m_p1->m_Mass,0.0f);
 
 }

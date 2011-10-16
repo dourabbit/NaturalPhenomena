@@ -5,6 +5,7 @@
 
 #include <Particle\Particle.h>
 #include <Particle\Force\SpringForce.h>
+#include <Particle\Force\Gravity.h>
 #include <Particle\Constraint\RodConstraint.h>
 #include <Particle\Constraint\CircularWireConstraint.h>
 #include <Particle\Constraint\Constraint.hpp>
@@ -20,6 +21,9 @@
 #include <Integrators\Solver.hpp>
 #include <Integrators\common.h>
 #include <Integrators\ImplicitIntegrator.h>
+#include <Integrators\EulerIntegrator.hpp>
+
+
 /* macros */
 
 /* external definitions (from solver) */
@@ -100,11 +104,40 @@ static void clear_data ( void )
 	}
 }
 
-static void init_system(void)
+static void initialize(void)
 {
-	const float dist = 0.2;
+	const float dist = 0.8;
 	const Vector<float,3> center=make_vector(0.0f, 0.0f, 0.0f);
 	const Vector<float,3> offset=make_vector(dist, 0.0f,0.0f);
+
+	pVector.clear();
+	pForces.clear();
+	pConstraints.clear();
+
+	pVector.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
+	pVector.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
+	pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
+
+	double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);
+
+	pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp/2, 1.0, 1.0));
+	pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp/2, 1.0, 1.0));
+	
+	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
+
+
+	for(int i=0;i<pVector.size();i++)
+	{
+		pForces.push_back(new Gravity(pVector[i]));
+	}
+	pSolver->Initialize(pVector.size(), pVector,pForces,pConstraints);
+}
+
+static void init_system(void)
+{
+	/*const float dist = 0.2;
+	const Vector<float,3> center=make_vector(0.0f, 0.0f, 0.0f);
+	const Vector<float,3> offset=make_vector(dist, 0.0f,0.0f);*/
 
 	/*CAMPOS= Vec3f(0.0,0.0,5.0);
 	CAMTARGET = Vec3f(0.0,0.0,0.0);*/
@@ -114,9 +147,9 @@ static void init_system(void)
 	// circular wire constraint to the first.
 	pSolver = new Solver();
 	
-	pVector.push_back(new Particle(center + offset,10,10, 0.1f));
-	pVector.push_back(new Particle(center + offset + offset,10,10, 0.1f));
-	pVector.push_back(new Particle(center + offset + offset + offset,10,10, 0.1f));
+	//pVector.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
+	//pVector.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
+	//pVector.push_back(new Particle(center + offset + offset + offset,10,10, 0.1f));
 
 
 	
@@ -126,12 +159,17 @@ static void init_system(void)
 	delete_this_dummy_rod = new RodConstraint(pVector[1], pVector[2], dist);
 	delete_this_dummy_wire = new CircularWireConstraint(pVector[0], center, dist);*/
 
+	//double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);
+
+	//pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp, 1.0, 1.0));
+	//pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
+	//pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
+	//pIntegrators.push_back(new ImplicitIntegrator(pSolver));
+	pIntegrators.push_back(new EulerIntegrator(pSolver));
 
 
-	pForces.push_back(new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0));
-	pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
-	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
-	pIntegrators.push_back(new ImplicitIntegrator(pSolver));
+	initialize();
+	
 }
 
 /*
@@ -309,6 +347,11 @@ static void key_func ( unsigned char key, int x, int y )
 		exit ( 0 );
 		break;
 
+
+	case 'o':
+		initialize();
+		dsim = !dsim;
+		break;
 	case ' ':
 		dsim = !dsim;
 		break;
@@ -412,7 +455,7 @@ int main ( int argc, char ** argv )
 
 	if ( argc == 1 ) {
 		N = 64;
-		dt = 0.1f;
+		dt = 0.01f;
 		d = 5.f;
 		fprintf ( stderr, "Using defaults : N=%d dt=%g d=%g\n",
 			N, dt, d );
@@ -432,7 +475,7 @@ int main ( int argc, char ** argv )
 	frame_number = 0;
 	
 	init_system();
-	
+	//initialize();
 	win_x = 512;
 	win_y = 512;
 	open_glut_window ();

@@ -24,16 +24,17 @@ public:
 
 		Solver();
 		~Solver();
-		void Initialize(const int _numOfParti, std::vector<Particle*> pVector, 
+		void Initialize(const int &numOfParti, std::vector<Particle*> pVector, 
 						std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
 		void update(std::vector<Particle*> pVector, float dt, 
 					Integrator* integrator);
 		float*  getState();
 		int _numOfParti;
+		std::vector<Force*> _pForces;
+	std::vector<Constraint*> _pConstraints;
+	
 private:
 	std::vector<Particle*> _pParti;
-	std::vector<Force*> _pForces;
-	std::vector<Constraint*> _pConstraints;
 	void getDerivative();
 	float* _px;
 	float* _pDx;

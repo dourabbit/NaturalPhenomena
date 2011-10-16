@@ -7,7 +7,8 @@
 #include <Integrators\Solver.hpp>
 Solver::Solver(){}
 
-void Solver::update( std::vector<Particle*> pVector, float dt, Integrator* integrator)
+void Solver::update( std::vector<Particle*> pVector, float dt, 
+					Integrator* integrator)
 {
 	//Test
 	///*int ii, size = pVector.size();
@@ -26,7 +27,7 @@ void Solver::update( std::vector<Particle*> pVector, float dt, Integrator* integ
 	integrator->Integrate(pVector, dt, this->_px, this->_pDx);
 }
 
-void Solver::Initialize(const int numOfParti, std::vector<Particle*> pParti,std::vector<Force*> pForces, std::vector<Constraint*> pConstraints)
+void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std::vector<Force*> pForces, std::vector<Constraint*> pConstraints)
 {
 	
 	this->_numOfParti= numOfParti;

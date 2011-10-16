@@ -12,7 +12,7 @@ public:
 
 	Integrator(Solver* solver);
 	virtual ~Integrator();
-	virtual void Integrate(std::vector<Particle*> pVector, 
+	virtual void Integrate(std::vector<Particle*> pParticles, 
 							float elaspedTime,
 							float* px,float* pDx) = 0;
 

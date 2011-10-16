@@ -8,7 +8,7 @@ class Particle{
 
 public:
 
-	Particle(const Vector<float,3> & ConstructPos,const GLint &slices,const GLint stacks,const GLdouble &radius );
+	Particle(const Vector<float,3> & ConstructPos,const float &mass,const GLint &slices,const GLint stacks,const GLdouble &radius );
 	virtual ~Particle(void);
 
 	void reset();

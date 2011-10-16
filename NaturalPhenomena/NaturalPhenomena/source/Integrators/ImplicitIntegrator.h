@@ -22,16 +22,16 @@
 #include <Particle/Particle.h>
 #include <Integrators\Integrator.hpp>
 #include <vector>
-
+#include <Integrators\linearSolver.h>
 class Solver;
-class ImplicitIntegrator: public Integrator{
+class ImplicitIntegrator: public Integrator, public implicitMatrix{
 
 public:
 
 	ImplicitIntegrator(Solver* solver);
 	
 	virtual void Integrate(std::vector<Particle*> pVector, float elaspedTime,float* px,float* pDx);
-
+	virtual void matVecMult(double x[], double r[]);
 	//Cloth* _cloth;
 private:
 	Solver* _pSolver;

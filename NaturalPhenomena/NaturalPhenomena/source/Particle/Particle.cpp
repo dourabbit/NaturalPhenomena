@@ -2,8 +2,12 @@
 #include <GL/glut.h>
 
 
-Particle::Particle(const Vector<float,3> & ConstructPos,const GLint &slices,const GLint stacks,const GLdouble &radius ) :
-	m_ConstructPos(ConstructPos), m_Position(make_vector< float >(0.0, 0.0,0.0)), m_Velocity(make_vector< float >(0.0, 0.0,0.0))
+Particle::Particle(const Vector<float,3> & ConstructPos,const float &mass,const GLint &slices,const GLint stacks,const GLdouble &radius ) :
+	m_ConstructPos(ConstructPos), 
+	m_Position(make_vector< float >(0.0, 0.0,0.0)), 
+	m_Velocity(make_vector< float >(0.0, 0.0,0.0)),
+	m_ForceAccumulator(make_vector< float >(0.0, 0.0,0.0)),
+	m_Mass(mass)
 {
 	this->_radius = radius;
 	this->_slices= slices;

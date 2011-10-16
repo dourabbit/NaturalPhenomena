@@ -5,12 +5,13 @@
 #include <Vector\Vector.hpp>
 class SpringForce:public Force {
  public:
-	  SpringForce(Particle *p1, Particle * p2, double dist, double ks, double kd);
+	  SpringForce(Particle *p1, Particle * p2, double dist, 
+		  double ks, double kd);
 
 	virtual void draw();
 	virtual void apply_force();
-	virtual Vector<float,3> partialDx() ;
-	virtual Vector<float,3> partialDDx() ;
+	virtual void partialDx(float &x) ;
+	virtual void partialDDx( float &x) ;
  private:
 	  
 	  Vector<float,3> _direction;

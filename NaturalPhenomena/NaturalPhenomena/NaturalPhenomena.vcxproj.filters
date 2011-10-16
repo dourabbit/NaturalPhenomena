@@ -222,6 +222,12 @@
     <ClInclude Include="source\Integrators\common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\Integrators\EulerIntegrator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\MidPointIntegrator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\imageio.cpp">
@@ -321,6 +327,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Particle\Constraint\RodConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\EulerIntegrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\MidPointIntegrator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
