@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 
 #include <Particle\Particle.h>
 #include <Particle\Constraint\Constraint.hpp>
@@ -10,7 +10,7 @@ class RodConstraint :public Constraint{
 
  private:
 
-  Particle * const m_p1;
+  //Particle * const m_p1;
   Particle * const m_p2;
   double const m_dist;
 };

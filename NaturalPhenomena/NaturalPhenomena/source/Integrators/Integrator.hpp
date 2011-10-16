@@ -4,7 +4,8 @@
 #include <vector>
 //#include <Integrators\common.h>
 #include <Integrators\Solver.hpp>
-
+#include <common.h>
+#include <string.h>
 class Solver;
 class Integrator{
 
@@ -13,9 +14,8 @@ public:
 	Integrator(Solver* solver);
 	virtual ~Integrator();
 	virtual void Integrate(std::vector<Particle*> pParticles, 
-							float elaspedTime,
-							float* px,float* pDx) = 0;
-
+							DATA elaspedTime) = 0;
+	std::string IntegratorNm;  
 private:
 	Solver* _pSolver;
 	//Cloth* _cloth;

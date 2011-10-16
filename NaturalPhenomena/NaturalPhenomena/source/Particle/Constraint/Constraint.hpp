@@ -4,18 +4,21 @@
 //#include <Cloth/Cloth.hpp>
 #include <Vector\Vector.hpp>
 #include <Integrators\linearSolver.h>
+#include <common.h>
+#include <Particle\Particle.h>
 class Constraint{
 
 public:
 
-	Constraint();
+	Constraint(Particle* pParti);
 	virtual ~Constraint();
 	virtual void draw() = 0;
 	//virtual void apply_force() = 0;
 	//Cloth* _cloth;
 	
-	virtual void partialDx(float &x)=0;
-	virtual void partialDDx(float &x)=0;
+	virtual void partialDx(DATA &x)=0;
+	virtual void partialDDx(DATA &x)=0;
+	 Particle * const m_p1;
 };
 
 #endif

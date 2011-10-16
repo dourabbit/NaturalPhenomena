@@ -12,7 +12,6 @@ public:
 	virtual ~MidPointIntegrator();
 	//virtual void Integrate(Vector3f acc, Particle* pParticle, float elaspedTime);
 	virtual void Integrate(std::vector<Particle*> pVector, 
-							float elaspedTime,
-							float* px,float* pDx);
+							DATA elaspedTime);
 };
 #endif

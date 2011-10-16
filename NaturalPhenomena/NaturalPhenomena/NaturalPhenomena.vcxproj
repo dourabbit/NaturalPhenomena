@@ -84,10 +84,12 @@
   <ItemGroup>
     <ClInclude Include="include\config-vc.h" />
     <ClInclude Include="include\config.h" />
-    <ClInclude Include="source\Integrators\common.h" />
+    <ClInclude Include="source\common.h" />
+    <ClInclude Include="source\Integrators\ConstraintSolver.hpp" />
     <ClInclude Include="source\Integrators\EulerIntegrator.hpp" />
     <ClInclude Include="source\Integrators\ImplicitIntegrator.h" />
     <ClInclude Include="source\Integrators\Integrator.hpp" />
+    <ClInclude Include="source\Integrators\RungeKutta.hpp" />
     <ClInclude Include="source\Integrators\MidPointIntegrator.hpp" />
     <ClInclude Include="source\Integrators\Solver.hpp" />
     <ClInclude Include="source\Particle\Constraint\Constraint.hpp" />
@@ -213,10 +215,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\imageio.cpp" />
+    <ClCompile Include="source\Integrators\ConstraintSolver.cpp" />
     <ClCompile Include="source\Integrators\EulerIntegrator.cpp" />
     <ClCompile Include="source\Integrators\Integrator.cpp" />
     <ClCompile Include="source\Integrators\linearSolver.cpp" />
     <ClCompile Include="source\Integrators\MidPointIntegrator.cpp" />
+    <ClCompile Include="source\Integrators\RungeKutta.cpp" />
     <ClCompile Include="source\Integrators\Solver.cpp" />
     <ClCompile Include="source\Integrators\tmp\EulerIntegrater.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

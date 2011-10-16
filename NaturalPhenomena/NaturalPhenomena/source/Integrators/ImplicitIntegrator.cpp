@@ -11,12 +11,12 @@ ImplicitIntegrator::ImplicitIntegrator(Solver* pSolver):
 					Integrator(pSolver)
 {
 	//this->_pSolver = pSolver;
-
+	this->IntegratorNm = "ImplicitIntegrator";
 
 }
 
 void ImplicitIntegrator::Integrate(std::vector<Particle*> 
-			pVector,float elaspedTime,float* px,float* pDx)
+			pVector,DATA elaspedTime)
 {
 
 

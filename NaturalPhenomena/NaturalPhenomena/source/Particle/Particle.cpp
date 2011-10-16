@@ -2,20 +2,28 @@
 #include <GL/glut.h>
 
 
-Particle::Particle(const Vector<float,3> & ConstructPos,const float &mass,const GLint &slices,const GLint stacks,const GLdouble &radius ) :
+Particle::Particle(const Vector<DATA,3> & ConstructPos,const DATA &mass,
+	const GLint &slices,const GLint stacks,const GLdouble &radius ) :
 	m_ConstructPos(ConstructPos), 
-	m_Position(make_vector< float >(0.0, 0.0,0.0)), 
-	m_Velocity(make_vector< float >(0.0, 0.0,0.0)),
-	m_ForceAccumulator(make_vector< float >(0.0, 0.0,0.0)),
+	m_Position(make_vector< DATA >(0.0, 0.0,0.0)), 
+	m_Velocity(make_vector< DATA >(0.0, 0.0,0.0)),
+	m_ForceAccumulator(make_vector< DATA >(0.0, 0.0,0.0)),
 	m_Mass(mass)
 {
 	this->_radius = radius;
 	this->_slices= slices;
-	this->_stacks= stacks;
+	this->_stacks= stacks; 
+	this->Forces.clear(); 
+	this->pConstraint=NULL;
 }
 
 Particle::~Particle(void)
 {
+	int ii, size = Forces.size();
+
+	for(ii=0; ii<size; ii++){
+		delete Forces[ii];
+	}
 }
 
 void Particle::reset()

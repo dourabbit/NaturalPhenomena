@@ -18,6 +18,8 @@
 #include <Integrators\Integrator.hpp>
 #include <Particle\Force\Force.hpp>
 #include <Particle\Constraint\Constraint.hpp>
+#include <Integrators\ConstraintSolver.hpp>
+#include <common.h>
 class Integrator;
 class Solver{
 public: 
@@ -26,18 +28,19 @@ public:
 		~Solver();
 		void Initialize(const int &numOfParti, std::vector<Particle*> pVector, 
 						std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
-		void update(std::vector<Particle*> pVector, float dt, 
+		void update(std::vector<Particle*> pVector, DATA dt, 
 					Integrator* integrator);
-		float*  getState();
+		DATA*  getState();
 		int _numOfParti;
 		std::vector<Force*> _pForces;
-	std::vector<Constraint*> _pConstraints;
+		std::vector<Constraint*> _pConstraints;
 	
 private:
 	std::vector<Particle*> _pParti;
 	void getDerivative();
-	float* _px;
-	float* _pDx;
-	float* _pJacobi;
+	std::vector<DATA*> _px;
+	std::vector<DATA*> _pDx;
+	ConstraintSolver* _constSolver;
+	//DATA* _pJacobi;
 };
 #endif

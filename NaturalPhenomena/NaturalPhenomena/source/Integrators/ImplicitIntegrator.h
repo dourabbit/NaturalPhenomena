@@ -30,7 +30,7 @@ public:
 
 	ImplicitIntegrator(Solver* solver);
 	
-	virtual void Integrate(std::vector<Particle*> pVector, float elaspedTime,float* px,float* pDx);
+	virtual void Integrate(std::vector<Particle*> pVector, DATA elaspedTime);
 	virtual void matVecMult(double x[], double r[]);
 	//Cloth* _cloth;
 private:

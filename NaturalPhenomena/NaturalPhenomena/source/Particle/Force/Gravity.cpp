@@ -3,6 +3,8 @@
 
 Gravity::Gravity(Particle *p1) :
   m_p1(p1) {
+
+	  p1->Forces.push_back(this);
   }
 
 void Gravity::draw()
@@ -15,11 +17,11 @@ void Gravity::draw()
   glEnd();
 }
 
-void Gravity::partialDx(float &x) 
+void Gravity::partialDx(DATA &x) 
 {
 	//return make_vector(0.0f, 0.0f, 0.0f);
 }
-void Gravity::partialDDx(float &x) 
+void Gravity::partialDDx(DATA &x) 
 {
 	//return make_vector(0.0f, 0.0f, 0.0f);
 }
@@ -27,6 +29,12 @@ void Gravity::partialDDx(float &x)
 void Gravity::apply_force()
 {
 	this->m_p1->m_ForceAccumulator += 
-		make_vector(0.0f,-9.8f*this->m_p1->m_Mass,0.0f);
+		make_vector(0.0,-9.8*this->m_p1->m_Mass,0.0);
 
+}
+
+Vector<DATA,3> Gravity::guessForce(Vector<DATA,3> &position, Particle &partilce)
+{
+	Vector<DATA,3> result =make_vector(0.0,-9.8*this->m_p1->m_Mass,0.0);
+	return result;
 }

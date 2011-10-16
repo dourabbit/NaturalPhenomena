@@ -5,9 +5,14 @@
 
 //#include <Integrators\common.h>
 #include <Integrators\Solver.hpp>
-Solver::Solver(){}
+Solver::Solver(){
+	
 
-void Solver::update( std::vector<Particle*> pVector, float dt, 
+}
+
+Solver::~Solver(){}
+
+void Solver::update( std::vector<Particle*> pVector, DATA dt, 
 					Integrator* integrator)
 {
 	//Test
@@ -19,12 +24,23 @@ void Solver::update( std::vector<Particle*> pVector, float dt,
 	//	pVector[ii]->m_Velocity = DAMP*pVector[ii]->m_Velocity + make_vector< float >(RAND,RAND,RAND) * 0.005f;
 	//}*/
 
+	for(int ii=0; ii<pVector.size(); ii++)
+	{
+		pVector[ii]->m_ForceAccumulator = make_vector(0.0f,0.0f,0.0f);
+	}
+
+
 	for(int ii=0; ii<this->_pForces.size();ii++)
 	{
 		_pForces[ii]->apply_force();
 	}
 
-	integrator->Integrate(pVector, dt, this->_px, this->_pDx);
+	//this->_constSolver->
+
+
+	getDerivative();
+	integrator->Integrate(pVector, dt);
+	//pVector[0]->m_Position = make_vector(0.0,0.0,0.0);
 }
 
 void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std::vector<Force*> pForces, std::vector<Constraint*> pConstraints)
@@ -36,27 +52,30 @@ void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std
 	this->_pConstraints = pConstraints;
 	
 	
+	this->_constSolver = new ConstraintSolver(this);
 	
-	this->_px = new float[_numOfParti*3];
-	this->_pDx = new float[_numOfParti*3];
-	
-	this->_pJacobi = new float[_numOfParti*6*2];
-	
-	
-	for(int ii=0; ii<pParti.size();ii++)
-	{
-		this->_px = &(pParti[ii]->m_Position.x);
-		_px++;
-		this->_px = &(pParti[ii]->m_Position.y);
-		_px++;
-		this->_px = &(pParti[ii]->m_Position.z);
-		_px++;
-		this->_px = &(pParti[ii]->m_Velocity.x);
-		_px++;
-		this->_px = &(pParti[ii]->m_Velocity.y);
-		_px++;
-		this->_px = &(pParti[ii]->m_Velocity.z);
-	}
+	///*this->_px = new DATA[_numOfParti*3];
+	//this->_pDx = new DATA[_numOfParti*3];
+	//
+	//this->_pJacobi = new DATA[_numOfParti*6*2];*/
+	//
+
+
+	//
+	//for(int ii=0; ii<pParti.size();ii++)
+	//{
+	//	this->_px = &(pParti[ii]->m_Position.x);
+	//	_px++;
+	//	this->_px = &(pParti[ii]->m_Position.y);
+	//	_px++;
+	//	this->_px = &(pParti[ii]->m_Position.z);
+	//	_px++;
+	//	this->_px = &(pParti[ii]->m_Velocity.x);
+	//	_px++;
+	//	this->_px = &(pParti[ii]->m_Velocity.y);
+	//	_px++;
+	//	this->_px = &(pParti[ii]->m_Velocity.z);
+	//}
 
 
 }
@@ -64,24 +83,28 @@ void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std
 void Solver::getDerivative()
 {
 
-	for(int ii=0; ii<this->_pParti.size();ii++)
-	{
+	///*for(int ii=0; ii<this->_pParti.size();ii++)
+	//{
 
-		this->_pDx = &(_pParti[ii]->m_Velocity.x);
-		_pDx++;
-		this->_pDx = &(_pParti[ii]->m_Velocity.y);
-		_pDx++;
-		this->_pDx = &(_pParti[ii]->m_Velocity.z);
-		_pDx++;
+	//	this->_pDx = &(_pParti[ii]->m_Velocity.x);
+	//	_pDx++;
+	//	this->_pDx = &(_pParti[ii]->m_Velocity.y);
+	//	_pDx++;
+	//	this->_pDx = &(_pParti[ii]->m_Velocity.z);
+	//	_pDx++;
 
-		Vector<float,3> acc = (_pParti[ii]->m_ForceAccumulator/_pParti[ii]->m_Mass);
+	//	Vector<DATA,3> acc = (_pParti[ii]->m_ForceAccumulator/_pParti[ii]->m_Mass);
 
-		this->_pDx = &(acc.x);
-		_pDx++;
-		this->_pDx = &(acc.y);
-		_pDx++;
-		this->_pDx = &(acc.z);
-	}
+	//	this->_pDx = &(acc.x);
+	//	_pDx++;
+	//	this->_pDx = &(acc.y);
+	//	_pDx++;
+	//	this->_pDx = &(acc.z);
+	//}*/
+
+
+
+
 }
 
 

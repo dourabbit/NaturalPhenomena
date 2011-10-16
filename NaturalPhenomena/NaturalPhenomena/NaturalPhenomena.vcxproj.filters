@@ -219,13 +219,19 @@
     <ClInclude Include="source\Particle\Constraint\RodConstraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\Integrators\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\Integrators\EulerIntegrator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Integrators\MidPointIntegrator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\RungeKutta.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Integrators\ConstraintSolver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -333,6 +339,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Integrators\MidPointIntegrator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\RungeKutta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Integrators\ConstraintSolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,7 @@
 // TinkerToy.cpp : Defines the entry point for the console application.
 //
+
+#include <common.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,11 +20,14 @@
 #include <Vector\Matrix.hpp>
 #include "Camera.h"
 #include <GL/glut.h>
+
+
 #include <Integrators\Solver.hpp>
-#include <Integrators\common.h>
+#include <common.h>
 #include <Integrators\ImplicitIntegrator.h>
 #include <Integrators\EulerIntegrator.hpp>
-
+#include <Integrators\MidPointIntegrator.hpp>
+#include <Integrators\RungeKutta.hpp>
 
 /* macros */
 
@@ -33,7 +38,7 @@
 /* global variables */
 
 static int N;
-static float dt, d;
+static DATA dt, d;
 static int dsim;
 static int dump_frames;
 static int frame_number;
@@ -92,6 +97,8 @@ static void free_data ( void )
 		delete pConstraints[ii];
 	}
 	
+	delete pCam;
+	delete pSolver;
 
 }
 
@@ -106,22 +113,23 @@ static void clear_data ( void )
 
 static void initialize(void)
 {
-	const float dist = 0.8;
-	const Vector<float,3> center=make_vector(0.0f, 0.0f, 0.0f);
-	const Vector<float,3> offset=make_vector(dist, 0.0f,0.0f);
+	const DATA dist = 0.8;
+	const Vector<DATA,3> center=make_vector(0.0, 0.0, 0.0);
+	const Vector<DATA,3> offset=make_vector(dist, 0.0,0.0);
 
 	pVector.clear();
 	pForces.clear();
 	pConstraints.clear();
 
-	pVector.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
-	pVector.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
-	pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
+
+	pVector.push_back(new Particle(center + offset,0.1,10,10, 0.1));
+	pVector.push_back(new Particle(center + offset + offset,0.1,10,10, 0.1));
+	//pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
 
 	double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);
 
-	pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp/2, 1.0, 1.0));
-	pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp/2, 1.0, 1.0));
+	pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp, 50.0, 1.0));
+	//pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp/2, 1.0, 1.0));
 	
 	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
 
@@ -166,7 +174,8 @@ static void init_system(void)
 	//pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
 	//pIntegrators.push_back(new ImplicitIntegrator(pSolver));
 	pIntegrators.push_back(new EulerIntegrator(pSolver));
-
+	pIntegrators.push_back(new MidPointIntegrator(pSolver));
+	pIntegrators.push_back(new RungeKutta(pSolver));
 
 	initialize();
 	
@@ -314,6 +323,13 @@ static void key_func ( unsigned char key, int x, int y )
 {
 	switch ( key )
 	{
+		case 'i':
+			indexOfIntegrator++;
+			indexOfIntegrator = indexOfIntegrator%pIntegrators.size();
+
+			printf ( pIntegrators[indexOfIntegrator]->IntegratorNm.c_str() );
+			break;
+
 		case 'a':
 			pCam->Move(make_vector(-1.0f,0.0f,0.0f));
 			break;

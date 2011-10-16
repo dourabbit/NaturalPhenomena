@@ -9,8 +9,11 @@ class Gravity:public Force {
 
 	virtual void draw();
 	virtual void apply_force();
-	virtual void partialDx(float &x) ;
-	virtual void partialDDx(float &x) ;
+	virtual void partialDx(DATA &x) ;
+	virtual void partialDDx(DATA &x) ;
+	virtual Vector<DATA,3> guessForce(Vector<DATA,3> &position, Particle &partilce);
+
+
 	 private:
 	  Particle * const m_p1;   // particle 1
 };
