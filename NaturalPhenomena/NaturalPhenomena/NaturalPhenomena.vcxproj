@@ -100,6 +100,7 @@
     <ClInclude Include="source\Vector\mat2.h" />
     <ClInclude Include="source\Vector\mat3.h" />
     <ClInclude Include="source\Vector\mat4.h" />
+    <ClInclude Include="source\Vector\Matrix.hpp" />
     <ClInclude Include="source\Vector\quat.h" />
     <ClInclude Include="source\Vector\symmat2.h" />
     <ClInclude Include="source\Vector\symmat3.h" />
@@ -177,7 +178,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="source\Vector\Box.hpp" />
-    <ClInclude Include="source\Vector\Matrix.hpp" />
+    <ClInclude Include="source\Vector\MatrixP.hpp" />
     <ClInclude Include="source\Vector\Misc.hpp" />
     <ClInclude Include="source\Vector\Quat.hpp" />
     <ClInclude Include="source\Vector\QuatGL.hpp" />

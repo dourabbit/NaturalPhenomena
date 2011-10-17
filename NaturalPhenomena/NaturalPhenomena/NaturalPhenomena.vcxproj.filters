@@ -60,9 +60,6 @@
     <ClInclude Include="source\Vector\Box.hpp">
       <Filter>Source Files\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="source\Vector\Matrix.hpp">
-      <Filter>Source Files\Vector</Filter>
-    </ClInclude>
     <ClInclude Include="source\Vector\Misc.hpp">
       <Filter>Source Files\Vector</Filter>
     </ClInclude>
@@ -232,6 +229,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Integrators\ConstraintSolver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\MatrixP.hpp">
+      <Filter>Source Files\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\Matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

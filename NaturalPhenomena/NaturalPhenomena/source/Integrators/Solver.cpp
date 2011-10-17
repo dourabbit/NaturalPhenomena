@@ -35,7 +35,7 @@ void Solver::update( std::vector<Particle*> pVector, DATA dt,
 		_pForces[ii]->apply_force();
 	}
 
-	//this->_constSolver->
+	this->_constSolver->Solve();
 
 
 	getDerivative();

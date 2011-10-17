@@ -21,6 +21,7 @@
 #include <Integrators\ConstraintSolver.hpp>
 #include <common.h>
 class Integrator;
+class ConstraintSolver;
 class Solver{
 public: 
 
@@ -34,7 +35,7 @@ public:
 		int _numOfParti;
 		std::vector<Force*> _pForces;
 		std::vector<Constraint*> _pConstraints;
-	
+		
 private:
 	std::vector<Particle*> _pParti;
 	void getDerivative();
