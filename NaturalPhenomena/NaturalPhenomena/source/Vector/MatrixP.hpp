@@ -12,15 +12,14 @@
 
 class MatrixP {
 public:
-	
-	
-	
+	MatrixP(){}
 	MatrixP(int r, int c, const DATA *pData)
 	{
+		_pData = new DATA[r*c];
 		
 		for(int i=0;i<r*c;i++)
 		{
-			Data.push_back(*pData);
+			_data.push_back(*pData);
 			pData++;
 		}
 		
@@ -31,19 +30,23 @@ public:
 
 	MatrixP(int r, int c)
 	{
-		
+		_pData = new DATA[r*c];
+
 		for(int i=0;i<r*c;i++)
 		{
-			Data.push_back(0);
+			_data.push_back(0);
 			
 		}
 		
 		ROWS = r;
 		COLS = c;
 	};
-	~MatrixP(){};
+	~MatrixP(){
+		delete[] _pData;
+	};
 	int ROWS;
 	int COLS;
+	
 	
 	MatrixP MultiplyP(MatrixP const &a, MatrixP const &b) 
 	{
@@ -59,16 +62,52 @@ public:
 		return ret;
 		
 	};
+
+	MatrixP MultiplyP(MatrixP const &a, DATA const &b) 
+	{
+		MatrixP ret(a.ROWS,a.COLS);
+		for (unsigned int r = 0; r < a.ROWS; ++r) {
+			for (unsigned int c = 0; c < a.COLS; ++c) {
+				ret(r,c) = a(r,c)*b; 
+			}
+		}
+		return ret;
+	};
+	MatrixP AddP(MatrixP const &a,MatrixP const &b) 
+	{
+		MatrixP ret(a.ROWS,a.COLS);
+		for (unsigned int r = 0; r < a.ROWS; ++r) {
+			for (unsigned int c = 0; c < a.COLS; ++c) {
+				ret(r,c) = a(r,c)+b(r,c);
+			}
+		}
+		return ret;
+	};
+	MatrixP Transpose(MatrixP a) 
+	{
+		MatrixP ret(a.COLS,a.ROWS);
+		for (unsigned int r = 0; r < a.ROWS; ++r) {
+			for (unsigned int c = 0; c < a.COLS; ++c) {
+				ret(c,r) =a(r,c);
+			}
+		}
+		return ret;
+	};
 	
 	DATA &operator()(unsigned int row, unsigned int col) {
-		return Data[row * COLS + col];
+		return _data[row * COLS + col];
 	}
 	DATA const &operator()(unsigned int row, unsigned int col) const {
-		return Data[row * COLS + col];
+		return _data[row * COLS + col];
 	}
 	
+	DATA* ToArray()
+	{
+		return _pData;
+	}
 private:
-	std::vector<DATA> Data;
+	std::vector<DATA> _data;
+	DATA* _pData;
 };
 //
 //MatrixP MultiplyP::MultiplyP(MatrixP const &a, MatrixP const &b) {

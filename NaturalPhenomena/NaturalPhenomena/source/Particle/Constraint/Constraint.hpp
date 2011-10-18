@@ -16,9 +16,18 @@ public:
 	//virtual void apply_force() = 0;
 	//Cloth* _cloth;
 	
-	virtual void partialDx(DATA &x)=0;
-	virtual void partialDDx(DATA &x)=0;
-	 Particle * const m_p1;
+
+	
+
+	virtual void partialDx(DATA* px)=0;
+	virtual void partialDDx(DATA* px)=0;
+	
+	
+	Particle * const m_p1;
+
+
+
+
 };
 
 #endif

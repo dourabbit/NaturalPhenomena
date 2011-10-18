@@ -121,9 +121,12 @@ static void initialize(void)
 	pForces.clear();
 	pConstraints.clear();
 
-
+	
 	pVector.push_back(new Particle(center + offset,0.1,10,10, 0.1));
 	pVector.push_back(new Particle(center + offset + offset,0.1,10,10, 0.1));
+
+	
+
 	//pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
 
 	double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);

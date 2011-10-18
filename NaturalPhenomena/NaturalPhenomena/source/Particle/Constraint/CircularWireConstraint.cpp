@@ -1,6 +1,6 @@
 #include "CircularWireConstraint.h"
 #include <GL/glut.h>
-
+#include <math.h>
 #define PI 3.1415926535897932384626433832795
 
 static void draw_circle(const Vector<DATA,3> & vect, float radius)
@@ -23,17 +23,23 @@ void CircularWireConstraint::draw()
 	draw_circle(m_center, m_radius);
 }
 
-void CircularWireConstraint::partialDx(DATA &x)
+void CircularWireConstraint::partialDx(DATA* pdx)
 {
-	//C(x,y)= sin(x)+cos(y)-1;
-	//J=[cos(x),-sin(y)];
-	//dJ=
+	//C(x,y)= sin(x)+cos(y)+0z-1;
+	//J=[cos(x),-sin(y),0];
+
+	pdx[0] = cos(pdx[0]);
+	pdx[1] = -sin(pdx[1]);
+	pdx[2] = 0;
 	 
 }
 
 
-void CircularWireConstraint::partialDDx(DATA &x)
+void CircularWireConstraint::partialDDx(DATA* pddx)
 {
-
+	//dJ=[-sin(x)*dx, -cos(y)*dy,0]
+	pddx[0] = -sin(pddx[0]);
+	pddx[1] = -cos(pddx[1]);
+	pddx[2] = 0;
 
 }

@@ -35,9 +35,11 @@ public:
 		int _numOfParti;
 		std::vector<Force*> _pForces;
 		std::vector<Constraint*> _pConstraints;
-		
+		std::vector<Particle*> _pParti;
+		DATA* PhaseSpace;
+		DATA* PhaseSpaceDot;
 private:
-	std::vector<Particle*> _pParti;
+	
 	void getDerivative();
 	std::vector<DATA*> _px;
 	std::vector<DATA*> _pDx;

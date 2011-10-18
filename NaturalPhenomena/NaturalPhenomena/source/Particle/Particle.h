@@ -17,6 +17,8 @@ public:
 		const GLint stacks,const GLdouble &radius );
 	virtual ~Particle(void);
 
+	int ParticleID;
+	static int NumOfParticle;
 	void reset();
 	void draw();
 
