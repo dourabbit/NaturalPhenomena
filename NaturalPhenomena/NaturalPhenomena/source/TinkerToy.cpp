@@ -176,8 +176,9 @@ static void init_system(void)
 	//pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
 	//pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
 	//pIntegrators.push_back(new ImplicitIntegrator(pSolver));
-	pIntegrators.push_back(new EulerIntegrator(pSolver));
-	pIntegrators.push_back(new MidPointIntegrator(pSolver));
+	
+	//pIntegrators.push_back(new EulerIntegrator(pSolver));
+	//pIntegrators.push_back(new MidPointIntegrator(pSolver));
 	pIntegrators.push_back(new RungeKutta(pSolver));
 
 	initialize();
@@ -407,7 +408,7 @@ static void idle_func ( void )
 {
 	if ( dsim ) //simulation_step( pVector, dt );
 	{
-		pSolver->update(pVector,dt, pIntegrators[indexOfIntegrator]);
+		pSolver->update(dt, pIntegrators[indexOfIntegrator]);
 		
 	}
 	else        {get_from_UI();remap_GUI();}

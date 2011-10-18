@@ -19,8 +19,8 @@ public:
 
 	
 
-	virtual void partialDx(DATA* px)=0;
-	virtual void partialDDx(DATA* px)=0;
+	virtual void gradient(DATA* px)=0;
+	virtual void gradientDot(DATA* px)=0;
 	
 	
 	Particle * const m_p1;

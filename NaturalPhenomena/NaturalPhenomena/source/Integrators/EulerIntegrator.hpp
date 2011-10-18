@@ -12,6 +12,6 @@ public:
 	virtual ~EulerIntegrator();
 	//virtual void Integrate(Vector3f acc, Particle* pParticle, float elaspedTime);
 	virtual void Integrate(DATA elaspedTime);
-
+	virtual void Initialize();
 };
 #endif

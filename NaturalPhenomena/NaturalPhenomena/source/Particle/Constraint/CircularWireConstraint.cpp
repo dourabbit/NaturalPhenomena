@@ -23,19 +23,26 @@ void CircularWireConstraint::draw()
 	draw_circle(m_center, m_radius);
 }
 
-void CircularWireConstraint::partialDx(DATA* pdx)
+void CircularWireConstraint::gradient(DATA* pdx)
 {
 	//C(x,y)= sin(x)+cos(y)+0z-1;
 	//J=[cos(x),-sin(y),0];
 
+	for(int i = 0 ; i<3; i++)
+		printf("\npos: %f,",pdx[i]);
+
 	pdx[0] = cos(pdx[0]);
 	pdx[1] = -sin(pdx[1]);
 	pdx[2] = 0;
-	 
+	
+	
+
+	for(int i = 0 ; i<3; i++)
+		printf("\nGradient: %f",pdx[i]);
 }
 
 
-void CircularWireConstraint::partialDDx(DATA* pddx)
+void CircularWireConstraint::gradientDot(DATA* pddx)
 {
 	//dJ=[-sin(x)*dx, -cos(y)*dy,0]
 	pddx[0] = -sin(pddx[0]);

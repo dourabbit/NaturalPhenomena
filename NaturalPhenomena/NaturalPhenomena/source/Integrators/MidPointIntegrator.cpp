@@ -4,44 +4,55 @@ MidPointIntegrator::MidPointIntegrator(Solver* solver):Integrator(solver)
 {
 	//this->_cloth=cloth;
 	this->IntegratorNm = "MidPointIntegrator";
+	this->_pSolver = solver;
 }
 
 MidPointIntegrator::~MidPointIntegrator(){}
+
+void MidPointIntegrator:: Initialize()
+{
+	this->DIM = _pSolver->DIM;
+
+	this->_phaseSpace = new DATA[_pSolver->DIM];
+	this->_phaseSpaceDot = new DATA[_pSolver->DIM];
+	this->_midPhaseSpace = new DATA[_pSolver->DIM];
+	this->_midPhaseSpaceDot = new DATA[_pSolver->DIM];
+
+	memset(_phaseSpace, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_phaseSpaceDot, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpace, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpaceDot, 0, _pSolver->DIM*sizeof(DATA));
+
+};
+
 void MidPointIntegrator::Integrate(DATA elaspedTime)
 {
 
 
+	this->_pSolver->getState(this->_phaseSpace);
+	this->_pSolver->getDerivative(this->_phaseSpaceDot);
 
-	//acc-=_cloth->DRAG*pParticle->m_Velocity;
-	//for(int i=1;i<pParticles.size();i++)
-	//{
-	//	Particle* pParticle = pParticles[i];
-	//	Vector<DATA,3> acc = pParticle->m_ForceAccumulator/pParticle->m_Mass;
-	//	pParticle->m_Velocity +=  acc* elaspedTime;
-	//	Vector<DATA,3> deltaX= pParticle->m_Velocity*elaspedTime;
-	//	
-
-	//	Vector<DATA,3> newForce = make_vector(0.0,0.0,0.0);
-	//	int size = pParticle->Forces.size();
-	//	for(int i=0; i<size; i++)
-	//	{
-	//		newForce+=
-	//		pParticle->Forces[i]->guessForce(deltaX/2,*pParticle);
-	//	}
-
-	//	Vector<DATA,3> newVelocity = pParticle->m_Velocity + newForce/pParticle->m_Mass* (elaspedTime/2.0f);
-	//	pParticle->m_Position += newVelocity*elaspedTime;
-	//	//pParticle->m_Position += pParticle->m_Velocity*elaspedTime;
-
-	//}
-	int numOfParticle = this->_pSolver->_numOfParti;
-	
-	for(int i=0; i<numOfParticle*6; i++)
+	for(int i=0; i<this->DIM; i++)
 	{
-		this->_pSolver->PhaseSpace[i]+=elaspedTime*this->_pSolver->PhaseSpaceDot[i];
-		
+		this->_midPhaseSpace[i]=this->_phaseSpace[i]+elaspedTime*0.5*this->_phaseSpaceDot[i];
+	}
+	this->_pSolver->setState(this->_midPhaseSpace);
+
+	
+	this->_pSolver->getDerivative(this->_midPhaseSpaceDot);
+	for(int i=0; i<this->DIM; i++)
+	{
+		this->_phaseSpace[i]+=elaspedTime*this->_midPhaseSpaceDot[i];
 	}
 
+	this->_pSolver->setState(this->_phaseSpace);
+
+	for(int i=0; i<DIM; i++)
+	{
+		printf("\n== %f+ ==\t %f",this->_phaseSpaceDot[i],
+		this->_phaseSpace[i]);
+	}
+	printf("\n=======================================\n\n");
 
 
 }

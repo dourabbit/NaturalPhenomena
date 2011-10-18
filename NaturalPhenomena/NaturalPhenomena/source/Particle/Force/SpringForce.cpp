@@ -78,7 +78,7 @@ Vector<DATA,3> SpringForce::guessForce(Vector<DATA,3> &position, Particle &parti
 }
 
 
-void SpringForce::partialDx(DATA &pResult)
+void SpringForce::gradient(DATA &pResult)
 {
 	//Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
 	pResult = this->m_ks * this->_direction*make_vector(1.0,0.0,0.0);
@@ -89,7 +89,7 @@ void SpringForce::partialDx(DATA &pResult)
 
 }
 
-void SpringForce::partialDDx(DATA &x)
+void SpringForce::gradientDot(DATA &x)
 {
 	/*Vector<float,3> result = make_vector(0.0f,0.0f,0.0f);
 	result.x = -this->m_kd * this->_direction*make_vector(1.0f,0.0f,0.0f);

@@ -54,29 +54,33 @@ void ConstraintSolver::Solve()
 	
 	
 	//Fill Jacobian Matrix
-	for(int i=0;i<this->pSolver->_pConstraints.size();i++)
+
+	for(int row=0;row<Row;row++)
 	{
 		
 		for(int j=0;j<this->pSolver->_numOfParti;j++)
 		{
 			for(int k=0;k<3;k++)
 			{
-				Particle* pParti = this->pSolver->_pConstraints[i]->m_p1;
+				int col = (j*3)+k;
+				Particle* pParti = this->pSolver->_pConstraints[row]->m_p1;
 
-				this->_J[i*(pSolver->_numOfParti*3)+(j*3)+k] = pParti->m_Position[k];
+				this->_J[row*(Col)+col] = pParti->m_Position[k];
+				this->_JDot[row*(Col)+col] = pParti->m_Velocity[k];
 			}
 
 			//Fill Jacobian Matrix
-			if(pSolver->_pConstraints[i]->m_p1->ParticleID==j)
+			if(pSolver->_pConstraints[row]->m_p1->ParticleID==j)
 			{
-				pSolver->_pConstraints[i]->partialDx(&_J[i*(pSolver->_numOfParti*3)+(j*3)]);
-				pSolver->_pConstraints[i]->partialDDx(&_JDot[i*(pSolver->_numOfParti*3)+(j*3)]);
+				pSolver->_pConstraints[row]->gradient(&_J[row*(Col)+(j*3)]);
+				pSolver->_pConstraints[row]->gradientDot(&_JDot[row*(Col)+(j*3)]);
 			}
 			else
 				for(int k=0;k<3;k++)
 				{
-					_J[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
-					_JDot[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
+					int col = (j*3)+k;
+					_J[row*(Col)+col] = 0;
+					_JDot[row*(Col)+col] = 0;
 				}
 		}
 	}
@@ -156,6 +160,11 @@ void ConstraintSolver::Solve()
 		printf("%f",_qDot[r]);
 	}
 
+	printf("\nJdqd: ");
+	for(int r = 0; r<Row;r++)
+	{
+		printf("%f",Jdotqdot[r]);
+	}
 
 
 	DATA* JWQ = new DATA[Row*1];
@@ -164,7 +173,7 @@ void ConstraintSolver::Solve()
 		JWQ[r]=0;
 		for(int c = 0; c<Col;c++)
 		{
-			Jdotqdot[r] += 
+			JWQ[r] += 
 				_J[r*Row+c]*_WeightInverse[c]*this->_QForces[c];
 		}
 		JWQ[r]*=-1.0;
@@ -185,10 +194,8 @@ void ConstraintSolver::Solve()
 	{
 		printf("%f,",JWQ[r]);
 	}
-
 	
-	
-	vecDiffEqual(Row,Jdotqdot,JWQ);
+ 	vecAddEqual(Row,Jdotqdot,JWQ);
 
 	printf("\nRightSide b : ");
 	for(int r = 0; r<Row;r++)
@@ -215,15 +222,23 @@ void ConstraintSolver::Solve()
 			tmp+= this->_JT[r*Col+c]*_Lamada[c];
 		}
 		F[r] = tmp;
-		this->pSolver->_pParti[p]->m_ForceAccumulator[r%3] += F[r];
+	}
+
+	for(int r=0;r<this->pSolver->_numOfParti;r++)
+	{
+		this->pSolver->_pParti[r]->m_ForceAccumulator.x += F[r*3];
+		this->pSolver->_pParti[r]->m_ForceAccumulator.y += F[r*3+1];
+		this->pSolver->_pParti[r]->m_ForceAccumulator.z += F[r*3+2];
 	}
 
 	printf("\nForce : ");
 	for(int i=0;i<Col;i++)
 		printf("%f,", F[i]);
 
-
-}
+	printf("\nAccumulatorForce : ");
+	for(int i=0;i<Col;i++)
+		printf("%f,", this->pSolver->_pParti[(i-i%3)/3]->m_ForceAccumulator[i%3]);
+ }
 
 void ConstraintSolver::matVecMult(double x[], double b[])
 {

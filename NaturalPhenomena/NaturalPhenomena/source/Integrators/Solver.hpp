@@ -29,18 +29,20 @@ public:
 		~Solver();
 		void Initialize(const int &numOfParti, std::vector<Particle*> pVector, 
 						std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
-		void update(std::vector<Particle*> pVector, DATA dt, 
+		void update(DATA dt, 
 					Integrator* integrator);
-		DATA*  getState();
+		void getState(DATA* phaseSpace);
+		void setState(DATA* phaseSpace);
 		int _numOfParti;
 		std::vector<Force*> _pForces;
 		std::vector<Constraint*> _pConstraints;
 		std::vector<Particle*> _pParti;
-		DATA* PhaseSpace;
-		DATA* PhaseSpaceDot;
+		
+		int DIM;
+		void getDerivative(DATA* dst);
 private:
 	
-	void getDerivative();
+	
 	std::vector<DATA*> _px;
 	std::vector<DATA*> _pDx;
 	ConstraintSolver* _constSolver;

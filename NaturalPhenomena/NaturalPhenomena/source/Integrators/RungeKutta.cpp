@@ -4,64 +4,85 @@ RungeKutta::RungeKutta(Solver* solver):Integrator(solver)
 {
 	//this->_cloth=cloth;
 	this->IntegratorNm = "RungeKutta";
+	this->_pSolver = solver;
 }
 
 RungeKutta::~RungeKutta(){}
+
+void RungeKutta:: Initialize()
+{
+	this->DIM = _pSolver->DIM;
+
+	this->_phaseSpace = new DATA[_pSolver->DIM];
+	this->_phaseSpaceDot = new DATA[_pSolver->DIM];
+	
+	this->_k1 = new DATA[_pSolver->DIM];
+	this->_k2 = new DATA[_pSolver->DIM];
+	this->_k3 = new DATA[_pSolver->DIM];
+	this->_k4 = new DATA[_pSolver->DIM];
+
+	this->_midPhaseSpace1 = new DATA[_pSolver->DIM];
+	this->_midPhaseSpace2 = new DATA[_pSolver->DIM];
+	this->_midPhaseSpace3 = new DATA[_pSolver->DIM];
+	this->_midPhaseSpaceDot1 = new DATA[_pSolver->DIM];
+	this->_midPhaseSpaceDot2 = new DATA[_pSolver->DIM];
+	this->_midPhaseSpaceDot3 = new DATA[_pSolver->DIM];
+
+
+	memset(_phaseSpace, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_phaseSpaceDot, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_k1, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_k2, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_k3, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_k4, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpace1, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpace2, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpace3, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpaceDot1, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpaceDot2, 0, _pSolver->DIM*sizeof(DATA));
+	memset(_midPhaseSpaceDot3, 0, _pSolver->DIM*sizeof(DATA));
+};
+
 void RungeKutta::Integrate(DATA elaspedTime)
 {
 
-	//
+	this->_pSolver->getState(this->_phaseSpace);
+	this->_pSolver->getDerivative(this->_phaseSpaceDot);
 
-	////acc-=_cloth->DRAG*pParticle->m_Velocity;
-	//for(int i=0;i<pParticles.size();i++)
-	//{
-	//	Particle* pParticle = pParticles[i];
-	//	Vector<DATA,3> acc = pParticle->m_ForceAccumulator/pParticle->m_Mass;
-	//	Vector<DATA,3> initialVelocity = pParticle->m_Velocity;
-	//	Vector<DATA,3> vel = initialVelocity + acc*elaspedTime;
-	//	//k1 = hF(x0,t0)
-	//	Vector<DATA,3> k1= vel *elaspedTime;
-	//	
+	for(int i=0; i<this->DIM; i++)
+	{
+		this->_k1[i] = elaspedTime*_phaseSpaceDot[i];
+		this->_midPhaseSpace1[i]=this->_phaseSpace[i]+elaspedTime*0.5*_k1[i];
+	}
+	this->_pSolver->setState(this->_midPhaseSpace1);
 
-	//	Vector<DATA,3> newForce = make_vector(0.0,0.0,0.0);
-	//	int size = pParticle->Forces.size();
-	//	for(int i=0; i<size; i++)
-	//	{
-	//		newForce+=
-	//		pParticle->Forces[i]->guessForce(k1/2,*pParticle);
-	//	}
-	//	//k2 = hF(x0+(k1)/2,t0+h/2)
-	//	acc = newForce/pParticle->m_Mass;
-	//	vel = initialVelocity + acc*(elaspedTime/2.0);
-	//	Vector<DATA,3> k2 = vel*elaspedTime;
-	//	
-	//	//k3 = hF(x0+(k2)/2,t0+h/2)
-	//	newForce = make_vector(0.0,0.0,0.0);
-	//	for(int i=0; i<size; i++)
-	//	{
-	//		newForce+=
-	//		pParticle->Forces[i]->guessForce(k2/2,*pParticle);
-	//	}
-	//	acc = newForce/pParticle->m_Mass;
-	//	vel = initialVelocity + acc*(elaspedTime/2.0);
-	//	Vector<DATA,3> k3 = vel*elaspedTime;
-	//	
-	//	//k4 = hF(x0+k3,t0)
-	//	newForce = make_vector(0.0,0.0,0.0);
-	//	for(int i=0; i<size; i++)
-	//	{
-	//		newForce+=
-	//		pParticle->Forces[i]->guessForce(k3,*pParticle);
-	//	}
-	//	acc = newForce/pParticle->m_Mass;
-	//	vel = initialVelocity + acc*(elaspedTime);
-	//	Vector<DATA,3> k4 = vel*elaspedTime;
-	//	
-	//	Vector<DATA,3> deltaX =((1.0f/6.0f)*k1+(1.0f/3.0f)*k2+(1.0f/3.0f)*k3+(1.0f/6.0f)*k4);
-	//	pParticle->m_Position += deltaX;
-	//	//pParticle->m_Position += pParticle->m_Velocity*elaspedTime;
-	//	pParticle->m_Velocity = initialVelocity + deltaX/elaspedTime;
-	//}
+	this->_pSolver->getDerivative(this->_midPhaseSpaceDot1);
+
+	for(int i=0; i<this->DIM; i++)
+	{
+		this->_k2[i] = elaspedTime*_midPhaseSpaceDot1[i];
+		this->_midPhaseSpace2[i]=this->_phaseSpace[i]+elaspedTime*0.5*_k2[i];
+	}
+	this->_pSolver->setState(this->_midPhaseSpace2);
+
+	this->_pSolver->getDerivative(this->_midPhaseSpaceDot2);
+
+	for(int i=0; i<this->DIM; i++)
+	{
+		this->_k3[i] = elaspedTime*_midPhaseSpaceDot2[i];
+		this->_midPhaseSpace3[i]=this->_phaseSpace[i]+elaspedTime*_k3[i];
+	}
+	this->_pSolver->setState(this->_midPhaseSpace3);
+
+
+	this->_pSolver->getDerivative(this->_midPhaseSpaceDot3);
+
+	for(int i=0; i<this->DIM; i++)
+	{
+		this->_k4[i] = elaspedTime*_midPhaseSpaceDot3[i];
+		this->_phaseSpace[i]+= 1.0f/6.0f*_k1[i] + 1.0f/3.0f*_k2[i] + 1.0f/3.0f*_k3[i] + 1.0f/6.0f*_k4[i];
+	}
+	this->_pSolver->setState(this->_phaseSpace);
 
 	
 }

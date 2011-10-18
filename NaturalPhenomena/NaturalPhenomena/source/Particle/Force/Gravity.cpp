@@ -17,11 +17,11 @@ void Gravity::draw()
   glEnd();
 }
 
-void Gravity::partialDx(DATA &x) 
+void Gravity::gradient(DATA &x) 
 {
 	//return make_vector(0.0f, 0.0f, 0.0f);
 }
-void Gravity::partialDDx(DATA &x) 
+void Gravity::gradientDot(DATA &x) 
 {
 	//return make_vector(0.0f, 0.0f, 0.0f);
 }
