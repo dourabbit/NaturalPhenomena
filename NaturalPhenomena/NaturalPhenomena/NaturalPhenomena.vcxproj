@@ -145,38 +145,11 @@
     </ClInclude>
     <ClInclude Include="source\imageio.h" />
     <ClInclude Include="source\Integrators\linearSolver.h" />
-    <ClInclude Include="source\Integrators\tmp\EulerIntegrater.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Integrators\tmp\VerletIntegrater.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="source\Particle\Constraint\CircularWireConstraint.h" />
     <ClInclude Include="source\Particle\Force\Force.hpp" />
     <ClInclude Include="source\Particle\Particle.h" />
     <ClInclude Include="source\Particle\Constraint\RodConstraint.h" />
     <ClInclude Include="source\Particle\Force\SpringForce.h" />
-    <ClInclude Include="source\Particle\tmp\Constrain.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\Force.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\GravityForce.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\Particle.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\PointConstrain.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\SpringForce.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\WindForce.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="source\Vector\Box.hpp" />
     <ClInclude Include="source\Vector\MatrixP.hpp" />
     <ClInclude Include="source\Vector\Misc.hpp" />
@@ -223,13 +196,7 @@
     <ClCompile Include="source\Integrators\MidPointIntegrator.cpp" />
     <ClCompile Include="source\Integrators\RungeKutta.cpp" />
     <ClCompile Include="source\Integrators\Solver.cpp" />
-    <ClCompile Include="source\Integrators\tmp\EulerIntegrater.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="source\Integrators\ImplicitIntegrator.cpp" />
-    <ClCompile Include="source\Integrators\tmp\VerletIntegrater.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="source\Particle\Constraint\CircularWireConstraint.cpp" />
     <ClCompile Include="source\Particle\Constraint\Constraint.cpp" />
     <ClCompile Include="source\Particle\Force\Force.cpp" />
@@ -237,27 +204,6 @@
     <ClCompile Include="source\Particle\Particle.cpp" />
     <ClCompile Include="source\Particle\Constraint\RodConstraint.cpp" />
     <ClCompile Include="source\Particle\Force\SpringForce.cpp" />
-    <ClCompile Include="source\Particle\tmp\Constrain.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\Force.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\GravityForce.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\Particle.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\PointConstrain.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\SpringForce.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\WindForce.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="source\TinkerToy.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

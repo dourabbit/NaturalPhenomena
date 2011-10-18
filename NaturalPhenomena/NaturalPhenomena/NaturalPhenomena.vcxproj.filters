@@ -78,27 +78,6 @@
     <ClInclude Include="source\Vector\VectorGL.hpp">
       <Filter>Source Files\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="source\Particle\tmp\Constrain.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\Force.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\GravityForce.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\Particle.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\PointConstrain.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\SpringForce.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Particle\tmp\WindForce.hpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClInclude>
     <ClInclude Include="source\Particle\Particle.h">
       <Filter>Source Files\Particle</Filter>
     </ClInclude>
@@ -134,12 +113,6 @@
     </ClInclude>
     <ClInclude Include="source\Graphics\Texture.hpp">
       <Filter>Source Files\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Integrators\tmp\EulerIntegrater.hpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Integrators\tmp\VerletIntegrater.hpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
     </ClInclude>
     <ClInclude Include="source\Integrators\linearSolver.h">
       <Filter>Source Files\Integrators</Filter>
@@ -251,27 +224,6 @@
     <ClCompile Include="source\Camera.cpp">
       <Filter>Source Files\Main</Filter>
     </ClCompile>
-    <ClCompile Include="source\Particle\tmp\Constrain.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\Force.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\GravityForce.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\Particle.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\PointConstrain.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\SpringForce.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Particle\tmp\WindForce.cpp">
-      <Filter>Source Files\Particle\tmp</Filter>
-    </ClCompile>
     <ClCompile Include="source\Particle\Particle.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
@@ -301,12 +253,6 @@
     </ClCompile>
     <ClCompile Include="source\Graphics\Texture.cpp">
       <Filter>Source Files\Graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Integrators\tmp\EulerIntegrater.cpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Integrators\tmp\VerletIntegrater.cpp">
-      <Filter>Source Files\Integrators\tmp</Filter>
     </ClCompile>
     <ClCompile Include="source\Integrators\linearSolver.cpp">
       <Filter>Source Files\Integrators</Filter>

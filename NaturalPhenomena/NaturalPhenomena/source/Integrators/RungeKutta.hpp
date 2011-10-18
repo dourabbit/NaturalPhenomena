@@ -11,7 +11,6 @@ public:
 	RungeKutta(Solver* solver);
 	virtual ~RungeKutta();
 	//virtual void Integrate(Vector3f acc, Particle* pParticle, float elaspedTime);
-	virtual void Integrate(std::vector<Particle*> pVector, 
-							DATA elaspedTime);
+	virtual void Integrate(DATA elaspedTime);
 };
 #endif

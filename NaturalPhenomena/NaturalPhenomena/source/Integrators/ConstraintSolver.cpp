@@ -11,10 +11,10 @@ ConstraintSolver::ConstraintSolver(Solver* solver):pSolver(solver){
 
 ConstraintSolver::~ConstraintSolver(){
 
-	delete[] _Jacobi;
+	delete[] _J;
 	delete[] _WeightInverse;
 	
-	delete[] _JacobiDot;
+	delete[] _JDot;
 	delete[] ParticleIDs;
 	delete[] _qDot;
 	delete[] _QForces;
@@ -29,13 +29,13 @@ void ConstraintSolver::Initialize()
 	//this->_leftHandSide_m = MatrixP(Row,Row);
 	//this->_rightHandSide_m = MatrixP(Row,1);
 	this->ParticleIDs = new int[Row];
-	this->_Jacobi = new DATA[Row*Col];
-	this->_WeightInverse = new DATA[Col*Col];
-	this->JT = new DATA[Col*Row];
-	this->_JacobiDot = new DATA[Row*Col];
+	this->_J = new DATA[Row*Col];
+	this->_WeightInverse = new DATA[Col];
+	this->_JT = new DATA[Col*Row];
+	this->_JDot = new DATA[Row*Col];
 	this->_qDot = new DATA[Col*1];
 	this->_QForces = new DATA[Col*1];
-	this->_Lamada = new DATA[Col*1];
+	this->_Lamada = new DATA[Row*1];
 	
 	for(int i=0;i<this->pSolver->_pConstraints.size();i++)
 	{
@@ -63,135 +63,147 @@ void ConstraintSolver::Solve()
 			{
 				Particle* pParti = this->pSolver->_pConstraints[i]->m_p1;
 
-				this->_Jacobi[i*(pSolver->_numOfParti*3)+(j*3)+k] = pParti->m_Position[k];
+				this->_J[i*(pSolver->_numOfParti*3)+(j*3)+k] = pParti->m_Position[k];
 			}
 
 			//Fill Jacobian Matrix
 			if(pSolver->_pConstraints[i]->m_p1->ParticleID==j)
 			{
-				pSolver->_pConstraints[i]->partialDx(&_Jacobi[i*(pSolver->_numOfParti*3)+(j*3)]);
-				pSolver->_pConstraints[i]->partialDDx(&_JacobiDot[i*(pSolver->_numOfParti*3)+(j*3)]);
+				pSolver->_pConstraints[i]->partialDx(&_J[i*(pSolver->_numOfParti*3)+(j*3)]);
+				pSolver->_pConstraints[i]->partialDDx(&_JDot[i*(pSolver->_numOfParti*3)+(j*3)]);
 			}
 			else
 				for(int k=0;k<3;k++)
 				{
-					_Jacobi[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
-					_JacobiDot[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
+					_J[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
+					_JDot[i*(pSolver->_numOfParti*3)+(j*3)+k] = 0;
 				}
 		}
 	}
 	for(int r = 0; r<Row;r++)
 	{
-		printf("\n");
+		printf("\n_J");
 		for(int c = 0; c<Col;c++)
 		{
 			printf(",");
-			printf("%f",_Jacobi[r*Row+c]);
+			printf("%f",_J[r*Row+c]);
+		}
+		printf("\n_JDot");
+		for(int c = 0; c<Col;c++)
+		{
+			printf(",");
+			printf("%f",_JDot[r*Row+c]);
 		}
 	}
+	
 	//Fill _WeightInverse Matrix &
 	for(int r=0;r<Col;r++)
 	{
 		int p =(r-r%3)/3;
-		for(int c=0;c<Col;c++)
-		{
-			this->_WeightInverse[r*Col+c]=
-			r==c?1.0/(pSolver->_pParti[p]->m_Mass):0;
-		}
+		this->_WeightInverse[r]=1.0/this->pSolver->_pParti[p]->m_Mass;
 		for(int i=0;i<3;i++)
 		{
 			_qDot[p*3+i]= pSolver->_pParti[p]->m_Velocity[i];
 			_QForces[p*3+i] =  pSolver->_pParti[p]->m_ForceAccumulator[i];
 		}
 	}
-
+	printf("\n_WeightInverse ");
+	for(int c = 0; c<Col;c++)
+	{
+		printf("\n");
+		printf("%f",_WeightInverse[c]);
+	}
 	
 	for(int r = 0; r<Row;r++)
 	{
 		for(int c = 0; c<Col;c++)
 		{
-			JT[c*Row+r]= this->_Jacobi[r*Row+c];
+			_JT[c*Row+r]= this->_J[r*Row+c];
 		}
 	}
 
+	for(int r = 0; r<Col;r++)
+	{
+		printf("\n_JT: ");
+		for(int c = 0; c<Row;c++)
+		{
+			printf(",");
+			printf("%f",_JT[r*Row+c]);
+		}
+	}
 
-	//(J*W*JT)x = -Jdot*xdot-J*W*forces;
+	//(J*W*_JT)x = -Jdot*xdot-J*W*forces;
 	//Ax = b
 
-	//LeftHandSide
-	/*MatrixP J_m = MatrixP(Row,Col, this->_Jacobi);
-	MatrixP W_m = MatrixP(Col,Col, this->_WeightInverse);
-	MatrixP JT_m = J_m.Transpose(J_m);
-	MatrixP tmp =J_m.MultiplyP(J_m,W_m);
-	this->_leftHandSide_m = J_m.MultiplyP(tmp,JT_m);*/
-	
-	//RightHandSide
-	/*MatrixP JDot_m = MatrixP(Row,Col, this->_JacobiDot);
-	MatrixP qDot_m = MatrixP(Col,1, this->_qDot);
-	
-	MatrixP JDotqDot_m = MatrixP(Row,1);
-	MatrixP QForces_m = MatrixP(Col,1,this->_QForces);
-	JDotqDot_m = JDotqDot_m.MultiplyP(JDotqDot_m.MultiplyP(JDot_m,qDot_m),-1.0);
-
-	MatrixP JWQ_m = MatrixP(Row,1);
-	JWQ_m = JWQ_m.MultiplyP(JWQ_m.MultiplyP(J_m,W_m),QForces_m);
-	JWQ_m = JWQ_m.MultiplyP(JWQ_m, -1.0);
-
-	this->_rightHandSide_m = JWQ_m.AddP(JDotqDot_m,JWQ_m);*/
-
-	///*DATA a[4] = {0,0,1,1};
-	//DATA b[4] = {0,0.1,20,1};
-	//DATA m[4] = {0,1,1,0};
-	//MatrixP e = MatrixP(2,2,&a[0]);
-	//MatrixP c = MatrixP(2,2,&b[0]); 
-	//MatrixP d = MatrixP(2,2,&m[0]); 
-
-	//MatrixP dd = c.MultiplyP(c.MultiplyP(e,c),d);*/
-
-	
-
-
-	//Multiply _Jacobi and Weight
-	//Multiply(*_Jacobi,Row,Col,*Weight,Col,Col,tmp);
-	//Multiply _Jacobi and Weight
-	//Multiply(*tmp,Row,Col,*_Jacobi_T,Col,Row,tmp);
 	int steps=100;
-	/*DATA* pb = new DATA[Row];
-	for(int i=0; i<Row; i++)
-		pb[i] = this->_rightHandSide_m.Data[i];*/
-
-	//DATA* pb = this->_rightHandSide_m.ToArray();
 	
-	//(J*W*JT)x = -Jdot*xdot-J*W*forces;
 	DATA* Jdotqdot = new DATA[Row*1];
 	for(int r = 0; r<Row;r++)
 	{
 		Jdotqdot[r]=0;
 		for(int c = 0; c<Col;c++)
 		{
-			Jdotqdot[r] += this->_JacobiDot[r*Row+c]*this->_qDot[c];
+			Jdotqdot[r] += this->_JDot[r*Row+c]*this->_qDot[c];
 		}
 		Jdotqdot[r]*=-1.0;
 	}
+	
+	
+
+	printf("\n_qDot: ");
+	for(int r = 0; r<Col;r++)
+	{
+		printf("%f",_qDot[r]);
+	}
+
+
+
 	DATA* JWQ = new DATA[Row*1];
 	for(int r = 0; r<Row;r++)
 	{
 		JWQ[r]=0;
 		for(int c = 0; c<Col;c++)
 		{
-			DATA w = r==c? this->_WeightInverse[r*Row+c]:1;
-			Jdotqdot[r] += this->_Jacobi[r*Row+c]*w*this->_QForces[c];
+			Jdotqdot[r] += 
+				_J[r*Row+c]*_WeightInverse[c]*this->_QForces[c];
 		}
 		JWQ[r]*=-1.0;
 	}
+	printf("\_QForces: ");
+	for(int c = 0; c<Col;c++)
+	{
+		printf("%f,",_QForces[c]);
+	}
+	printf("\nJdqd: ");
+	for(int r = 0; r<Row;r++)
+	{
+		printf("%f",Jdotqdot[r]);
+	}
+
+	printf("\nJWQ: ");
+	for(int r = 0; r<Row;r++)
+	{
+		printf("%f,",JWQ[r]);
+	}
+
+	
+	
 	vecDiffEqual(Row,Jdotqdot,JWQ);
+
+	printf("\nRightSide b : ");
+	for(int r = 0; r<Row;r++)
+	{
+		printf("%f,",Jdotqdot[r]);
+	}
+	for(int i=0;i<Row;i++)
+		_Lamada[i]=0;
 	//double err = ConjGrad(3, this,this->_Lamada, pb,1.0e-5, &steps);
-	double err = ConjGrad(3, this,this->_Lamada, Jdotqdot,1.0e-5, &steps);
+	double err = ConjGrad(Row, this,this->_Lamada, Jdotqdot,1.0e-5, &steps);
 	
 
-
-	for(int i=0;i<3;i++)
-		printf("%d", _Lamada[i]);
+	printf("\n_Lamada : ");
+	for(int i=0;i<Row;i++)
+		printf("%f,", _Lamada[i]);
 
 	DATA* F = new DATA[Col];
 	for(int r=0;r<Col;r++)
@@ -200,20 +212,21 @@ void ConstraintSolver::Solve()
 		DATA tmp =0;
 		for(int c=0;c<Row;c++)
 		{
-			tmp+= this->JT[r*Col+c]*_Lamada[c];
+			tmp+= this->_JT[r*Col+c]*_Lamada[c];
 		}
 		F[r] = tmp;
-			
+		this->pSolver->_pParti[p]->m_ForceAccumulator[r%3] += F[r];
 	}
+
+	printf("\nForce : ");
+	for(int i=0;i<Col;i++)
+		printf("%f,", F[i]);
 
 
 }
 
 void ConstraintSolver::matVecMult(double x[], double b[])
 {
-
-	
-
 	for(int r = 0; r<Row;r++)
 	{
 		for(int c = 0; c<Row;c++)
@@ -221,9 +234,8 @@ void ConstraintSolver::matVecMult(double x[], double b[])
 			b[r] =0;
 			for(int i = 0; i<Col;i++)
 			{
-				//b[r] += this->_leftHandSide_m(r,c)*x[c];
-				DATA w = r==c? this->_WeightInverse[r*Row+c]:1;
-				b[r] +=  this->_Jacobi[r*Row+i]*w*JT[c*Row+r];
+				//(J*W*_JT)x = -Jdot*xdot-J*W*forces;
+				b[r] +=  this->_J[r*Row+i]*_WeightInverse[i]*_JT[c*Row+r]*x[i];
 			}
 		}
 	}

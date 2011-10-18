@@ -13,10 +13,9 @@ public:
 
 	Integrator(Solver* solver);
 	virtual ~Integrator();
-	virtual void Integrate(std::vector<Particle*> pParticles, 
-							DATA elaspedTime) = 0;
+	virtual void Integrate(DATA elaspedTime) = 0;
 	std::string IntegratorNm;  
-private:
+protected:
 	Solver* _pSolver;
 	//Cloth* _cloth;
 };

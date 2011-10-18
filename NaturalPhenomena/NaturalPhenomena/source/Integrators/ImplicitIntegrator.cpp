@@ -15,8 +15,7 @@ ImplicitIntegrator::ImplicitIntegrator(Solver* pSolver):
 
 }
 
-void ImplicitIntegrator::Integrate(std::vector<Particle*> 
-			pVector,DATA elaspedTime)
+void ImplicitIntegrator::Integrate(DATA elaspedTime)
 {
 
 

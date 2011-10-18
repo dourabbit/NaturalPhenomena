@@ -11,7 +11,7 @@ public:
 	EulerIntegrator(Solver* solver);
 	virtual ~EulerIntegrator();
 	//virtual void Integrate(Vector3f acc, Particle* pParticle, float elaspedTime);
-	virtual void Integrate(std::vector<Particle*> pVector, 
-							DATA elaspedTime);
+	virtual void Integrate(DATA elaspedTime);
+
 };
 #endif

@@ -4,19 +4,19 @@ EulerIntegrator::EulerIntegrator(Solver* solver):Integrator(solver)
 {
 	//this->_cloth=cloth;
 	this->IntegratorNm = "EulerIntegrator";
+	this->_pSolver = solver;
 }
 
 EulerIntegrator::~EulerIntegrator(){}
-void EulerIntegrator::Integrate(std::vector<Particle*> pParticles, 
-							DATA elaspedTime)
+void EulerIntegrator::Integrate(DATA elaspedTime)
 {
 	
-	//acc-=_cloth->DRAG*pParticle->m_Velocity;
-	for(int i=0;i<pParticles.size();i++)
+	int numOfParticle = this->_pSolver->_numOfParti;
+	
+	for(int i=0; i<numOfParticle*6; i++)
 	{
-		Particle* pParticle = pParticles[i];
-		Vector<DATA,3> acc = pParticle->m_ForceAccumulator/pParticle->m_Mass;
-		pParticle->m_Position+= pParticle->m_Velocity*elaspedTime;
-		pParticle->m_Velocity+=  acc* elaspedTime;
+		
+		this->_pSolver->PhaseSpace[i]+=elaspedTime*this->_pSolver->PhaseSpaceDot[i];
+		
 	}
 }

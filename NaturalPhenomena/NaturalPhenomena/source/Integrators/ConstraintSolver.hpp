@@ -31,13 +31,13 @@ private:
 
 		//Row: constraints.size()
 		//Col: numOfParti * 3
-		DATA* _Jacobi;//Row*Col
-		DATA* JT;//Col*Row
-		DATA* _WeightInverse;//Col*Col
-		DATA* _JacobiDot;//Row*Col
+		DATA* _J;//Row*Col
+		DATA* _JT;//Col*Row
+		DATA* _WeightInverse;//Col*1
+		DATA* _JDot;//Row*Col
 		DATA* _qDot;//Col*1
 		DATA* _QForces;//Col*1
-		DATA* _Lamada;//Col*1
+		DATA* _Lamada;//Row*1
     
 };
 #endif

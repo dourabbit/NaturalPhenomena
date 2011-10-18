@@ -19,14 +19,7 @@ Solver::~Solver(){
 void Solver::update( std::vector<Particle*> pVector, DATA dt, 
 					Integrator* integrator)
 {
-	//Test
-	///*int ii, size = pVector.size();
-	//
-	//for(ii=0; ii<size; ii++)
-	//{
-	//	pVector[ii]->m_Position += dt*pVector[ii]->m_Velocity;
-	//	pVector[ii]->m_Velocity = DAMP*pVector[ii]->m_Velocity + make_vector< float >(RAND,RAND,RAND) * 0.005f;
-	//}*/
+	
 
 	for(int ii=0; ii<pVector.size(); ii++)
 	{
@@ -39,12 +32,24 @@ void Solver::update( std::vector<Particle*> pVector, DATA dt,
 		_pForces[ii]->apply_force();
 	}
 
-	this->_constSolver->Solve();
+	//this->_constSolver->Solve();
 
 
 	getDerivative();
-	integrator->Integrate(pVector, dt);
-	//pVector[0]->m_Position = make_vector(0.0,0.0,0.0);
+ 	integrator->Integrate(dt);
+
+	for(int ii=1; ii<pVector.size(); ii++)
+	{
+		pVector[ii]->m_Position.x = this->PhaseSpace[ii*6];
+		pVector[ii]->m_Position.y = this->PhaseSpace[ii*6+1];
+		pVector[ii]->m_Position.z = this->PhaseSpace[ii*6+2];
+
+		pVector[ii]->m_Velocity.x = this->PhaseSpace[ii*6+3];
+		pVector[ii]->m_Velocity.y = this->PhaseSpace[ii*6+4];
+		pVector[ii]->m_Velocity.z = this->PhaseSpace[ii*6+5];
+
+	}
+
 }
 
 void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std::vector<Force*> pForces, std::vector<Constraint*> pConstraints)
@@ -60,76 +65,39 @@ void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std
 	
 	this->PhaseSpace = new DATA[_numOfParti*6];
 	this->PhaseSpaceDot = new DATA[_numOfParti*6];
-	///*this->_px = new DATA[_numOfParti*3];
-	//this->_pDx = new DATA[_numOfParti*3];
-	//
-	//this->_pJacobi = new DATA[_numOfParti*6*2];*/
-	//
-
-
-	//
-	//for(int ii=0; ii<pParti.size();ii++)
-	//{
-	//	this->_px = &(pParti[ii]->m_Position.x);
-	//	_px++;
-	//	this->_px = &(pParti[ii]->m_Position.y);
-	//	_px++;
-	//	this->_px = &(pParti[ii]->m_Position.z);
-	//	_px++;
-	//	this->_px = &(pParti[ii]->m_Velocity.x);
-	//	_px++;
-	//	this->_px = &(pParti[ii]->m_Velocity.y);
-	//	_px++;
-	//	this->_px = &(pParti[ii]->m_Velocity.z);
-	//}
 
 
 }
 
 void Solver::getDerivative()
 {
-
-	///*for(int ii=0; ii<this->_pParti.size();ii++)
-	//{
-
-	//	this->_pDx = &(_pParti[ii]->m_Velocity.x);
-	//	_pDx++;
-	//	this->_pDx = &(_pParti[ii]->m_Velocity.y);
-	//	_pDx++;
-	//	this->_pDx = &(_pParti[ii]->m_Velocity.z);
-	//	_pDx++;
-
-	//	Vector<DATA,3> acc = (_pParti[ii]->m_ForceAccumulator/_pParti[ii]->m_Mass);
-
-	//	this->_pDx = &(acc.x);
-	//	_pDx++;
-	//	this->_pDx = &(acc.y);
-	//	_pDx++;
-	//	this->_pDx = &(acc.z);
-	//}*/
-
 	for(int ii=0; ii<this->_pParti.size();ii++)
 	{
-		this->PhaseSpace[ii] = _pParti[ii]->m_Position.x;
-		this->PhaseSpace[ii+1] = _pParti[ii]->m_Position.y;
-		this->PhaseSpace[ii+2] = _pParti[ii]->m_Position.z;
+		int particleIndex = ii;
+		int phaseIndex = particleIndex*6;
+		this->PhaseSpace[phaseIndex]   = _pParti[particleIndex]->m_Position.x;
+		this->PhaseSpace[phaseIndex+1] = _pParti[particleIndex]->m_Position.y;
+		this->PhaseSpace[phaseIndex+2] = _pParti[particleIndex]->m_Position.z;
 
-		this->PhaseSpace[ii+3] = _pParti[ii]->m_Velocity.x;
-		this->PhaseSpace[ii+4] = _pParti[ii]->m_Velocity.y;
-		this->PhaseSpace[ii+5] = _pParti[ii]->m_Velocity.z;
+		this->PhaseSpace[phaseIndex+3] = _pParti[particleIndex]->m_Velocity.x;
+		this->PhaseSpace[phaseIndex+4] = _pParti[particleIndex]->m_Velocity.y;
+		this->PhaseSpace[phaseIndex+5] = _pParti[particleIndex]->m_Velocity.z;
 	}
 
 
 	for(int ii=0; ii<this->_pParti.size();ii++)
 	{
-		this->PhaseSpaceDot[ii] = _pParti[ii]->m_Velocity.x;
-		this->PhaseSpaceDot[ii+1] = _pParti[ii]->m_Velocity.y;
-		this->PhaseSpaceDot[ii+2] = _pParti[ii]->m_Velocity.z;
+		int particleIndex = ii;
+		int phaseIndex = particleIndex*6;
+		this->PhaseSpaceDot[phaseIndex]   = _pParti[particleIndex]->m_Velocity.x;
+		this->PhaseSpaceDot[phaseIndex+1] = _pParti[particleIndex]->m_Velocity.y;
+		this->PhaseSpaceDot[phaseIndex+2] = _pParti[particleIndex]->m_Velocity.z;
 
-		Vector<DATA,3> acc = (_pParti[ii]->m_ForceAccumulator/_pParti[ii]->m_Mass);
-		this->PhaseSpaceDot[ii+3] = acc.x;
-		this->PhaseSpaceDot[ii+4] = acc.y;
-		this->PhaseSpaceDot[ii+5] = acc.z;
+		Vector<DATA,3> acc = (_pParti[particleIndex]->m_ForceAccumulator/
+							  _pParti[ii]->m_Mass);
+		this->PhaseSpaceDot[phaseIndex+3] = acc.x;
+		this->PhaseSpaceDot[phaseIndex+4] = acc.y;
+		this->PhaseSpaceDot[phaseIndex+5] = acc.z;
 	}
 
 }
