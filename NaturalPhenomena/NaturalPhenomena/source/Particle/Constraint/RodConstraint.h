@@ -6,7 +6,9 @@ class RodConstraint :public Constraint{
  public:
   RodConstraint(Particle *p1, Particle * p2, double dist);
 
-  virtual void draw();
+virtual void draw();
+	virtual void gradient(DATA* const px);
+	virtual void gradientDot(DATA* const px);
 
  private:
 

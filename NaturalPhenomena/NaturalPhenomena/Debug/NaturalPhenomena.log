@@ -1,4 +1,4 @@
-﻿Build started 10/19/2011 6:33:58 PM.
+﻿Build started 10/19/2011 7:05:54 PM.
      1>Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\NaturalPhenomena.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -6,6 +6,10 @@
          All outputs are up-to-date.
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D GLUT_BUILDING_LIB /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt source\TinkerToy.cpp
          TinkerToy.cpp
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\rodconstraint.h(10): warning C4373: 'RodConstraint::gradient': virtual function overrides 'Constraint::gradient', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+                 c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\constraint.hpp(22) : see declaration of 'Constraint::gradient'
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\rodconstraint.h(11): warning C4373: 'RodConstraint::gradientDot': virtual function overrides 'Constraint::gradientDot', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+                 c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\constraint.hpp(23) : see declaration of 'Constraint::gradientDot'
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\circularwireconstraint.h(11): warning C4373: 'CircularWireConstraint::gradient': virtual function overrides 'Constraint::gradient', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
                  c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\constraint.hpp(22) : see declaration of 'Constraint::gradient'
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\particle\constraint\circularwireconstraint.h(12): warning C4373: 'CircularWireConstraint::gradientDot': virtual function overrides 'Constraint::gradientDot', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
@@ -22,16 +26,16 @@
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\scene.hpp(15): warning C4042: 'parti' : has bad storage class
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\scene.hpp(15): warning C4042: 'forces' : has bad storage class
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\scene.hpp(15): warning C4042: 'constraints' : has bad storage class
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(82): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(150): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(169): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(186): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(213): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(312): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(83): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(153): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(177): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(194): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(221): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(320): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(343): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(358): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(372): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(351): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(366): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(380): warning C4018: '<' : signed/unsigned mismatch
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -70,4 +74,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.98
+Time Elapsed 00:00:02.48

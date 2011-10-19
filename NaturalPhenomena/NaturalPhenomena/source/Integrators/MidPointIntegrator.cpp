@@ -47,12 +47,12 @@ void MidPointIntegrator::Integrate(DATA elaspedTime)
 
 	this->_pSolver->setState(this->_phaseSpace);
 
-	for(int i=0; i<DIM; i++)
-	{
-		printf("\n== %f+ ==\t %f",this->_phaseSpaceDot[i],
-		this->_phaseSpace[i]);
-	}
-	//printf("\n=======================================\n\n");
+	//for(int i=0; i<DIM; i++)
+	//{
+	//	printf("\n== %f+ ==\t %f",this->_phaseSpaceDot[i],
+	//	this->_phaseSpace[i]);
+	//}
+	////printf("\n=======================================\n\n");
 
 
 }

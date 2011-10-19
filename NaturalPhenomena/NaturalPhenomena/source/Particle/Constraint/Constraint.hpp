@@ -25,7 +25,8 @@ public:
 	
 	Particle * const m_p1;
 
-
+	DATA Ks = 1.0;
+	DATA Kd = 2.0;
 
 
 };

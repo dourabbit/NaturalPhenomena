@@ -11,6 +11,7 @@
 #include <Particle\Constraint\RodConstraint.h>
 #include <Particle\Constraint\CircularWireConstraint.h>
 #include <Particle\Constraint\Constraint.hpp>
+#include <Particle\Constraint\RodConstraint.h>
 #include "imageio.h"
 
 #include <vector>
@@ -99,7 +100,7 @@ static void clear_data ( void )
 
 static void initialize(void)
 {
-	const DATA dist = 1;
+	const DATA dist = 2;
 	const Vector<DATA,3> center=make_vector(0.0, 0.0, 0.0);
 	const Vector<DATA,3> offset=make_vector(dist, 0.0,0.0);
 
@@ -144,7 +145,9 @@ static void initialize(void)
 	pForces.clear();
 	pConstraints.clear();
 	pParti.push_back(new Particle(0,center + offset,1,10,10, 0.1));
-	pParti.push_back(new Particle(1,center + 4*offset,1,10,10, 0.1));
+	pParti.push_back(new Particle(1,center + 2*offset,1,10,10, 0.1));
+	pParti.push_back(new Particle(2,center + 3*offset,1,10,10, 0.1));
+	pParti.push_back(new Particle(3,center + 4*offset,1,10,10, 0.1));
 
 	
 	for(int i=0;i<pParti.size();i++)
@@ -153,7 +156,12 @@ static void initialize(void)
 	}
 		
 	pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
-	pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 4*dist));
+	pConstraints.push_back(new RodConstraint(pParti[1], pParti[0],dist));
+	pConstraints.push_back(new RodConstraint(pParti[2], pParti[1],dist));
+	pConstraints.push_back(new CircularWireConstraint(pParti[3], center, 4*dist));
+
+	pForces.push_back(new SpringForce(pParti[2], pParti[3], dist, 1.0, 2.0));
+
 	Scene* scene1 = new Scene("PainfulConju",pParti,pForces,pConstraints);
 
 	
@@ -262,8 +270,8 @@ static void init_system(void)
 	//pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
 	//pIntegrators.push_back(new ImplicitIntegrator(pSolver));
 	
-	//pIntegrators.push_back(new EulerIntegrator(pSolver));
-	//pIntegrators.push_back(new MidPointIntegrator(pSolver));
+	pIntegrators.push_back(new EulerIntegrator(pSolver));
+	pIntegrators.push_back(new MidPointIntegrator(pSolver));
 	pIntegrators.push_back(new RungeKutta(pSolver));
 
 	initialize();
@@ -419,8 +427,14 @@ static void key_func ( unsigned char key, int x, int y )
 		case 'i':
 			indexOfIntegrator++;
 			indexOfIntegrator = indexOfIntegrator%pIntegrators.size();
-
-			printf ( pIntegrators[indexOfIntegrator]->IntegratorNm.c_str() );
+			printf ("Integrator:\n");
+			printf (pIntegrators[indexOfIntegrator]->IntegratorNm.c_str() );
+			break;
+		case 'n':
+			dsim = 0;
+			switchScene();
+			printf("SceneName: \n");
+			printf (pScenes[indexOfScene]->SceneNm.c_str() );
 			break;
 
 		case 'a':
@@ -435,8 +449,7 @@ static void key_func ( unsigned char key, int x, int y )
 		case 's':
 			pCam->Move(make_vector(0.0f,0.0f,1.0f));
 			break;
-
-
+		
 		case 'q':
 			pCam->RotateY(1.0f);
 			break;
@@ -464,8 +477,8 @@ static void key_func ( unsigned char key, int x, int y )
 */
 
 	case 'o':
-		initialize();
-		dsim = !dsim;
+		//initialize();
+		remap_GUI();
 		break;
 	case ' ':
 		dsim = !dsim;
