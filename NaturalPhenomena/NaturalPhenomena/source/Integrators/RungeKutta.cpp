@@ -85,9 +85,9 @@ void RungeKutta::Integrate(DATA elaspedTime)
 	this->_pSolver->setState(this->_phaseSpace);
 
 
-	printf("\n\nResult: \n");
+	/*printf("\n\nResult: \n");
 	for(int i=0; i<this->DIM; i++)
 	{
 		printf("%f,",_phaseSpace[i]);
-	}
+	}*/
 }

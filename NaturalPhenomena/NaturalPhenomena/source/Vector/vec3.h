@@ -95,12 +95,12 @@ template<class T> inline TVec3<T>& TVec3<T>::operator/=(T s)
 //
 
 template<class T>
-inline TVec3<T> operator+(const TVec3<T> &u, const TVec3<T>& v)
-	{ return TVec3<T>(u[0]+v[0], u[1]+v[1], u[2]+v[2]); }
+inline TVec3<T> operator+(const TVec3<T> &U, const TVec3<T>& v)
+	{ return TVec3<T>(U[0]+v[0], U[1]+v[1], U[2]+v[2]); }
 
 template<class T>
-inline TVec3<T> operator-(const TVec3<T> &u, const TVec3<T>& v)
-	{ return TVec3<T>(u[0]-v[0], u[1]-v[1], u[2]-v[2]); }
+inline TVec3<T> operator-(const TVec3<T> &U, const TVec3<T>& v)
+	{ return TVec3<T>(U[0]-v[0], U[1]-v[1], U[2]-v[2]); }
 
 template<class T> inline TVec3<T> operator-(const TVec3<T> &v)
 	{ return TVec3<T>(-v[0], -v[1], -v[2]); }
@@ -130,19 +130,19 @@ template<class T> inline TVec3<T> operator-(const TVec3<T> &v)
 	{ return TVec3<T>(v[0]/s, v[1]/s, v[2]/s); }
 #endif
 
-template<class T> inline T operator*(const TVec3<T> &u, const TVec3<T>& v)
-	{ return u[0]*v[0] + u[1]*v[1] + u[2]*v[2]; }
+template<class T> inline T operator*(const TVec3<T> &U, const TVec3<T>& v)
+	{ return U[0]*v[0] + U[1]*v[1] + U[2]*v[2]; }
 
-template<class T> inline TVec3<T> cross(const TVec3<T>& u, const TVec3<T>& v)
+template<class T> inline TVec3<T> cross(const TVec3<T>& U, const TVec3<T>& v)
 {
-    return TVec3<T>( u[1]*v[2] - v[1]*u[2],
-		-u[0]*v[2] + v[0]*u[2],
-		 u[0]*v[1] - v[0]*u[1] );
+    return TVec3<T>( U[1]*v[2] - v[1]*U[2],
+		-U[0]*v[2] + v[0]*U[2],
+		 U[0]*v[1] - v[0]*U[1] );
 }
 
 template<class T>
-inline TVec3<T> operator^(const TVec3<T>& u, const TVec3<T>& v)
-	{ return cross(u, v); }
+inline TVec3<T> operator^(const TVec3<T>& U, const TVec3<T>& v)
+	{ return cross(U, v); }
 
 
 template<class T>
@@ -169,10 +169,10 @@ template<class T> inline void unitize(TVec3<T>& v)
 
 template<class T> inline TVec2<T> proj(const TVec3<T>& v)
 {
-    TVec2<T> u(v[0], v[1]);
+    TVec2<T> U(v[0], v[1]);
     if( v[2]!=1.0 && v[2]!=0.0 )
-	u /= v[2];
-    return u;
+	U /= v[2];
+    return U;
 }
 
 typedef TVec3<double> Vec3;

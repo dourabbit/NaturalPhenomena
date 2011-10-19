@@ -52,7 +52,7 @@ void MidPointIntegrator::Integrate(DATA elaspedTime)
 		printf("\n== %f+ ==\t %f",this->_phaseSpaceDot[i],
 		this->_phaseSpace[i]);
 	}
-	printf("\n=======================================\n\n");
+	//printf("\n=======================================\n\n");
 
 
 }

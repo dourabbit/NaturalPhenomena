@@ -12,28 +12,24 @@ class Cloth{
 
 public:
 
-	Cloth();
+	Cloth(std::vector<Particle*> &parti,std::vector<Force*> &forces);
 	~Cloth();
 	
-	float DRAG;
-	float DAMP;
-	float KS;
+	DATA DRAG;
+	DATA Damp;
+	DATA KS;
 	
-	float WindStrength;
-	Vector3f WindDir;
+	DATA WindStrength;
+	 Vector<DATA,3> WindDir;
 
-	void ClothGen(int U, int V, Vector3f UOffset, Vector3f VOffset, Vector3f originalPos);
+	//void ClothGen(int U, int V,  Vector<DATA,3> UOffset,  Vector<DATA,3> VOffset,  Vector<DATA,3> originalPos);
 	void reset();
-	void draw();
-	
-	void simulation_step(float elapsedTime);
-	/*void forward_euler(Vector3f acc, Particle* pParticle, float elaspedTime);
-	void verlet_noVelocity(Vector3f acc, Particle* pParticle, float elaspedTime);*/
-
-
-private:
+	void draw(std::vector<Particle*> &pVector,std::vector<Force*> &fVector);
 	int U;
 	int V;
+	
+private:
+	
 };
 
 #endif

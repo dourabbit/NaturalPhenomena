@@ -1,8 +1,7 @@
 #include "Particle.h"
 #include <GL/glut.h>
 
-int Particle::NumOfParticle = 0;
-Particle::Particle(const Vector<DATA,3> & ConstructPos,const DATA &mass,
+Particle::Particle(int particleID,const Vector<DATA,3> & ConstructPos,const DATA &mass,
 	const GLint &slices,const GLint stacks,const GLdouble &radius ) :
 	m_ConstructPos(ConstructPos), 
 	m_Position(make_vector< DATA >(0.0, 0.0,0.0)), 
@@ -16,8 +15,7 @@ Particle::Particle(const Vector<DATA,3> & ConstructPos,const DATA &mass,
 	this->Forces.clear(); 
 	this->pConstraint=NULL;
 
-	this->ParticleID = NumOfParticle;
-	NumOfParticle++;
+	this->ParticleID = particleID;
 }
 
 Particle::~Particle(void)

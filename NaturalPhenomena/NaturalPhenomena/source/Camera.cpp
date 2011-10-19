@@ -33,20 +33,20 @@
 //	return res;
 //}
 //
-//SF3dVector operator+ (SF3dVector v, SF3dVector u)
+//SF3dVector operator+ (SF3dVector v, SF3dVector U)
 //{
 //	SF3dVector res;
-//	res.x = v.x+u.x;
-//	res.y = v.y+u.y;
-//	res.z = v.z+u.z;
+//	res.x = v.x+U.x;
+//	res.y = v.y+U.y;
+//	res.z = v.z+U.z;
 //	return res;
 //}
-//SF3dVector operator- (SF3dVector v, SF3dVector u)
+//SF3dVector operator- (SF3dVector v, SF3dVector U)
 //{
 //	SF3dVector res;
-//	res.x = v.x-u.x;
-//	res.y = v.y-u.y;
-//	res.z = v.z-u.z;
+//	res.x = v.x-U.x;
+//	res.y = v.y-U.y;
+//	res.z = v.z-U.z;
 //	return res;
 //}
 //
@@ -60,18 +60,18 @@
 //	return res;
 //}
 //
-//SF3dVector CrossProduct (SF3dVector * u, SF3dVector * v)
+//SF3dVector CrossProduct (SF3dVector * U, SF3dVector * v)
 //{
 //	SF3dVector resVector;
-//	resVector.x = u->y*v->z - u->z*v->y;
-//	resVector.y = u->z*v->x - u->x*v->z;
-//	resVector.z = u->x*v->y - u->y*v->x;
+//	resVector.x = U->y*v->z - U->z*v->y;
+//	resVector.y = U->z*v->x - U->x*v->z;
+//	resVector.z = U->x*v->y - U->y*v->x;
 //
 //	return resVector;
 //}
-//float operator* (SF3dVector v, SF3dVector u)	//dot product
+//float operator* (SF3dVector v, SF3dVector U)	//dot product
 //{
-//	return v.x*u.x+v.y*u.y+v.z*u.z;
+//	return v.x*U.x+v.y*U.y+v.z*U.z;
 //}
 
 

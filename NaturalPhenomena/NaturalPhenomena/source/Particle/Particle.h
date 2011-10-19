@@ -13,12 +13,12 @@ class Particle{
 
 public:
 
-	Particle(const Vector<DATA,3> & ConstructPos,const DATA &mass,const GLint &slices,
+	Particle(int ParticleID,const Vector<DATA,3> & ConstructPos,
+		const DATA &mass,const GLint &slices,
 		const GLint stacks,const GLdouble &radius );
 	virtual ~Particle(void);
 
 	int ParticleID;
-	static int NumOfParticle;
 	void reset();
 	void draw();
 

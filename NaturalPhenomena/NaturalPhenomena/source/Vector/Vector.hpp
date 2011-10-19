@@ -44,7 +44,7 @@ class Vector< NUM, 2 > {
 				NUM y;
 			};
 			struct {
-				NUM u;
+				NUM U;
 				NUM v;
 			};
 		};

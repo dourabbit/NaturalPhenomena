@@ -44,7 +44,7 @@ double ConjGrad(int n, implicitMatrix *A, double x[], double b[],
 		int    *steps)
 {
   int		i, iMax;
-  double	alpha, beta, rSqrLen, rSqrLenOld, u;
+  double	alpha, beta, rSqrLen, rSqrLenOld, U;
 
   double *r = (double *) malloc(sizeof(double) * n);
   double *d = (double *) malloc(sizeof(double) * n);
@@ -71,15 +71,15 @@ double ConjGrad(int n, implicitMatrix *A, double x[], double b[],
     while (i < iMax) {	
       i++;
       A->matVecMult(d, t);
-      u = vecDot(n, d, t);
+      U = vecDot(n, d, t);
       
-      if (u == 0) {
+      if (U == 0) {
 	printf("(SolveConjGrad) d'Ad = 0\n");
 	break;
       }
       
       // How far should we go?
-      alpha = rSqrLen / u;
+      alpha = rSqrLen / U;
       
       // Take a step along direction d
       vecAssign(n, temp, d);

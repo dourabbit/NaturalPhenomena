@@ -34,7 +34,12 @@ void ConstraintSolver::Initialize()
 	this->_qDot = new DATA[Col*1];
 	this->_QForces = new DATA[Col*1];
 	
-
+	memset(_J, 0, (Row*Col)*sizeof(DATA));
+	memset(_WeightInverse, 0, (Col)*sizeof(DATA));
+	memset(_JT, 0, (Row*Col)*sizeof(DATA));
+	memset(_JDot, 0, (Row*Col)*sizeof(DATA));
+	memset(_qDot, 0, (Col)*sizeof(DATA));
+	memset(_QForces, 0, (Col)*sizeof(DATA));
 	this->_isInitialized = true;
 
 }
@@ -44,7 +49,7 @@ void ConstraintSolver::Solve(DATA* dst)
 		this->Initialize();
 
 	
-	printf("\n\n\n\n\n");
+	//printf("\n\n\n\n\n");
 	//Fill Jacobian Matrix
 
 	for(int row=0;row<Row;row++)
@@ -58,6 +63,7 @@ void ConstraintSolver::Solve(DATA* dst)
 				Particle* pParti = this->pSolver->_pConstraints[row]->m_p1;
 
 				this->_J[row*(Col)+col] = pParti->m_Position[k];
+				//printf("??????????????????????????????????????????????????????????????%f,%f",_J[row*(Col)+col],pParti->m_Position[k]);
 				this->_JDot[row*(Col)+col] = pParti->m_Velocity[k];
 				//printf("?%f==%f,",pParti->m_Velocity[k],_JDot[row*(Col)+col]);
 			}
@@ -92,7 +98,7 @@ void ConstraintSolver::Solve(DATA* dst)
 		}
 	}
 	
-	printf("\n======_J:\n");
+	/*printf("\n======_J:\n");
 	for(int r = 0; r<Row;r++)
 	{
 		printf("\n\t");
@@ -133,7 +139,7 @@ void ConstraintSolver::Solve(DATA* dst)
 		}
 		printf("\n\t");
 	
-
+*/
 	//Transpose J matrix
 	for(int r = 0; r<Row;r++)
 	{
@@ -144,7 +150,7 @@ void ConstraintSolver::Solve(DATA* dst)
 	}
 
 	
-	printf("\n========JT:\n");
+	/*printf("\n========JT:\n");
 	for(int c = 0; c<Col;c++)
 	{
 		printf("\n\t");
@@ -160,7 +166,7 @@ void ConstraintSolver::Solve(DATA* dst)
 	{
 		printf("%f,",_JT[i]);
 	}
-	printf("\n========JT:\n");
+	printf("\n========JT:\n");*/
 	//(J*W*_JT)x = -Jdot*xdot-J*W*forces;
 	//Ax = b
 
@@ -212,11 +218,11 @@ void ConstraintSolver::Solve(DATA* dst)
 		printf("\n\nJWQ %f,",JWQ[r]);
 	}*/
 
-	for(int r = 0; r<Row;r++)
+	/*for(int r = 0; r<Row;r++)
 	{
 		printf("\n\n B is :: %f,",Jdotqdot[r]);
 	}
-
+*/
 	
 
 	DATA* _Lamada = new DATA[Row*1];
@@ -225,8 +231,8 @@ void ConstraintSolver::Solve(DATA* dst)
 	double err = ConjGrad(Row, this,_Lamada, Jdotqdot,1.0e-5, &steps);
 	//err = ConjGrad(Row, this,x, Jdotqdot,1.0e-5, &steps);
 	//printf("\nConjGrad: %f?%f,",_Lamada[0],x[0]);
-	for(int i = 0; i<Row;i++)
-		printf("\nConjGrad%d: %f,",i,_Lamada[i]);
+	/*for(int i = 0; i<Row;i++)
+		printf("\nConjGrad%d: %f,",i,_Lamada[i]);*/
 
 	//double nSolveByHand = 0.0;
 	//for(int c = 0; c<Col;c++){
@@ -253,7 +259,7 @@ void ConstraintSolver::Solve(DATA* dst)
 
 
 
-	printf("\n========Added Force:\n");
+	/*printf("\n========Added Force:\n");
 		printf("\n\t");
 		for(int c = 0; c<Col;c++)
 		{
@@ -263,7 +269,7 @@ void ConstraintSolver::Solve(DATA* dst)
 		printf("\n\t");
 
 
-	printf("\n\nX is !!: %f",_Lamada[0]);
+	printf("\n\nX is !!: %f",_Lamada[0]);*/
 	for(int r=0;r<this->pSolver->_numOfParti;r++)
 	{
 		this->pSolver->_pParti[r]->m_ForceAccumulator.x += F[r*3];
@@ -290,7 +296,7 @@ void ConstraintSolver::Solve(DATA* dst)
 	//delete[] _Lamada;
 
 	
-	for(int ii=0; ii<this->pSolver->_numOfParti;ii++)
+	/*for(int ii=0; ii<this->pSolver->_numOfParti;ii++)
 	{
 		printf("\n\n==========================================================Particle:%d:",ii);
 		printf("\n\nPos:%f,",this->pSolver->_pParti[ii]->m_Position.x,",");
@@ -307,7 +313,7 @@ void ConstraintSolver::Solve(DATA* dst)
 		printf("%f,",acc.z,",");
 		printf("\n\n==================================================================: ");
 	}
-
+*/
    }
 
 void ConstraintSolver::matVecMult( double x[], double b[])

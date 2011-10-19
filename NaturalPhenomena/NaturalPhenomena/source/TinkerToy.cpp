@@ -28,14 +28,10 @@
 #include <Integrators\EulerIntegrator.hpp>
 #include <Integrators\MidPointIntegrator.hpp>
 #include <Integrators\RungeKutta.hpp>
+#include <Cloth\Cloth.hpp>
+#include <Scene.hpp>
 
-/* macros */
 
-/* external definitions (from solver) */
-
-//extern void simulation_step( std::vector<Particle*> pVector, float dt, Integrator* integrator);
-
-/* global variables */
 
 static int N;
 static DATA dt, d;
@@ -46,12 +42,13 @@ static int frame_number;
 //static Vec3f CAMPOS;
 //static Vec3f CAMTARGET;
 CCamera* pCam;
-
+Cloth* pCloth;
 // static Particle *pList;
-static std::vector<Particle*> pVector;
+
 
 static Solver* pSolver;
 static int indexOfIntegrator=0;
+static int indexOfScene = -1;
 static int win_id;
 static int win_x, win_y;
 static int mouse_down[3];
@@ -60,30 +57,30 @@ static int mouse_shiftclick[3];
 static int omx, omy, mx, my;
 static int hmx, hmy;
 
-//static SpringForce * delete_this_dummy_spring = NULL;
-//static RodConstraint * delete_this_dummy_rod = NULL;
-//static CircularWireConstraint * delete_this_dummy_wire = NULL;
+//static std::vector<Particle*> pParti;
+//static std::vector<Force*> pForces;
+//static std::vector<Constraint*> pConstraints;
 
-static std::vector<Force*> pForces;
-static std::vector<Constraint*> pConstraints;
+
+
+
+
+static std::vector<Scene*> pScenes;
 static std::vector<Integrator*> pIntegrators;
-/*
-----------------------------------------------------------------------
-free/clear/allocate simulation data
-----------------------------------------------------------------------
-*/
 
 static void free_data ( void )
 {
-	pVector.clear();
+	/*pParti.clear();
 
 	for(int ii=0; ii<pForces.size();ii++){
 		delete pForces[ii];
 	}
 	for(int ii=0; ii<pConstraints.size();ii++){
 		delete pConstraints[ii];
-	}
+	}*/
 	
+	for(int ii=0; ii<pScenes.size();ii++)
+		delete pScenes[ii];
 	delete pCam;
 	delete pSolver;
 
@@ -91,11 +88,13 @@ static void free_data ( void )
 
 static void clear_data ( void )
 {
-	int ii, size = pVector.size();
+	/*int ii, size = pParti.size();
 
 	for(ii=0; ii<size; ii++){
-		pVector[ii]->reset();
-	}
+		pParti[ii]->reset();
+	}*/
+
+
 }
 
 static void initialize(void)
@@ -104,30 +103,130 @@ static void initialize(void)
 	const Vector<DATA,3> center=make_vector(0.0, 0.0, 0.0);
 	const Vector<DATA,3> offset=make_vector(dist, 0.0,0.0);
 
-	pVector.clear();
+	//pParti.clear();
+	//pForces.clear();
+	//pConstraints.clear();
+
+	//
+	//pParti.push_back(new Particle(center + offset,1,10,10, 0.1));
+	//pParti.push_back(new Particle(center + 4*offset,1,10,10, 0.1));
+	////pParti.push_back(new Particle(center + offset + offset,0.1,10,10, 0.1));
+	////pParti.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
+
+	////double tmp = length(pParti[0]->m_ConstructPos-pParti[1]->m_ConstructPos);
+
+	////pForces.push_back(new SpringForce(pParti[0], pParti[1], tmp, 1.0, 2.0));
+	////pForces.push_back(new SpringForce(pParti[1], pParti[2], tmp, 1.0, 2.0));
+	////pForces.push_back(new SpringForce(pParti[1], pParti[2], tmp/2, 1.0, 1.0));
+	//
+	//pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
+	//pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 4*dist));
+
+	//for(int i=0;i<pParti.size();i++)
+	//{
+	//	pForces.push_back(new Gravity(pParti[i]));
+	//}
+	//pSolver->Initialize(pParti.size(), pParti,pForces,pConstraints);
+
+
+
+	pScenes.clear();
+
+	std::vector<Particle*> pParti;
+	std::vector<Force*> pForces;
+	std::vector<Constraint*> pConstraints;
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	pParti.clear();
 	pForces.clear();
 	pConstraints.clear();
+	pParti.push_back(new Particle(0,center + offset,1,10,10, 0.1));
+	pParti.push_back(new Particle(1,center + 4*offset,1,10,10, 0.1));
 
 	
-	pVector.push_back(new Particle(center + offset,1,10,10, 0.1));
-	pVector.push_back(new Particle(center + 4*offset,1,10,10, 0.1));
-	//pVector.push_back(new Particle(center + offset + offset,0.1,10,10, 0.1));
-	//pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
-
-	//double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);
-
-	//pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp, 1.0, 2.0));
-	//pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp, 1.0, 2.0));
-	//pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp/2, 1.0, 1.0));
-	
-	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
-	pConstraints.push_back(new CircularWireConstraint(pVector[1], center, 4*dist));
-
-	for(int i=0;i<pVector.size();i++)
+	for(int i=0;i<pParti.size();i++)
 	{
-		pForces.push_back(new Gravity(pVector[i]));
+		pForces.push_back(new Gravity(pParti[i]));
 	}
-	pSolver->Initialize(pVector.size(), pVector,pForces,pConstraints);
+		
+	pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
+	pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 4*dist));
+	Scene* scene1 = new Scene("PainfulConju",pParti,pForces,pConstraints);
+
+	
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	pParti.clear();
+	pForces.clear();
+	pConstraints.clear();
+	pParti.push_back(new Particle(0,center + offset,1,10,10, 0.1));
+	pParti.push_back(new Particle(1,center + 4*offset,1,10,10, 0.1));
+	
+	for(int i=0;i<pParti.size();i++)
+	{
+		pForces.push_back(new Gravity(pParti[i]));
+	}
+	pForces.push_back(new SpringForce(pParti[0], pParti[1], dist, 1.0, 2.0));
+	pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
+	Scene* scene2 = new Scene("PainfulConju_Spring",pParti,pForces,pConstraints);
+
+
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	pParti.clear();
+	pForces.clear();
+	pConstraints.clear();
+	pCloth = new Cloth(pParti,pForces);
+	for(int i=0;i<pParti.size();i++)
+	{
+		pForces.push_back(new Gravity(pParti[i]));
+	}
+	pConstraints.push_back(new CircularWireConstraint(pParti[(pCloth->V-1)*pCloth->U], center, 0.7));
+	/*pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 0.7));
+	pConstraints.push_back(new CircularWireConstraint(pParti[2], center, 0.7));*/
+	Scene* scene3 = new Scene("PainfulConju_Spring",pParti,pForces,pConstraints);
+
+
+
+
+	pScenes.push_back(scene1);
+	pScenes.push_back(scene2);
+	pScenes.push_back(scene3);
+}
+static void remap_GUI()
+{
+	/*int ii, size = pParti.size();
+	for(ii=0; ii<size; ii++)
+	{
+		pParti[ii]->m_Position[0] = pParti[ii]->m_ConstructPos[0];
+		pParti[ii]->m_Position[1] = pParti[ii]->m_ConstructPos[1];
+	}*/
+	
+	if(pScenes.size()==0)
+		return;
+	for(int jj=0; jj< pScenes[indexOfScene]->pParti.size(); jj++)
+			pScenes[indexOfScene]->pParti[jj]->reset();
+
+}
+
+static void switchScene()
+{
+
+	indexOfScene++;
+	indexOfScene = indexOfScene%pScenes.size();
+	printf ( pScenes[indexOfScene]->SceneNm.c_str() );
+	pSolver->Initialize(pScenes[indexOfScene]->pParti.size(),
+			pScenes[indexOfScene]->pParti,
+			pScenes[indexOfScene]->pForces,
+			pScenes[indexOfScene]->pConstraints);
+	pIntegrators[indexOfIntegrator]->Initialize();
+	remap_GUI();
 }
 
 static void init_system(void)
@@ -144,23 +243,23 @@ static void init_system(void)
 	// circular wire constraint to the first.
 	pSolver = new Solver();
 	
-	//pVector.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
-	//pVector.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
-	//pVector.push_back(new Particle(center + offset + offset + offset,10,10, 0.1f));
+	//pParti.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
+	//pParti.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
+	//pParti.push_back(new Particle(center + offset + offset + offset,10,10, 0.1f));
 
 
 	
 	// You shoud replace these with a vector generalized forces and one of
 	// constraints...
-	/*delete_this_dummy_spring = new SpringForce(pVector[0], pVector[1], dist, 1.0, 1.0);
-	delete_this_dummy_rod = new RodConstraint(pVector[1], pVector[2], dist);
-	delete_this_dummy_wire = new CircularWireConstraint(pVector[0], center, dist);*/
+	/*delete_this_dummy_spring = new SpringForce(pParti[0], pParti[1], dist, 1.0, 1.0);
+	delete_this_dummy_rod = new RodConstraint(pParti[1], pParti[2], dist);
+	delete_this_dummy_wire = new CircularWireConstraint(pParti[0], center, dist);*/
 
-	//double tmp = length(pVector[0]->m_ConstructPos-pVector[1]->m_ConstructPos);
+	//double tmp = length(pParti[0]->m_ConstructPos-pParti[1]->m_ConstructPos);
 
-	//pForces.push_back(new SpringForce(pVector[0], pVector[1], tmp, 1.0, 1.0));
-	//pConstraints.push_back(new RodConstraint(pVector[1], pVector[2], dist));
-	//pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
+	//pForces.push_back(new SpringForce(pParti[0], pParti[1], tmp, 1.0, 1.0));
+	//pConstraints.push_back(new RodConstraint(pParti[1], pParti[2], dist));
+	//pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
 	//pIntegrators.push_back(new ImplicitIntegrator(pSolver));
 	
 	//pIntegrators.push_back(new EulerIntegrator(pSolver));
@@ -168,6 +267,8 @@ static void init_system(void)
 	pIntegrators.push_back(new RungeKutta(pSolver));
 
 	initialize();
+	switchScene();
+	
 	
 }
 
@@ -220,40 +321,56 @@ static void post_display ( void )
 
 static void draw_particles ( void )
 {
-	int size = pVector.size();
+	/*int size = pParti.size();
 
 	for(int ii=0; ii< size; ii++)
 	{
-		pVector[ii]->draw();
+		pParti[ii]->draw();
+	}*/
+	Scene* scene = pScenes[indexOfScene];
+	if(indexOfScene==2){
+		pCloth->draw(scene->pParti,scene->pForces);
+
+		for(int i = 0 ;i<pCloth->U;i++)
+		{
+			scene->pParti[i]->reset();
+			scene->pParti[i]->m_Velocity = make_vector(0.0,0.0,0.0);
+		}
 	}
+
+	if(pScenes.size()==0)
+		return;
+	for(int jj=0; jj< pScenes[indexOfScene]->pParti.size(); jj++)
+			pScenes[indexOfScene]->pParti[jj]->draw();
+
 }
 
 static void draw_forces ( void )
 {
-	// change this to iteration over full set
-	/*if (delete_this_dummy_spring)
-		delete_this_dummy_spring->draw();*/
-
+/*
 	for(int ii=0; ii<pForces.size();ii++){
 		pForces[ii]->draw();
 	}
+
+*/
+	if(pScenes.size()==0)
+		return;
+	for(int jj=0; jj< pScenes[indexOfScene]->pForces.size(); jj++)
+			pScenes[indexOfScene]->pForces[jj]->draw();
 
 }
 
 static void draw_constraints ( void )
 {
-	// change this to iteration over full set
-	/*if (delete_this_dummy_rod)
-		delete_this_dummy_rod->draw();
-	if (delete_this_dummy_wire)
-		delete_this_dummy_wire->draw();*/
-
-
+/*
 	for(int ii=0; ii<pConstraints.size();ii++){
 		pConstraints[ii]->draw();
 	}
-
-
+*/
+	if(pScenes.size()==0)
+		return;
+	for(int jj=0; jj< pScenes[indexOfScene]->pConstraints.size(); jj++)
+			pScenes[indexOfScene]->pConstraints[jj]->draw();
 }
 
 /*
@@ -293,21 +410,7 @@ static void get_from_UI ()
 	omy = my;
 }
 
-static void remap_GUI()
-{
-	int ii, size = pVector.size();
-	for(ii=0; ii<size; ii++)
-	{
-		pVector[ii]->m_Position[0] = pVector[ii]->m_ConstructPos[0];
-		pVector[ii]->m_Position[1] = pVector[ii]->m_ConstructPos[1];
-	}
-}
 
-/*
-----------------------------------------------------------------------
-GLUT callback routines
-----------------------------------------------------------------------
-*/
 
 static void key_func ( unsigned char key, int x, int y )
 {
@@ -334,7 +437,12 @@ static void key_func ( unsigned char key, int x, int y )
 			break;
 
 
-
+		case 'q':
+			pCam->RotateY(1.0f);
+			break;
+		case 'e':
+			pCam->RotateY(-1.0f);
+			break;
 /*
 
 	case 'c':
@@ -346,13 +454,14 @@ static void key_func ( unsigned char key, int x, int y )
 	case 'D':
 		dump_frames = !dump_frames;
 		break;
-*/
+		
 	case 'q':
 	case 'Q':
 		free_data ();
 		exit ( 0 );
 		break;
 
+*/
 
 	case 'o':
 		initialize();
@@ -392,9 +501,9 @@ static void reshape_func ( int width, int height )
 
 static void idle_func ( void )
 {
-	if ( dsim ) //simulation_step( pVector, dt );
+	if ( dsim ) //simulation_step( pParti, dt );
 	{
-		pSolver->update(dt, pIntegrators[indexOfIntegrator]);
+ 		pSolver->update(dt, pIntegrators[indexOfIntegrator]);
 		
 	}
 	else        {get_from_UI();remap_GUI();}
@@ -461,7 +570,7 @@ int main ( int argc, char ** argv )
 
 	if ( argc == 1 ) {
 		N = 64;
-		dt = 0.1f;
+		dt = 0.01f;
 		d = 5.f;
 		fprintf ( stderr, "Using defaults : N=%d dt=%g d=%g\n",
 			N, dt, d );

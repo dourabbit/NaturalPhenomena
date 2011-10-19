@@ -68,6 +68,8 @@ void Solver::Initialize(const int &numOfParti, std::vector<Particle*> pParti,std
 	this->_constSolver = new ConstraintSolver(this);
 	
 	this->DIM = _numOfParti*6;
+
+	this->_constSolver->Initialize();
 }
 
 void Solver::getDerivative(DATA* dst)

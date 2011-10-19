@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="include\config-vc.h" />
     <ClInclude Include="include\config.h" />
+    <ClInclude Include="source\Scene.hpp" />
     <ClInclude Include="source\Cloth\Cloth.hpp" />
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\Integrators\ConstraintSolver.hpp" />
@@ -206,6 +207,7 @@
     <ClCompile Include="source\Particle\Particle.cpp" />
     <ClCompile Include="source\Particle\Constraint\RodConstraint.cpp" />
     <ClCompile Include="source\Particle\Force\SpringForce.cpp" />
+    <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\TinkerToy.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

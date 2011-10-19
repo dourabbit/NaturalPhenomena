@@ -65,9 +65,9 @@ public:
     // Construction of standard matrices
     //
     static Mat2 I();
-    static Mat2 outer_product(const Vec2 &u, const Vec2 &v)
-    	{ return Mat2(u[0]*v[0], u[0]*v[1],   u[1]*v[0], u[1]*v[1]); }
-    static Mat2 outer_product(const Vec2 &u) { return outer_product(u,u); }
+    static Mat2 outer_product(const Vec2 &U, const Vec2 &v)
+    	{ return Mat2(U[0]*v[0], U[0]*v[1],   U[1]*v[0], U[1]*v[1]); }
+    static Mat2 outer_product(const Vec2 &U) { return outer_product(U,U); }
 
     Mat2 &diag(double d);
     Mat2 &ident() { return diag(1.0); }

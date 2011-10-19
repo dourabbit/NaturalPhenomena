@@ -88,15 +88,15 @@ template<class T> inline TVec4<T>& TVec4<T>::operator/=(T s)
 //
 
 template<class T>
-inline TVec4<T> operator+(const TVec4<T> &u, const TVec4<T> &v)
-	{ return TVec4<T>(u[0]+v[0], u[1]+v[1], u[2]+v[2], u[3]+v[3]); }
+inline TVec4<T> operator+(const TVec4<T> &U, const TVec4<T> &v)
+	{ return TVec4<T>(U[0]+v[0], U[1]+v[1], U[2]+v[2], U[3]+v[3]); }
 
 template<class T>
-inline TVec4<T> operator-(const TVec4<T> &u, const TVec4<T>& v)
-	{ return TVec4<T>(u[0]-v[0], u[1]-v[1], u[2]-v[2], u[3]-v[3]); }
+inline TVec4<T> operator-(const TVec4<T> &U, const TVec4<T>& v)
+	{ return TVec4<T>(U[0]-v[0], U[1]-v[1], U[2]-v[2], U[3]-v[3]); }
 
-template<class T> inline TVec4<T> operator-(const TVec4<T> &u)
-	{ return TVec4<T>(-u[0], -u[1], -u[2], -u[3]); }
+template<class T> inline TVec4<T> operator-(const TVec4<T> &U)
+	{ return TVec4<T>(-U[0], -U[1], -U[2], -U[3]); }
 
 #if _MSC_VER>=1200
 // Normally, we use the <class T, class N> construct below to allow the scalar
@@ -123,8 +123,8 @@ template<class T> inline TVec4<T> operator-(const TVec4<T> &u)
 	{ return TVec4<T>(v[0]/s, v[1]/s, v[2]/s, v[3]/s); }
 #endif
 
-template<class T> inline T operator*(const TVec4<T> &u, const TVec4<T> &v)
-	{ return u[0]*v[0] + u[1]*v[1] + u[2]*v[2] + u[3]*v[3]; }
+template<class T> inline T operator*(const TVec4<T> &U, const TVec4<T> &v)
+	{ return U[0]*v[0] + U[1]*v[1] + U[2]*v[2] + U[3]*v[3]; }
 
 template<class T>
 inline std::ostream &operator<<(std::ostream &out, const TVec4<T>& v)
@@ -168,10 +168,10 @@ template<class T> inline void unitize(TVec4<T>& v)
 
 template<class T> inline TVec3<T> proj(const TVec4<T>& v)
 {
-    TVec3<T> u(v[0], v[1], v[2]);
+    TVec3<T> U(v[0], v[1], v[2]);
     if( v[3]!=1.0 && v[3]!=0.0 )
-	u /= v[3];
-    return u;
+	U /= v[3];
+    return U;
 }
 
 typedef TVec4<double> Vec4;

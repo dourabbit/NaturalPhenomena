@@ -136,11 +136,11 @@ extern Mat4 operator*(const Mat4& n, const Mat4& m);
 //
 inline Vec3 operator*(const Mat4& m, const Vec3& v)
 {
-    Vec4 u=Vec4(v,1);
-    double w=m[3]*u;
+    Vec4 U=Vec4(v,1);
+    double w=m[3]*U;
 
-    if(w==0.0)  return Vec3(m[0]*u, m[1]*u, m[2]*u);
-    else        return Vec3(m[0]*u/w, m[1]*u/w, m[2]*u/w);
+    if(w==0.0)  return Vec3(m[0]*U, m[1]*U, m[2]*U);
+    else        return Vec3(m[0]*U/w, m[1]*U/w, m[2]*U/w);
 }
 
 inline std::ostream &operator<<(std::ostream &out, const Mat4& M)
