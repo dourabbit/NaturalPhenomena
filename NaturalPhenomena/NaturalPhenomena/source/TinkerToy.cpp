@@ -100,7 +100,7 @@ static void clear_data ( void )
 
 static void initialize(void)
 {
-	const DATA dist = 0.2;
+	const DATA dist = 1;
 	const Vector<DATA,3> center=make_vector(0.0, 0.0, 0.0);
 	const Vector<DATA,3> offset=make_vector(dist, 0.0,0.0);
 
@@ -110,6 +110,7 @@ static void initialize(void)
 
 	
 	pVector.push_back(new Particle(center + offset,1,10,10, 0.1));
+	pVector.push_back(new Particle(center + 4*offset,1,10,10, 0.1));
 	//pVector.push_back(new Particle(center + offset + offset,0.1,10,10, 0.1));
 	//pVector.push_back(new Particle(center + offset + offset + offset,1.0f,10,10, 0.1f));
 
@@ -120,7 +121,7 @@ static void initialize(void)
 	//pForces.push_back(new SpringForce(pVector[1], pVector[2], tmp/2, 1.0, 1.0));
 	
 	pConstraints.push_back(new CircularWireConstraint(pVector[0], center, dist));
-	//pConstraints.push_back(new CircularWireConstraint(pVector[2], center, 4*dist));
+	pConstraints.push_back(new CircularWireConstraint(pVector[1], center, 4*dist));
 
 	for(int i=0;i<pVector.size();i++)
 	{

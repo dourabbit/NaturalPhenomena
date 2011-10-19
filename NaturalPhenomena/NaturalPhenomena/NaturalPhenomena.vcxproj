@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="include\config-vc.h" />
     <ClInclude Include="include\config.h" />
+    <ClInclude Include="source\Cloth\Cloth.hpp" />
     <ClInclude Include="source\common.h" />
     <ClInclude Include="source\Integrators\ConstraintSolver.hpp" />
     <ClInclude Include="source\Integrators\EulerIntegrator.hpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Cloth\Cloth.cpp" />
     <ClCompile Include="source\Graphics\Cache.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
