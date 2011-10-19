@@ -29,12 +29,12 @@ void Gravity::gradientDot(DATA &x)
 void Gravity::apply_force()
 {
 	this->m_p1->m_ForceAccumulator += 
-		make_vector(0.0,-9.8*this->m_p1->m_Mass,0.0);
+		make_vector(0.0,-0.01*this->m_p1->m_Mass,0.0);
 
 }
 
 Vector<DATA,3> Gravity::guessForce(Vector<DATA,3> &position, Particle &partilce)
 {
-	Vector<DATA,3> result =make_vector(0.0,-9.8*this->m_p1->m_Mass,0.0);
+	Vector<DATA,3> result =make_vector(0.0,-0.01*this->m_p1->m_Mass,0.0);
 	return result;
 }

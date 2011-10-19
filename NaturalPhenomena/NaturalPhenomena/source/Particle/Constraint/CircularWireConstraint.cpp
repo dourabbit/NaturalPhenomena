@@ -25,28 +25,41 @@ void CircularWireConstraint::draw()
 
 void CircularWireConstraint::gradient(DATA* pdx)
 {
-	//C(x,y)= sin(x)+cos(y)+0z-1;
-	//J=[cos(x),-sin(y),0];
+	////C(x,y)= sin(x)+cos(y)+0z-1;
+	////J=[cos(x),-sin(y),0];
 
-	for(int i = 0 ; i<3; i++)
-		printf("\npos: %f,",pdx[i]);
+	//for(int i = 0 ; i<3; i++)
+		//printf("\npos: %f,",pdx[i]);
 
-	pdx[0] = cos(pdx[0]);
+	/*pdx[0] = cos(pdx[0]);
 	pdx[1] = -sin(pdx[1]);
-	pdx[2] = 0;
-	
-	
+	pdx[2] = 0;*/
+	//
+	//
 
+	//for(int i = 0 ; i<3; i++)
+	//	printf("\nGradient: %f",pdx[i]);*/
+
+	//Gradient
 	for(int i = 0 ; i<3; i++)
-		printf("\nGradient: %f",pdx[i]);
+	 pdx[i]= pdx[i];
+
 }
 
 
 void CircularWireConstraint::gradientDot(DATA* pddx)
 {
-	//dJ=[-sin(x)*dx, -cos(y)*dy,0]
-	pddx[0] = -sin(pddx[0]);
+	////dJ=[-sin(x)*dx, -cos(y)*dy,0]
+	/*pddx[0] = -sin(pddx[0]);
 	pddx[1] = -cos(pddx[1]);
-	pddx[2] = 0;
+	pddx[2] = 0;*/
+
+
+	//Gradient
+	for(int i = 0 ; i<3; i++)
+		pddx[i]= pddx[i];
+	
+	/*for(int i = 0 ; i<3; i++)
+		printf("\n??:%f",pddx[i]);*/
 
 }

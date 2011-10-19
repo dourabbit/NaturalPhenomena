@@ -85,7 +85,7 @@ void Solver::getDerivative(DATA* dst)
 	}
 
 
-	this->_constSolver->Solve();
+	this->_constSolver->Solve(dst);
 	
 	for(int ii=0; ii<this->_pParti.size();ii++)
 	{

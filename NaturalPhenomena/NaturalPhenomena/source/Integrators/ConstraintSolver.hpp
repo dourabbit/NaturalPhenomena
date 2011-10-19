@@ -20,7 +20,7 @@ public:
 		
 		int* ParticleIDs;
 		virtual void Initialize();
-		virtual void Solve();
+		virtual void Solve(DATA* dst);
 		virtual void matVecMult(double x[], double r[]);
 
 private:
@@ -37,7 +37,7 @@ private:
 		DATA* _JDot;//Row*Col
 		DATA* _qDot;//Col*1
 		DATA* _QForces;//Col*1
-		DATA* _Lamada;//Row*1
+		//DATA* _Lamada;//Row*1
     
 };
 #endif
