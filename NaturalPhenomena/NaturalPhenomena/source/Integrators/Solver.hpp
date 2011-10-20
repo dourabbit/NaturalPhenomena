@@ -25,7 +25,7 @@ class ConstraintSolver;
 class Solver{
 public: 
 
-		Solver();
+		Solver(DATA kd, DATA ks);
 		~Solver();
 		void Initialize(const int &numOfParti, std::vector<Particle*> pVector, 
 						std::vector<Force*> pForces, std::vector<Constraint*> pConstraints);
@@ -40,6 +40,9 @@ public:
 		
 		int DIM;
 		void getDerivative(DATA* dst);
+
+		DATA Ks;
+		DATA Kd;
 private:
 	
 	

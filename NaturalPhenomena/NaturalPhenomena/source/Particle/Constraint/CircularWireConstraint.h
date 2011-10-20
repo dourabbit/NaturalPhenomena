@@ -10,6 +10,8 @@ class CircularWireConstraint :public Constraint {
 	virtual void draw();
 	virtual void gradient(DATA* const px);
 	virtual void gradientDot(DATA* const px);
+	virtual DATA eval();
+	virtual DATA evalDeriv();
  private:
 
   //Particle * const m_p;

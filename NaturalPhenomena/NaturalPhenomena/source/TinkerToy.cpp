@@ -100,7 +100,7 @@ static void clear_data ( void )
 
 static void initialize(void)
 {
-	const DATA dist = 2;
+	const DATA dist = 3;
 	const Vector<DATA,3> center=make_vector(0.0, 0.0, 0.0);
 	const Vector<DATA,3> offset=make_vector(dist, 0.0,0.0);
 
@@ -156,12 +156,12 @@ static void initialize(void)
 	}
 		
 	pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
-	pConstraints.push_back(new RodConstraint(pParti[1], pParti[0],dist));
-	pConstraints.push_back(new RodConstraint(pParti[2], pParti[1],dist));
-	pConstraints.push_back(new CircularWireConstraint(pParti[3], center, 4*dist));
+	//pConstraints.push_back(new RodConstraint(pParti[1], pParti[0],dist));
+	//pConstraints.push_back(new RodConstraint(pParti[2], pParti[1],dist));
+	pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 2*dist));
 
 	pForces.push_back(new SpringForce(pParti[2], pParti[3], dist, 1.0, 2.0));
-
+	//pForces.push_back(new SpringForce(pParti[2], pParti[1], dist, 1.0, 2.0));
 	Scene* scene1 = new Scene("PainfulConju",pParti,pForces,pConstraints);
 
 	
@@ -249,7 +249,7 @@ static void init_system(void)
 	pCam = new CCamera();
 	// Create three particles, attach them to each other, then add a
 	// circular wire constraint to the first.
-	pSolver = new Solver();
+	pSolver = new Solver(0.001,0.3);
 	
 	//pParti.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
 	//pParti.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));

@@ -211,7 +211,34 @@ void ConstraintSolver::Solve(DATA* dst)
 	vecTimesScalar(Row,JWQ,-1.0);
  	vecAddEqual(Row,Jdotqdot,JWQ);
 
+	DATA* C = new DATA[Row];
+	DATA* CDot = new DATA[Row];
+	memset(C, 0, Row*sizeof(double));
+	memset(CDot, 0, Row*sizeof(double));
+	for(int i=0 ; i< Row; i++)
+		C[0] = this->pSolver->_pConstraints[i]->eval();
+
+	for(int i=0 ; i< Row; i++)
+		CDot[0] = this->pSolver->_pConstraints[i]->evalDeriv();
+
+
+	vecTimesScalar(Row,C, -1*this->pSolver->Ks);
+	vecTimesScalar(Row,CDot, -1*this->pSolver->Kd);
+	vecAddEqual(Row,Jdotqdot,C);
+	vecAddEqual(Row,Jdotqdot,CDot);
 	
+	printf("\n");
+	for(int i=0 ; i< Row; i++)
+		printf("C:%f,CDot:%f",C,CDot);
+	printf("\n");
+	for(int i=0 ; i< Row; i++)
+		printf("B:%f",Jdotqdot);
+
+	delete[] C;
+	delete[] CDot;
+
+
+	//vecTimesScalar(Row*Col);
 	
 	/*for(int r = 0; r<Row;r++)
 	{

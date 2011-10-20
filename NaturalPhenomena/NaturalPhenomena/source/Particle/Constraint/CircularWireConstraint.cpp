@@ -15,7 +15,8 @@ static void draw_circle(const Vector<DATA,3> & vect, float radius)
 	glEnd();
 }
 
-CircularWireConstraint::CircularWireConstraint(Particle *p, const Vector<DATA,3> & center, const double radius) :
+CircularWireConstraint::CircularWireConstraint(Particle *p, const Vector<DATA,3> & center, 
+	const double radius) :
 	Constraint(p), m_center(center), m_radius(radius) {}
 
 void CircularWireConstraint::draw()
@@ -62,4 +63,14 @@ void CircularWireConstraint::gradientDot(DATA* pddx)
 	/*for(int i = 0 ; i<3; i++)
 		printf("\n??:%f",pddx[i]);*/
 
+}
+
+DATA CircularWireConstraint::eval()
+{
+	return length(m_p1->m_Position - m_center) - m_radius;
+}
+
+DATA CircularWireConstraint::evalDeriv()
+{
+	return 2.0 * (m_p1->m_Position[0] - m_center[0]) * m_p1->m_Velocity[0] + 2.0 * (m_p1->m_Position[1] - m_center[1]) * m_p1->m_Velocity[1];
 }

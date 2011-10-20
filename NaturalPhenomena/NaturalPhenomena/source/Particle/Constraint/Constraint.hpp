@@ -21,12 +21,10 @@ public:
 
 	virtual void gradient(DATA* px)=0;
 	virtual void gradientDot(DATA* px)=0;
-	
-	
+	virtual DATA eval() = 0;
+	virtual DATA evalDeriv() = 0;
 	Particle * const m_p1;
 
-	DATA Ks = 1.0;
-	DATA Kd = 2.0;
 
 
 };

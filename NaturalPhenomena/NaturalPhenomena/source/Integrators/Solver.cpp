@@ -5,9 +5,10 @@
 
 //#include <Integrators\common.h>
 #include <Integrators\Solver.hpp>
-Solver::Solver(){
+Solver::Solver(DATA kd, DATA ks){
 	
-
+	this->Kd = kd;
+	this->Ks = ks;
 }
 
 Solver::~Solver(){
