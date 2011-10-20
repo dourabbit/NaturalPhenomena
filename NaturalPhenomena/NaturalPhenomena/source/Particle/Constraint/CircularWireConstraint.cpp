@@ -43,7 +43,7 @@ void CircularWireConstraint::gradient(DATA* pdx)
 
 	//Gradient
 	for(int i = 0 ; i<3; i++)
-	 pdx[i]= pdx[i];
+	 pdx[i]= 2.0*pdx[i];
 
 }
 
@@ -58,7 +58,7 @@ void CircularWireConstraint::gradientDot(DATA* pddx)
 
 	//Gradient
 	for(int i = 0 ; i<3; i++)
-		pddx[i]= pddx[i];
+		pddx[i]= 2.0*pddx[i];
 	
 	/*for(int i = 0 ; i<3; i++)
 		printf("\n??:%f",pddx[i]);*/
@@ -67,7 +67,7 @@ void CircularWireConstraint::gradientDot(DATA* pddx)
 
 DATA CircularWireConstraint::eval()
 {
-	return length(m_p1->m_Position - m_center) - m_radius;
+	return length_squared(m_p1->m_Position - m_center) - m_radius*m_radius;
 }
 
 DATA CircularWireConstraint::evalDeriv()

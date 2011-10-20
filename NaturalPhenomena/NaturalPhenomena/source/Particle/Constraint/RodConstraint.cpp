@@ -49,7 +49,7 @@ void RodConstraint::gradientDot(DATA* pddx)
 
 DATA RodConstraint::eval()
 {
-	return length(m_p1->m_Position - m_p2->m_Position) - m_dist;
+	return length_squared(m_p1->m_Position - m_p2->m_Position) - m_dist*m_dist;
 }
 
 DATA RodConstraint::evalDeriv()

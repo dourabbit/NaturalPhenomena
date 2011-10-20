@@ -227,12 +227,12 @@ void ConstraintSolver::Solve(DATA* dst)
 	vecAddEqual(Row,Jdotqdot,C);
 	vecAddEqual(Row,Jdotqdot,CDot);
 	
+	/*printf("\n");
+	for(int i=0 ; i< Row; i++)
+		printf("C:%f,CDot:%f",C[i],CDot[i]);
 	printf("\n");
 	for(int i=0 ; i< Row; i++)
-		printf("C:%f,CDot:%f",C,CDot);
-	printf("\n");
-	for(int i=0 ; i< Row; i++)
-		printf("B:%f",Jdotqdot);
+		printf("B:%f",Jdotqdot[i]);*/
 
 	delete[] C;
 	delete[] CDot;

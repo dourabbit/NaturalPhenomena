@@ -156,12 +156,12 @@ static void initialize(void)
 	}
 		
 	pConstraints.push_back(new CircularWireConstraint(pParti[0], center, dist));
-	//pConstraints.push_back(new RodConstraint(pParti[1], pParti[0],dist));
+	pConstraints.push_back(new RodConstraint(pParti[1], pParti[0],dist));
 	//pConstraints.push_back(new RodConstraint(pParti[2], pParti[1],dist));
-	pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 2*dist));
+	pConstraints.push_back(new CircularWireConstraint(pParti[3], center, 4*dist));
 
+	pForces.push_back(new SpringForce(pParti[1], pParti[2], dist, 1.0, 2.0));
 	pForces.push_back(new SpringForce(pParti[2], pParti[3], dist, 1.0, 2.0));
-	//pForces.push_back(new SpringForce(pParti[2], pParti[1], dist, 1.0, 2.0));
 	Scene* scene1 = new Scene("PainfulConju",pParti,pForces,pConstraints);
 
 	
@@ -195,7 +195,8 @@ static void initialize(void)
 	{
 		pForces.push_back(new Gravity(pParti[i]));
 	}
-	pConstraints.push_back(new CircularWireConstraint(pParti[(pCloth->V-1)*pCloth->U], center, 0.7));
+	pConstraints.push_back(new CircularWireConstraint(pParti[pCloth->V*pCloth->U-1], center, 10));
+	pConstraints.push_back(new CircularWireConstraint(pParti[(pCloth->V-1)*pCloth->U], center, 10));
 	/*pConstraints.push_back(new CircularWireConstraint(pParti[1], center, 0.7));
 	pConstraints.push_back(new CircularWireConstraint(pParti[2], center, 0.7));*/
 	Scene* scene3 = new Scene("PainfulConju_Spring",pParti,pForces,pConstraints);
@@ -249,7 +250,7 @@ static void init_system(void)
 	pCam = new CCamera();
 	// Create three particles, attach them to each other, then add a
 	// circular wire constraint to the first.
-	pSolver = new Solver(0.001,0.3);
+	pSolver = new Solver(0.005,0.02);
 	
 	//pParti.push_back(new Particle(center + offset,1.0f,10,10, 0.1f));
 	//pParti.push_back(new Particle(center + offset + offset,1.0f,10,10, 0.1f));
@@ -430,7 +431,8 @@ static void key_func ( unsigned char key, int x, int y )
 			printf ("Integrator:\n");
 			printf (pIntegrators[indexOfIntegrator]->IntegratorNm.c_str() );
 			break;
-		case 'n':
+
+		case '=':
 			dsim = 0;
 			switchScene();
 			printf("SceneName: \n");
@@ -449,12 +451,21 @@ static void key_func ( unsigned char key, int x, int y )
 		case 's':
 			pCam->Move(make_vector(0.0f,0.0f,1.0f));
 			break;
+		case 'x':
+			pCam->Move(make_vector(0.0f,1.0f,0.0f));
+			break;
+		case 'z':
+			pCam->Move(make_vector(0.0f,-1.0f,0.0f));
+			break;
 		
 		case 'q':
 			pCam->RotateY(1.0f);
 			break;
 		case 'e':
 			pCam->RotateY(-1.0f);
+			break;
+		case 'r':
+			pCam->Reset();
 			break;
 /*
 
@@ -583,7 +594,7 @@ int main ( int argc, char ** argv )
 
 	if ( argc == 1 ) {
 		N = 64;
-		dt = 0.01f;
+		dt = 0.005f;
 		d = 5.f;
 		fprintf ( stderr, "Using defaults : N=%d dt=%g d=%g\n",
 			N, dt, d );

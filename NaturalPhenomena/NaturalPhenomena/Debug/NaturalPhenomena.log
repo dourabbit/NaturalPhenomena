@@ -1,4 +1,4 @@
-﻿Build started 10/19/2011 8:05:31 PM.
+﻿Build started 10/19/2011 8:36:50 PM.
      1>Project "C:\Users\chengfuc\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\NaturalPhenomena.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -30,12 +30,12 @@
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(153): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(177): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(194): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(221): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(320): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(222): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(321): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(351): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(366): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(380): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(352): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(367): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\chengfuc\dropbox\cmudev\naturalphenomena\naturalphenomena\naturalphenomena\source\tinkertoy.cpp(381): warning C4018: '<' : signed/unsigned mismatch
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -74,4 +74,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.70
+Time Elapsed 00:00:02.66

@@ -17,12 +17,12 @@ Cloth::Cloth(std::vector<Particle*> &pvector,std::vector<Force*> &fvector){
 	KS=50;
 	//WindStrength = 50.0f;
 	//WindDir =  make_vector(0.0f,0.3f, 0.5f);
-	DATA dist = 0.1;
+	DATA dist = 0.4;
 	DATA Mass = 1;
 	DATA R =0.01;
 	Vector<DATA,3> center = make_vector(1.0, 1.5, 0.0);
-	U=12;
-	V=12;
+	U=24;
+	V=24;
 	Vector<DATA,3> uoffset=make_vector(dist, 0.0, 0.0);
 	Vector<DATA,3> voffset=make_vector(0.0, -dist, 0.0);
 	Vector<DATA,3> originalpos= center-((int)U/2)*uoffset-((int)V/2)*voffset;

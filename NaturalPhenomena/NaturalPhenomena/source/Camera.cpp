@@ -9,16 +9,22 @@
 #define NULL_VECTOR Vec3f(0.0f,0.0f,0.0f)
 CCamera::CCamera()
 {
+	this->Reset();
+}
+
+void CCamera::Reset()
+{
+	
 	//Init with standard OGL values:
-	Position = make_vector< float > (0.0, 0.0,	5.0);
+	Position = make_vector< float > (0.0, 0.0,	20.0);
 	ViewDir = make_vector< float >( 0.0, 0.0, -1.0);
 	RightVector = make_vector< float > (1.0, 0.0, 0.0);
 	UpVector = make_vector< float > (0.0, 1.0, 0.0);
 
 	//Only to be sure:
 	RotatedX = RotatedY = RotatedZ = 0.0;
-}
 
+}
 void CCamera::Move (Vector<float,3> Direction)
 {
 	Position = Position + Direction;
