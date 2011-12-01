@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://wiki.delphigl.com/index.php/Tutorial_WebGL_Sample -->
+<html lang="de" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tutorial WebGL Sample – DGL Wiki</title>
+
+<meta name="generator" content="MediaWiki 1.16.2">
+<link rel="shortcut icon" href="http://wiki.delphigl.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.delphigl.com/opensearch_desc.php" title="DGL Wiki (de)">
+<link title="Creative Commons" type="application/rdf+xml" href="http://wiki.delphigl.com/index.php?title=Tutorial_WebGL_Sample&action=creativecommons" rel="meta">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+<link rel="alternate" type="application/atom+xml" title="Atom-Feed für „DGL Wiki“" href="http://wiki.delphigl.com/index.php?title=Spezial:Letzte_%C3%84nderungen&feed=atom">
+<link rel="stylesheet" href="http://wiki.delphigl.com/skins/common/shared.css?270" media="screen">
+<link rel="stylesheet" href="http://wiki.delphigl.com/skins/common/commonPrint.css?270" media="print">
+<link rel="stylesheet" href="http://wiki.delphigl.com/skins/monobook/main.css?270" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?270" media="screen" /><![endif]-->
+<link rel="stylesheet" href="http://wiki.delphigl.com/index.php?title=MediaWiki:Common.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000">
+<link rel="stylesheet" href="http://wiki.delphigl.com/index.php?title=MediaWiki:Print.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000" media="print">
+<link rel="stylesheet" href="http://wiki.delphigl.com/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&ctype=text%2Fcss&smaxage=18000&action=raw&maxage=18000">
+<link rel="stylesheet" href="http://wiki.delphigl.com/index.php?title=-&action=raw&maxage=18000&gen=css">
+<script>
+var skin="monobook",
+stylepath="/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/index.php/$1",
+wgScriptPath="",
+wgScriptExtension=".php",
+wgScript="/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://wiki.delphigl.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Tutorial_WebGL_Sample",
+wgTitle="Tutorial WebGL Sample",
+wgAction="view",
+wgArticleId=5124,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="de",
+wgContentLanguage="de",
+wgBreakFrames=false,
+wgCurRevisionId=24355,
+wgVersion="1.16.2",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", ".	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Hauptseite",
+wgFormattedNamespaces={"-2": "Media", "-1": "Spezial", "0": "", "1": "Diskussion", "2": "Benutzer", "3": "Benutzer Diskussion", "4": "DGL Wiki", "5": "DGL Wiki Diskussion", "6": "Datei", "7": "Datei Diskussion", "8": "MediaWiki", "9": "MediaWiki Diskussion", "10": "Vorlage", "11": "Vorlage Diskussion", "12": "Hilfe", "13": "Hilfe Diskussion", "14": "Kategorie", "15": "Kategorie Diskussion", "100": "Archiv", "101": "Archiv Diskussion"},
+wgNamespaceIds={"media": -2, "spezial": -1, "": 0, "diskussion": 1, "benutzer": 2, "benutzer_diskussion": 3, "dgl_wiki": 4, "dgl_wiki_diskussion": 5, "datei": 6, "datei_diskussion": 7, "mediawiki": 8, "mediawiki_diskussion": 9, "vorlage": 10, "vorlage_diskussion": 11, "hilfe": 12, "hilfe_diskussion": 13, "kategorie": 14, "kategorie_diskussion": 15, "archiv": 100, "archiv_diskussion": 101, "bild": 6, "bild_diskussion": 7, "image": 6, "image_talk": 7},
+wgSiteName="DGL Wiki",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="./Tutorial WebGL Sample – DGL Wiki_files/wikibits.js"></script>
+<script src="./Tutorial WebGL Sample – DGL Wiki_files/ajax.js"></script>
+<script src="./Tutorial WebGL Sample – DGL Wiki_files/index.php"></script>
+
+<style type="text/css">/*<![CDATA[*/
+.source-html4strict {padding: 1em; border: 1px dashed #2f6fab; color: black; background-color: #f9f9f9; line-height: 1.1em;}
+.source-html4strict li, .source-html4strict pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for html4strict
+ * CSS class: source-html4strict, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.html4strict.source-html4strict .de1, .html4strict.source-html4strict .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.html4strict.source-html4strict  {font-family:monospace;}
+.html4strict.source-html4strict .imp {font-weight: bold; color: red;}
+.html4strict.source-html4strict li, .html4strict.source-html4strict .li1 {font-weight: normal; vertical-align:top;}
+.html4strict.source-html4strict .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.html4strict.source-html4strict .li2 {font-weight: bold; vertical-align:top;}
+.html4strict.source-html4strict .kw2 {color: #000000; font-weight: bold;}
+.html4strict.source-html4strict .kw3 {color: #000066;}
+.html4strict.source-html4strict .es0 {color: #000099; font-weight: bold;}
+.html4strict.source-html4strict .br0 {color: #66cc66;}
+.html4strict.source-html4strict .sy0 {color: #66cc66;}
+.html4strict.source-html4strict .st0 {color: #ff0000;}
+.html4strict.source-html4strict .nu0 {color: #cc66cc;}
+.html4strict.source-html4strict .sc-1 {color: #808080; font-style: italic;}
+.html4strict.source-html4strict .sc0 {color: #00bbdd;}
+.html4strict.source-html4strict .sc1 {color: #ddbb00;}
+.html4strict.source-html4strict .sc2 {color: #009900;}
+.html4strict.source-html4strict .ln-xtra, .html4strict.source-html4strict li.ln-xtra, .html4strict.source-html4strict div.ln-xtra {background-color: #ffc;}
+.html4strict.source-html4strict span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style></head>
+<body class="mediawiki ltr capitalize-all-nouns ns-0 ns-subject page-Tutorial_WebGL_Sample skin-monobook">
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading">Tutorial WebGL Sample</h1>
+	<div id="bodyContent">
+		<h3 id="siteSub">Aus DGL Wiki</h3>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav">Wechseln zu: <a href="http://wiki.delphigl.com/index.php/Tutorial_WebGL_Sample#column-one">Navigation</a>, <a href="http://wiki.delphigl.com/index.php/Tutorial_WebGL_Sample#searchInput">Suche</a></div>
+		<!-- start content -->
+<p>Dies ist eine Beispielanwendung zum <a href="http://wiki.delphigl.com/index.php/Tutorial_WebGL" title="Tutorial WebGL">WebGL-Tutorial</a>. Zum Ausprobieren den Quelltext in eine Datei kopieren und mit einem <a href="http://wiki.delphigl.com/index.php/Tutorial_WebGL" title="Tutorial WebGL">WebGL-fähigen Browser</a> öffnen. Es wird eine Textur von der URL <tt>"http://wiki.delphigl.com/wiki.png"</tt> geladen. Sollte die Anwendung nicht funktionieren, stelle sicher, dass die Textur erreichbar ist.
+</p><p>Das Ganze sollte ungefähr so aussehen:
+</p><p><a href="http://wiki.delphigl.com/index.php/Datei:webgl-sample.jpg" class="image"><img alt="webgl-sample.jpg" src="./Tutorial WebGL Sample – DGL Wiki_files/320px-webgl-sample.jpg" width="320" height="268"></a>
+</p>
+<div dir="ltr" style="text-align: left;"><div class="html4strict source-html4strict" style="font-family:monospace;"><pre class="de1"><span class="sc2">&lt;<span class="kw2">html</span>&gt;</span>
+    <span class="sc-1">&lt;!--</span>
+<span class="sc-1">     * WebGL-Test</span>
+<span class="sc-1">     * </span>
+<span class="sc-1">     * This sample is part of the WebGL Tutorial at http://delphigl.com</span>
+<span class="sc-1">     *</span>
+<span class="sc-1">     * Author:</span>
+<span class="sc-1">     * Coolcat (Martin Weusten)</span>
+<span class="sc-1">     *   see: http://wiki.delphigl.com/index.php/Benutzer:Coolcat</span>
+<span class="sc-1">     *</span>
+<span class="sc-1">     * Licence for this file:</span>
+<span class="sc-1">     * Creative Commons Attribution 3.0 (CC-BY 3.0)</span>
+<span class="sc-1">     *   see: http://creativecommons.org/licenses/by/3.0/</span>
+<span class="sc-1">    --&gt;</span>
+&nbsp;
+    <span class="sc2">&lt;<span class="kw2">head</span>&gt;</span>
+        <span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"text/javascript"</span>&gt;</span>
+            var gl = null; // our WebGL rendering context
+            var viewportWidth;
+            var viewportHeight;
+&nbsp;
+            var program; // shader program object
+            var vbo;     // vertexbufferobject
+            var ibo;     // indexbufferobject
+            var texture; // texture object
+&nbsp;
+            function init() { 
+                // request rendering context from the canvas
+                // =================================================
+                var canvas = document.getElementById("canvas");
+                viewportWidth = canvas.width;
+                viewportHeight = canvas.height;
+&nbsp;
+                var names = [ "webgl", "experimental-webgl", "moz-webgl", "webkit-3d" ];
+                for (var i=0; names.length&gt;i; i++) {
+                    try { 
+                        gl = canvas.getContext(names[i]);
+                        if (gl) { break; }
+                    } catch (e) { }
+                }
+                if (!gl) {
+                    alert("No known OpenGL context detected! Is it enabled?");
+                    return;
+                }
+                // since WebGL is still experimental, we need some compatibility code
+                compatibilityCode();
+&nbsp;
+                // basic settings
+                // =================================================
+                gl.clearColor(0, 0, 0, 1);
+                gl.enable(gl.DEPTH_TEST);
+&nbsp;
+                // setup shaders
+                // =================================================
+                var vertexShaderSource = getShaderSource("shader-vs");
+                var fragmentShaderSource = getShaderSource("shader-fs");
+&nbsp;
+                var vertexShader = loadShader(gl.VERTEX_SHADER, vertexShaderSource);
+                var fragmentShader = loadShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+                if (!vertexShader ||&nbsp;!fragmentShader) {
+                    return;
+                }
+&nbsp;
+                // create program object
+                program = gl.createProgram();
+&nbsp;
+                // attach our two shaders to the program
+                gl.attachShader(program, vertexShader);
+                gl.attachShader(program, fragmentShader);
+&nbsp;
+                // setup attributes (optional)
+                gl.bindAttribLocation(program, 0, "aPosition");
+                gl.bindAttribLocation(program, 1, "aNormal");
+                gl.bindAttribLocation(program, 2, "aTexCoord");
+&nbsp;
+                // linking
+                gl.linkProgram(program);
+                if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                    alert(gl.getProgramInfoLog(program));
+                    return;
+                }
+&nbsp;
+                // setup uniforms (optional)
+                gl.useProgram(program);
+                gl.uniform1i(gl.getUniformLocation(program, "uTexture"), 0);
+&nbsp;
+                // setup VBO
+                // =================================================
+&nbsp;
+                // define some vertexdata
+                var vertices = [
+                    // position XYZ, normal XYZ, texcoord UV =&gt; 8 floats per vertex
+                    -0.5,  0.5,  0.0,  0.6,  0.0,  0.8,  0.0,  0.0,
+                     0.5,  0.5,  0.0,  0.6,  0.0,  0.8,  1.0,  0.0,
+                    -0.5, -0.5,  0.0,  0.0,  0.0,  1.0,  0.0,  1.0,
+                     0.5, -0.5,  0.0,  0.0,  0.6,  0.8,  1.0,  1.0,
+                ];
+                // we need also some indices because of this annoying Firefox-Bug:
+                // https://bugzilla.mozilla.org/show_bug.cgi?id=521667
+                var indices = [
+                    0, 1, 2, 2, 1, 3
+                ];
+                // create VBO and IBO
+                vbo = gl.createBuffer();
+                gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+                gl.bufferData(gl.ARRAY_BUFFER, new WebGLFloatArray(vertices), gl.STATIC_DRAW);
+                ibo = gl.createBuffer();
+                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
+                gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new WebGLUnsignedShortArray(indices), gl.STATIC_DRAW);
+&nbsp;
+                // create texture
+                // =================================================
+                texture = loadTexture("http://wiki.delphigl.com/wiki.png");
+&nbsp;
+                // draw scene every 33 milliseconds
+                setInterval(draw, 33);
+            }
+&nbsp;
+            function compatibilityCode() {
+                // Firefox compatibility code
+                // The WebGL*Array where named Canvas*Array in the past.
+                // However, this will only affect old nightly builds. The current nightly does already
+                // support the new names. (13 Dec 2009).
+                try {
+                    WebGLFloatArray;
+                }
+                catch (e) {
+                    try {
+                        WebGLArrayBuffer = CanvasArrayBuffer;
+                        WebGLByteArray = CanvasByteArray;
+                        WebGLUnsignedByteArray = CanvasUnsignedByteArray;
+                        WebGLShortArray = CanvasShortArray;
+                        WebGLUnsignedShortArray = CanvasUnsignedShortArray;
+                        WebGLIntArray = CanvasIntArray;
+                        WebGLUnsignedIntArray = CanvasUnsignedIntArray;
+                        WebGLFloatArray = CanvasFloatArray;
+                    }
+                    catch (e) {
+                        alert("Could not find Canvas array types for WebGL.");
+                    }
+                }
+&nbsp;
+                // Google Chrome compatibility code
+                // Since a JavaScript function may have multiple return types, functions 
+                // 'getProgrami' and 'getShaderi' where renamed. However, Chrome does still
+                // use the old names.  (30 Nov 2009)
+                if (!gl.getProgramParameter) {
+                    gl.getProgramParameter = gl.getProgrami;
+                }
+                if (!gl.getShaderParameter) {
+                    gl.getShaderParameter = gl.getShaderi;
+                }
+            }
+&nbsp;
+            function getShaderSource(id) {
+                var script = document.getElementById(id);
+                if (!script) { return null; }
+&nbsp;
+                var source = "";
+                var child = script.firstChild;
+                while (child) {
+                    // node is a "textnode"&nbsp;?
+                    if (child.nodeType == 3) {
+                        source += child.textContent;
+                    }
+                    child = child.nextSibling;
+                }
+                return source;
+            }
+&nbsp;
+            function loadShader(shaderType, shaderSource) {
+                var shader = gl.createShader(shaderType);
+                if (!shader) { return null; }    
+                gl.shaderSource(shader, shaderSource);
+                gl.compileShader(shader);
+&nbsp;
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    alert(gl.getShaderInfoLog(shader));
+                    return null;
+                }    
+&nbsp;
+                return shader;
+            }
+&nbsp;
+            function loadTexture(filename) {
+                // preparations
+                var texture = gl.createTexture();
+                gl.bindTexture(gl.TEXTURE_2D, texture);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+                gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+                var image = new Image();
+&nbsp;
+                // register event handlers
+                image.onload = function() {
+                    gl.bindTexture(gl.TEXTURE_2D, texture);
+                    gl.texImage2D(gl.TEXTURE_2D, 0, image);
+                    gl.generateMipmap(gl.TEXTURE_2D);
+                    draw(); // texture now available, we can redraw the scene
+                }
+                image.onerror = function() {
+                    alert("error while loading image '"+filename+"'.");
+                }
+&nbsp;
+                // request image from server
+                image.src = filename; 
+&nbsp;
+                // return texture object (asynchronous loading, texture NOT available yet!)
+                return texture;
+            }
+&nbsp;
+            function draw() {
+                gl.viewport(0, 0, viewportWidth, viewportHeight);
+                gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT );
+&nbsp;
+                // setup shader
+                gl.useProgram(program);
+&nbsp;
+                // setup interleaved VBO and IBO
+                gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+                gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
+                gl.enableVertexAttribArray(0);
+                gl.enableVertexAttribArray(1);
+                gl.enableVertexAttribArray(2);
+                gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 8*4, 0*4); // position
+                gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 8*4, 3*4); // normal
+                gl.vertexAttribPointer(2, 2, gl.FLOAT, false, 8*4, 6*4); // texcoord
+&nbsp;
+                // setup texture
+                gl.activeTexture(gl.TEXTURE0);
+                gl.bindTexture(gl.TEXTURE_2D, texture);
+&nbsp;
+                // draw the buffer
+                gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+            }
+        <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
+&nbsp;
+        <span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">id</span><span class="sy0">=</span><span class="st0">"shader-vs"</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"x-shader/x-vertex"</span>&gt;</span>
+            attribute vec3 aPosition;
+            attribute vec3 aNormal;
+            attribute vec2 aTexCoord;
+            varying vec3 vNormal;
+            varying vec2 vTexCoord; 
+            void main() {
+                gl_Position = vec4(aPosition, 1.0);
+                vTexCoord = aTexCoord;
+                vNormal = aNormal;
+            }
+        <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
+&nbsp;
+        <span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">id</span><span class="sy0">=</span><span class="st0">"shader-fs"</span> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">"x-shader/x-fragment"</span>&gt;</span>
+            varying vec3 vNormal;
+            varying vec2 vTexCoord;
+            uniform sampler2D uTexture;
+            void main() {
+                gl_FragColor = texture2D(uTexture, vTexCoord);
+            }
+        <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
+    <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">head</span>&gt;</span>
+    <span class="sc2">&lt;<span class="kw2">body</span> <span class="kw3">onload</span><span class="sy0">=</span><span class="st0">"init()"</span>&gt;</span>
+        <span class="sc2">&lt;<span class="kw2">div</span> <span class="kw3">style</span><span class="sy0">=</span><span class="st0">"text-align: center"</span>&gt;</span>
+            <span class="sc2">&lt;canvas <span class="kw3">id</span><span class="sy0">=</span><span class="st0">"canvas"</span> <span class="kw3">width</span><span class="sy0">=</span><span class="st0">"512"</span> <span class="kw3">height</span><span class="sy0">=</span><span class="st0">"512"</span>&gt;&lt;<span class="sy0">/</span>canvas&gt;</span>
+        <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">div</span>&gt;</span>
+    <span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">body</span>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">html</span>&gt;</span></pre></div></div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key db1052972-dgl-dglwiki_:pcache:idhash:5124-0!1!0!!de!2!edit=0 and timestamp 20111129222753 -->
+<div class="printfooter">
+Von „<a href="./Tutorial WebGL Sample – DGL Wiki_files/Tutorial WebGL Sample – DGL Wiki.htm">http://wiki.delphigl.com/index.php/Tutorial_WebGL_Sample</a>“</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden"></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Ansichten</h5>
+		<div class="pBody">
+			<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="./Tutorial WebGL Sample – DGL Wiki_files/Tutorial WebGL Sample – DGL Wiki.htm" title="Seiteninhalt anzeigen [alt-c]" accesskey="c">Seite</a></li>
+				 <li id="ca-talk"><a href="http://wiki.delphigl.com/index.php/Diskussion:Tutorial_WebGL_Sample" title="Diskussion zum Seiteninhalt [alt-t]" accesskey="t">Diskussion</a></li>
+				 <li id="ca-viewsource"><a href="http://wiki.delphigl.com/index.php?title=Tutorial_WebGL_Sample&action=edit" title="Diese Seite ist geschützt. Der Quelltext kann angesehen werden. [alt-e]" accesskey="e">Quelltext anzeigen</a></li>
+				 <li id="ca-history"><a href="http://wiki.delphigl.com/index.php?title=Tutorial_WebGL_Sample&action=history" title="Frühere Versionen dieser Seite [alt-h]" accesskey="h">Versionen/Autoren</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Meine Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wiki.delphigl.com/index.php?title=Spezial:Anmelden&returnto=Tutorial_WebGL_Sample" title="Sich anzumelden wird zwar gerne gesehen, ist aber keine Pflicht. [alt-o]" accesskey="o">Anmelden</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://wiki.delphigl.com/wiki.png);" href="http://wiki.delphigl.com/index.php/Hauptseite" title="Hauptseite"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-Navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://wiki.delphigl.com/index.php/Hauptseite" title="Hauptseite anzeigen [alt-z]" accesskey="z">Hauptseite</a></li>
+				<li id="n-Forum"><a href="http://www.delphigl.com/forum/index.php">Forum</a></li>
+				<li id="n-Links"><a href="http://wiki.delphigl.com/index.php/Link">Links</a></li>
+				<li id="n-recentchanges"><a href="http://wiki.delphigl.com/index.php/Spezial:Letzte_%C3%84nderungen" title="Liste der letzten Änderungen in DGL Wiki [alt-r]" accesskey="r">Letzte Änderungen</a></li>
+				<li id="n-randompage"><a href="http://wiki.delphigl.com/index.php/Spezial:Zuf%C3%A4llige_Seite" title="Zufällige Seite [alt-x]" accesskey="x">Zufällige Seite</a></li>
+				<li id="n-Impressum"><a href="http://delphigl.com/impressum.php">Impressum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Hauptkategorien">
+		<h5>Hauptkategorien</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Tutorials"><a href="http://wiki.delphigl.com/index.php/Tutorial">Tutorials</a></li>
+				<li id="n-OpenGL-Funktionen"><a href="http://wiki.delphigl.com/index.php/OpenGL-Funktions%C3%BCbersicht">OpenGL-Funktionen</a></li>
+				<li id="n-SDL-Funktionen"><a href="http://wiki.delphigl.com/index.php/SDL-Funktions%C3%BCbersicht">SDL-Funktionen</a></li>
+				<li id="n-OpenAL-Funktionen"><a href="http://wiki.delphigl.com/index.php/OpenAL-Funktions%C3%BCbersicht">OpenAL-Funktionen</a></li>
+				<li id="n-OGL-Extensions"><a href="http://wiki.delphigl.com/index.php/OpenGL-Extensions">OGL Extensions</a></li>
+				<li id="n-Hintergrundwissen"><a href="http://wiki.delphigl.com/index.php/Hintergrundwissen">Hintergrundwissen</a></li>
+				<li id="n-Techniken"><a href="http://wiki.delphigl.com/index.php/Techniken_und_Algorithmen">Techniken</a></li>
+				<li id="n-Materialsammlung"><a href="http://wiki.delphigl.com/index.php/Materialsammlung">Materialsammlung</a></li>
+				<li id="n-Shadersammlung"><a href="http://wiki.delphigl.com/index.php/Shadersammlung">Shadersammlung</a></li>
+				<li id="n-DGL-Projekte"><a href="http://wiki.delphigl.com/index.php/DGL_Projekte">DGL-Projekte</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Suche</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki.delphigl.com/index.php" id="searchform">
+				<input type="hidden" name="title" value="Spezial:Suche">
+				<input id="searchInput" title="DGL Wiki durchsuchen" accesskey="f" type="search" name="search">
+				<input type="submit" name="go" class="searchButton" id="searchGoButton" value="Seite" title="Gehe direkt zu der Seite, die exakt dem eingegebenen Namen entspricht.">&nbsp;
+				<input type="submit" name="fulltext" class="searchButton" id="mw-searchButton" value="Suchen" title="Suche nach Seiten, die diesen Text enthalten">
+			</form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Werkzeuge</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wiki.delphigl.com/index.php/Spezial:Linkliste/Tutorial_WebGL_Sample" title="Liste aller Seiten, die hierher verlinken [alt-j]" accesskey="j">Links auf diese Seite</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wiki.delphigl.com/index.php/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Tutorial_WebGL_Sample" title="Letzte Änderungen an Seiten, die von hier verlinkt sind [alt-k]" accesskey="k">Änderungen an verlinkten Seiten</a></li>
+<li id="t-specialpages"><a href="http://wiki.delphigl.com/index.php/Spezial:Spezialseiten" title="Liste aller Spezialseiten [alt-q]" accesskey="q">Spezialseiten</a></li>
+				<li id="t-print"><a href="http://wiki.delphigl.com/index.php?title=Tutorial_WebGL_Sample&printable=yes" rel="alternate" title="Druckansicht dieser Seite [alt-p]" accesskey="p">Druckversion</a></li>				<li id="t-permalink"><a href="http://wiki.delphigl.com/index.php?title=Tutorial_WebGL_Sample&oldid=24355" title="Dauerhafter Link zu dieser Seitenversion">Permanenter Link</a></li>			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./Tutorial WebGL Sample – DGL Wiki_files/poweredby_mediawiki_88x31.png" height="31" width="88" alt="Powered by MediaWiki"></a></div>
+	<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="./Tutorial WebGL Sample – DGL Wiki_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"></a></div>
+	<ul id="f-list">
+		<li id="lastmod"> Diese Seite wurde zuletzt am 13. Dezember 2009 um 13:00 Uhr geändert.</li>
+		<li id="viewcount">Diese Seite wurde bisher 8.249-mal abgerufen.</li>
+		<li id="copyright">Inhalt ist verfügbar unter der <a href="http://www.gnu.org/copyleft/fdl.html" class="external ">GNU Free Documentation License 1.2</a>.</li>
+		<li id="privacy"><a href="http://wiki.delphigl.com/index.php/DGL_Wiki:Datenschutz" title="DGL Wiki:Datenschutz">Datenschutz</a></li>
+		<li id="about"><a href="http://wiki.delphigl.com/index.php/DGL_Wiki:%C3%9Cber" title="DGL Wiki:Über">Über DGL Wiki</a></li>
+		<li id="disclaimer"><a href="http://wiki.delphigl.com/index.php/DGL_Wiki:Impressum" title="DGL Wiki:Impressum">Impressum</a></li>
+	</ul>
+</div>
+</div>
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.304 secs. -->
+</body></html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://code.google.com/p/glmatrix/wiki/Usage -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <link rel="canonical" href="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting.htm">
+ 
+ <script src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/saved_resource"></script><script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = "76aa1b09bb60be5937ca7a685ff8d11f";
+ 
+ 
+ var CS_env = {"profileUrl":["/u/104375463849831324517/"],"token":"76aa1b09bb60be5937ca7a685ff8d11f","assetHostPath":"http://www.gstatic.com/codesite/ph","domainName":null,"assetVersionPath":"http://www.gstatic.com/codesite/ph/10977552491916013749","projectHomeUrl":"/p/glmatrix","relativeBaseUrl":"","projectName":"glmatrix","loggedInUserEmail":"dourabbit@gmail.com"};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ _gaq.push(
+ ['projectTracker._setAccount', 'UA-16737146-2'],
+ ['projectTracker._trackPageview']);
+ 
+ 
+ </script>
+ 
+ 
+ <title>Usage - 
+ glmatrix -
+ 
+ Basic glMatrix usage - 
+ High performance matrix and vector operations for WebGL - Google Project Hosting
+ </title>
+ 
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link type="text/css" rel="stylesheet" href="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/ph_detail.css">
+ 
+ 
+ 
+ <link type="application/atom+xml" rel="alternate" href="http://code.google.com/feeds/p/glmatrix/hgchanges/basic?repo=wiki&path=/Usage.wiki">
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/10977552491916013749/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ #maincol {
+ padding-top: 0;
+ padding-bottom: 0;
+ }
+
+ 
+ </style>
+<script type="text/javascript" async="" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/ga.js"></script></head>
+<body class="t6">
+<script type="text/javascript">
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <b>dourabbit@gmail.com</b>
+ 
+ 
+ | <a href="http://code.google.com/u/104375463849831324517/" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>▼</small></a>
+ | <a href="http://code.google.com/u/104375463849831324517/" onclick="_CS_click(&#39;/gb/ph/profile&#39;);" title="Profile, Updates, and Settings"><u>Profile</u></a>
+ | <a href="https://www.google.com/accounts/Logout?continue=http%3A%2F%2Fcode.google.com%2Fp%2Fglmatrix%2Fwiki%2FUsage" onclick="_CS_click(&#39;/gb/ph/signout&#39;);"><u>Sign out</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0" itemscope="" itemtype="http://schema.org/CreativeWork">
+ <tbody><tr style="height: 58px;">
+ 
+ <td id="plogo">
+ <link itemprop="url" href="http://code.google.com/p/glmatrix">
+ <a href="http://code.google.com/p/glmatrix/">
+ 
+ <img src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/defaultlogo.png" alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="http://code.google.com/p/glmatrix/"><span itemprop="name">glmatrix</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link" href="http://code.google.com/p/glmatrix/"><span itemprop="description">High performance matrix and vector operations for WebGL</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="http://code.google.com/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects">
+ </form>
+ 
+ </td></tr>
+ </tbody></table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="http://code.google.com/p/glmatrix/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ <a href="http://code.google.com/p/glmatrix/downloads/list" class="tab ">Downloads</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="http://code.google.com/p/glmatrix/w/list" class="tab active">Wiki</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="http://code.google.com/p/glmatrix/issues/list" class="tab ">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="http://code.google.com/p/glmatrix/source/checkout" class="tab ">Source</a>
+ 
+ 
+ 
+ 
+ 
+ <div class="gtbc"></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tbody><tr>
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList"> 
+ <span>Search</span>
+ <form action="http://code.google.com/p/glmatrix/w/list" method="GET" style="display:inline">
+ <select id="can" name="can">
+ <option disabled="disabled">Search within:</option>
+ 
+ <option value="1">&nbsp;All wiki pages</option>
+ <option value="3">&nbsp;Featured pages</option>
+ <option value="2" selected="selected">&nbsp;Current pages</option>
+ 
+ 
+ <option value="5">&nbsp;My starred pages</option>
+ 
+ <option value="4">&nbsp;Deprecated pages</option>
+ 
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q" value="" autocomplete="off"></span>
+ 
+ 
+ 
+ <input type="submit" value="Search">
+ </form>
+ </span>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+</div>
+</div>
+
+ </td>
+ 
+ 
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</tbody></table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol">
+
+ 
+<!-- IE -->
+
+
+
+
+
+
+
+ <style type="text/css">
+ .delcom { background: #e8e8e8 }
+ .commentcontent {
+ margin: 2em;
+ padding: 0px 10px;
+ width: 66em;
+ }
+ .artifactcomment {
+ border-top: 3px solid #c3d9ff;
+ }
+ #commentform {
+ border-top: 3px solid #c3d9ff;
+ }
+ </style>
+
+<div id="wikipage">
+<table>
+ <tbody><tr>
+ 
+ 
+ <td style="vertical-align:top; padding-left:5px">
+ 
+ <div id="wikiheader">
+ 
+ <img width="15" height="15" id="star_img" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/star_off.gif" style="cursor:pointer" onclick="_CS_toggleStar(this,
+ {&#39;scope&#39;: &#39;wiki&#39;,
+ &#39;user&#39;: &#39;_CURRENT_USER&#39;,
+ &#39;item&#39;: &#39;glmatrix:Usage&#39;
+ });">
+ 
+ <span style="font-size:120%;font-weight:bold">Usage</span>
+ &nbsp;
+ <div> 
+ 
+ <i>Basic glMatrix usage</i>
+ 
+ 
+ <br>
+ 
+ <a class="label" style="padding-top: 2px" href="http://code.google.com/p/glmatrix/w/list?q=label:Featured" title="Listed on project home page">Featured</a>, 
+ 
+ <a class="label" style="padding-top: 2px" href="http://code.google.com/p/glmatrix/w/list?q=label:Phase-Implementation" title="Developers&#39; guide">Phase-Implementation</a>
+ 
+ 
+ 
+ <div id="wikiauthor" style="float:right">
+ Updated <span title="Sat Jun 12 20:50:35 2010">
+ Jun 12, 2010</span>
+ 
+ by <a style="white-space: nowrap" href="http://code.google.com/u/Tojiro/">Tojiro</a>
+ 
+ </div>
+ </div>
+ </div>
+ 
+ <div id="wikicontent">
+ <div class="vt" id="wikimaincol">
+ <h1><a name="General_Matrix_Operations"></a>General Matrix Operations<a href="http://code.google.com/p/glmatrix/wiki/Usage#General_Matrix_Operations" class="section_anchor"></a></h1><p>Most matrix operations share a similar format: </p><p><strong>mat4.<i>operation</i>(</strong>srcMatrix, <i>otherOperands</i>, destMatrix <i>(optional)</i><strong>);</strong> </p><p>For all functions following this format the operation will be applied to the values in <i>srcMatrix</i> and the result will be written into <i>destMatrix</i>, which will also be returned. If <i>destMatrix</i> is not specified the result will be written into <i>srcMatrix</i>, if <i>destMatrix</i> is specified <i>srcMatrix</i> will not be altered. </p><p>Any 4x4 matrix functions expect sequences at least 16 elements in length as inputs when taking a matrix. </p><h1><a name="Examples"></a>Examples<a href="http://code.google.com/p/glmatrix/wiki/Usage#Examples" class="section_anchor"></a></h1><p>Creating and using a perspective matrix </p><pre class="prettyprint"><span class="kwd">var</span><span class="pln"> persp </span><span class="pun">=</span><span class="pln"> mat4</span><span class="pun">.</span><span class="pln">create</span><span class="pun">();</span><span class="pln"><br>mat4</span><span class="pun">.</span><span class="pln">perspective</span><span class="pun">(</span><span class="lit">45</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">/</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">,</span><span class="pln"> persp </span><span class="pun">);</span><span class="pln"><br><br>gl</span><span class="pun">.</span><span class="pln">uniformMatrix4fv</span><span class="pun">(</span><span class="pln">perspectiveUniform</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> persp</span><span class="pun">);</span></pre><p>Performing multiple transforms on a matrix </p><pre class="prettyprint"><span class="kwd">var</span><span class="pln"> modelView </span><span class="pun">=</span><span class="pln"> mat4</span><span class="pun">.</span><span class="pln">create</span><span class="pun">();</span><span class="pln"><br><br>mat4</span><span class="pun">.</span><span class="pln">identity</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Set to identity</span><span class="pln"><br>mat4</span><span class="pun">.</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">10</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// Translate back 10 units</span><span class="pln"><br>mat4</span><span class="pun">.</span><span class="pln">rotate</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">PI</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// Rotate 90 degrees around the Y axis</span><span class="pln"><br>mat4</span><span class="pun">.</span><span class="pln">scale</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// Scale by 200%</span></pre><p>Updating a destination matrix </p><pre class="prettyprint"><span class="kwd">var</span><span class="pln"> modelViewPersp </span><span class="pun">=</span><span class="pln"> mat4</span><span class="pun">.</span><span class="pln">create</span><span class="pun">();</span><span class="pln"><br><br>mat4</span><span class="pun">.</span><span class="pln">multiply</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> persp</span><span class="pun">,</span><span class="pln"> modelViewPersp</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Sets modelViewPersp to modelView * persp </span></pre><p>Tranforming a point </p><pre class="prettyprint"><span class="kwd">var</span><span class="pln"> cameraPos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">];</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> newPos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">];</span><span class="pln"><br><br>mat4</span><span class="pun">.</span><span class="pln">multiplyVec3</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> cameraPos</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Result is written into cameraPos</span><span class="pln"><br>mat4</span><span class="pun">.</span><span class="pln">multiplyVec3</span><span class="pun">(</span><span class="pln">modelView</span><span class="pun">,</span><span class="pln"> cameraPos</span><span class="pun">,</span><span class="pln"> newPos</span><span class="pun">);</span><span class="pln"> </span><span class="com">// Result is written into newPos</span></pre><h1><a name="Matrix_Functions"></a>Matrix Functions<a href="http://code.google.com/p/glmatrix/wiki/Usage#Matrix_Functions" class="section_anchor"></a></h1><p><strong>mat4.create()</strong> </p><blockquote>Returns a 16 element array. If WebGL is enabled, array type will be WebGLFloatArray, otherwise it will be a standard javascript Array. 
+</blockquote><p></p><p><strong>mat4.set(mat, dest)</strong> </p><blockquote>Copies the contents of <i>mat</i> into <i>dest</i>.  
+</blockquote><p></p><p><strong>mat4.identity(dest)</strong> </p><blockquote>Set <i>dest</i> to an identity matrix. 
+</blockquote><p></p><p><strong>mat4.transpose(mat, dest)</strong> </p><blockquote>Transposes <i>mat</i> 
+</blockquote><p></p><p><strong>mat4.determinant(mat)</strong> </p><blockquote>Returns the determinant of <i>mat</i>. <i>mat</i> is left unchanged. 
+</blockquote><p></p><p><strong>mat4.inverse(mat, dest)</strong> </p><blockquote>Inverts <i>mat</i> 
+</blockquote><p></p><p><strong>mat4.toMat3(mat, dest)</strong> </p><blockquote>Populates dest with the upper 3x3 elements of the matrix. (ie: The rotation matrix). <i>dest</i> is expected to be a sequence of at least 9 elements. If <i>dest</i> is not specified a new 9 element array is created and returned. 
+</blockquote><p></p><p><strong>mat4.toInverseMat3(mat, dest)</strong> </p><blockquote>Calculates the inverse of the top 3x3 elements of <i>mat</i>. (ie: calculates the normal matrix). <i>dest</i> is expected to be a sequence of at least 9 elements. If <i>dest</i> is not specified a new 9 element array is created and returned. 
+</blockquote><p></p><p><strong>mat4.multiply(mat, mat2, dest)</strong> </p><blockquote>Multiplies <i>mat</i> and <i>mat2</i> 
+</blockquote><p></p><p><strong>mat4.multiplyVec3(mat, vec, dest)</strong> </p><blockquote>Multiplies the the vector <i>vec</i> by <i>mat</i>. <i>vec</i> and <i>dest</i> are expected to be sequences of at least 3 elements. If <i>dest</i> is not provided the result is written into <i>vec</i>. 
+</blockquote><p></p><p><strong>mat4.translate(mat, vec, dest)</strong> </p><blockquote>Translates <i>mat</i> by the vector <i>vec</i>. 
+</blockquote><p></p><p><strong>mat4.scale(mat, vec, dest)</strong> </p><blockquote>Scales <i>mat</i> by the vector <i>vec</i>. 
+</blockquote><p></p><p><strong>mat4.rotate(mat, angle, axis, dest)</strong> </p><blockquote>Rotates <i>mat</i> by <i>angle</i> (given in radians) around the axis given by the vector <i>axis</i>. 
+</blockquote><p></p><p><strong>mat4.frustum(left, right, bottom, top, near, far, dest)</strong> </p><blockquote>Calculates a frustum matrix with the given parameters and writes it into <i>dest</i>. 
+</blockquote><p></p><p><strong>mat4.perspective(fovy, aspect, near, far, dest)</strong> </p><blockquote>Calculates a perspective matrix with the given parameters and writes it into <i>dest</i>. 
+</blockquote><p></p><p><strong>mat4.ortho(left, right, bottom, top, near, far, dest)</strong> </p><blockquote>Calculates a orthogonal matrix with the given parameters and writes it into <i>dest</i>. 
+</blockquote><p></p>
+ </div>
+ </div>
+ </td></tr><tr>
+</tr></tbody></table>
+ </div>
+
+
+ 
+ 
+ 
+ 
+ 
+ <div id="commentform">
+ <form action="http://code.google.com/p/glmatrix/w/detail.do" method="post">
+ <table>
+ <tbody><tr><td class="vt">
+ <input type="hidden" name="pagename" value="Usage">
+ <input type="hidden" name="token" value="76aa1b09bb60be5937ca7a685ff8d11f">
+ <div class="graytext" style="float: right;">
+ Hint: You can use <a href="http://code.google.com/p/support/wiki/WikiSyntax">Wiki Syntax.</a>
+ </div>
+ <div>Enter a comment:</div>
+ <textarea name="content" rows="6" cols="100"></textarea><br><br>
+ <input type="submit" name="submit" value="Submit">
+ </td>
+ </tr></tbody></table>
+ </form>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ <form name="delcom" action="http://code.google.com/p/glmatrix/w/delComment.do" method="POST">
+ <input type="hidden" name="sequence_num" value="">
+ <input type="hidden" name="create_time" value="">
+ <input type="hidden" name="mode" value="">
+ <input type="hidden" name="pagename" value="Usage">
+ <input type="hidden" name="token" value="76aa1b09bb60be5937ca7a685ff8d11f">
+ </form>
+
+
+
+ <script src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/prettify.js"></script>
+ <script type="text/javascript">
+ prettyPrint();
+ </script>
+
+<script type="text/javascript" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/dit_scripts.js"></script>
+
+
+<script type="text/javascript" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/plusone.js">
+</script>
+
+  
+ 
+ 
+ <script type="text/javascript" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/ph_core.js"></script>
+ 
+ 
+ 
+ 
+ <script type="text/javascript" src="./Usage - glmatrix - Basic glMatrix usage - High performance matrix and vector operations for WebGL - Google Project Hosting_files/codesite_product_dictionary_ph.pack.04102009.js"></script>
+</div> 
+<div id="footer" dir="ltr">
+ <div class="text">
+ ©2011 Google -
+ <a href="http://code.google.com/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="http://code.google.com/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+ 
+ 
+
+
+ 
+ 
+
+
+
+<div class="menuDiv instance0" id="menuDiv-projects-dropdown" style="display: none; "><div class="menuCategory controls"><hr class="menuSeparator"><a class="menuItem" style="display: block; " href="http://code.google.com/more/">Find developer products...</a><a class="menuItem" style="display: block; " href="http://code.google.com/hosting/">Find open source projects...</a></div></div></body></html>

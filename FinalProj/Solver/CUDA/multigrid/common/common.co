@@ -1,0 +1,8 @@
+
+#ifndef __common_co__
+#define __common_co__
+
+#define DX 16
+#define DY 16
+
+#endif

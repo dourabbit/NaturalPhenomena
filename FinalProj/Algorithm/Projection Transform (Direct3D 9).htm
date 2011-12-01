@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0078)http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(v=vs.85).aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head" xmlns="http://www.w3.org/1999/xhtml"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Projection Transform (Direct3D 9)</title><meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(d=default,l=en-us,v=VS.85).aspx"><meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(d=default,l=en-us,v=VS.85).aspx"><meta name="MN" content="7AE95E5D-9:02:29 PM"><meta name="Search.ShortId" content="bb147302"><meta name="Ms.Locale" content="en-us"><meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/bb147302(d=default,l=en-us,v=VS.85).aspx"><meta http-equiv="X-UA-Compatible" content="IE=9"><link href="./Projection Transform (Direct3D 9)_files/e84506fe3eae622a2a7ba73be118c934.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/xhtml"><link rel="canonical" href="./Projection Transform (Direct3D 9)_files/Projection Transform (Direct3D 9).htm" xmlns="http://www.w3.org/1999/xhtml"><link rel="alternate" media="print" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(d=printer,v=vs.85).aspx" type="text/html" xmlns="http://www.w3.org/1999/xhtml"></head>
+<body>
+    <div class="MetricsContainer">
+        <div class="WebtrendsContainer">
+            
+
+<script type="text/javascript" async="" src="./Projection Transform (Direct3D 9)_files/ms2.js"></script><script type="text/javascript" language="javascript">
+//<![CDATA[
+  var literalNormalizedUrl = '/en-us/library/windows/desktop/bb147302(d=default,l=en-us,v=VS.85).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    document.write("<scr" + "ipt type='text/javascript' src='" + "http" + (window.location.protocol.indexOf('https:') == 0 ? 's' : '') + "://" + gDomain + "/" + gDcsId + "/wtid.js" + "'><\\/scr" + "ipt>");
+  }
+  var detectedLocale = 'en-us';
+  var wtsp = '_msdn_';
+  var gTrackEvents = '0';
+/*]]>*/
+</script><script type="text/javascript" src="./Projection Transform (Direct3D 9)_files/wtid.js"><\/script>
+<noscript><div><img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" /></div></noscript>
+
+</div>
+        <div class="OmnitureContainer">
+            
+
+
+
+<script type="text/javascript">
+  var omni_guid = '9153435c-7f53-44f6-9a67-0aee045024f5'; 
+</script>
+
+
+
+<noscript>
+    &lt;a href="http://www.omniture.com" title="Web Analytics"&gt;
+        &lt;img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /&gt;&lt;/a&gt;
+</noscript>
+
+</div>
+    </div>
+    <script language="javascript" type="text/javascript" src="./Projection Transform (Direct3D 9)_files/broker.js"></script>
+    <div class="pageContainer">        
+        <div class="headerContainer">
+            
+<div class="header">
+    
+<div class="GlobalBar">
+  <div class="PassportScarab">
+    
+    <a id="idPPScarab" class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1322542949&rver=6.0.5276.0&wp=MCLBI&wlcxt=msdn%24msdn%24msdn&wreply=http:%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fwindows%2Fdesktop%2Fbb147302%2528v%3Dvs.85%2529.aspx&lc=1033&cb=&id=254354"><span id="idPPScarabSIT">Sign in</span></a>
+  </div>
+</div>
+
+    <div class="Clear"></div>
+    
+<div class="Search">
+    <div class="SearchBox">
+        <form id="HeaderSearchForm" method="get" action="http://social.msdn.microsoft.com/search/en-us/windows/desktop" onsubmit="return SearchBoxOnSubmit(&#39;Search Dev Center with Bing&#39;);">
+        <input name="query" id="HeaderSearchTextBox" class="TextBoxSearchLoaded" type="text" value="Search Dev Center with Bing" maxlength="100" onfocus="WatermarkFocus(this, &#39;Search Dev Center with Bing&#39;, &#39;TextBoxSearch&#39;)" onblur="WatermarkBlur(this, &#39;Search Dev Center with Bing&#39;, &#39;TextBoxSearchLoaded&#39;)">
+        <input name="Refinement" type="hidden" value="181">
+        <input id="HeaderSearchButton" value="" class="SearchButton" type="submit" title="Search">
+        </form>
+    </div>
+</div>
+
+    <a href="http://msdn.microsoft.com/en-us/windows/desktop" title="Windows Dev Center -  Desktop">
+      <img src="./Projection Transform (Direct3D 9)_files/1f6f299ce176ceface552ecd80c45d89.png" alt="Windows Dev Center -  Desktop" class="siteLogo" title="Windows Dev Center -  Desktop">
+    </a>
+    <div class="tabs">
+      <a href="http://msdn.microsoft.com/en-us/windows/desktop" title="Home">Home</a><a href="http://msdn.microsoft.com/en-us/windows/desktop/br257577" title="Dashboard">Dashboard</a><a class="highlightedTab" href="http://msdn.microsoft.com/en-us/library/windows/desktop" title="Learn">Learn</a><a href="http://code.msdn.microsoft.com/en-us/windowsdesktop" title="Samples">Samples</a><a href="http://msdn.microsoft.com/en-us/windows/desktop/aa904949" title="Downloads">Downloads</a><a href="http://msdn.microsoft.com/en-us/windows/desktop/aa904945" title="Community">Community</a>
+    </div>
+    <div class="masthead_hr"></div>
+</div>
+
+        </div>        
+        <div class="breadcrumbContainer">
+            
+<div class="breadCrumb">
+   <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/windows/desktop/" title="Desktop">Desktop</a> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/" title="Learn">Learn</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh447209(v=VS.85).aspx" title="Reference">Reference</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee663274(v=VS.85).aspx" title="DirectX Graphics and Gaming">DirectX Graphics and Gaming</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh309465(v=VS.85).aspx" title="Classic DirectX Graphics">Classic DirectX Graphics</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb219837(v=VS.85).aspx" title="Direct3D 9 Graphics">Direct3D 9 Graphics</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb219838(v=VS.85).aspx" title="Programming Guide for Direct3D 9">Programming Guide for Direct3D 9</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb173466(v=VS.85).aspx" title="Getting Started">Getting Started</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb206269(v=VS.85).aspx" title="Transforms">Transforms</a></span> <span><span class="breadCrumbEyebrowSeperator">&gt;</span> <a class="breadCrumbEyebrowLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(v=VS.85).aspx" title="Projection Transform">Projection Transform</a></span>
+</div>
+
+        </div>        
+        <h1>
+          Projection Transform (Direct3D 9)
+        </h1>
+        <div id="Navigation" class="navigationContainer" style="width:190px">
+          
+<div class="navigation">
+<h3><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb206365(v=VS.85).aspx" title="World Transform">World Transform</a></h3><h3><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb206342(v=VS.85).aspx" title="View Transform">View Transform</a></h3><h3 class="selected"><a title="Projection Transform">Projection Transform</a></h3>
+</div>
+
+        </div>        
+        <div class="tocResizeContainer">
+            
+    <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(v=vs.85).aspx#" onclick="onIncreaseToc()" class="tocResize" id="TocResize" style="left:193px;">
+    <img id="ResizeImageIncrease" class="nav_resize_open" src="./Projection Transform (Direct3D 9)_files/5b56267bbca66252c725ca7ab4fdea87.png" onmousedown="onIncreaseToc()" title="Expand" alt="Expand">
+    <img id="ResizeImageReset" class="nav_resize_close" src="./Projection Transform (Direct3D 9)_files/5b56267bbca66252c725ca7ab4fdea87.png" style="display:none" onmousedown="onResetToc()" title="Minimize" alt="Minimize">
+  
+</a>
+<input type="hidden" id="hidTocDirection" value="ltr">
+
+        </div>        
+        <div class="contentWrapper">
+          <div class="contentHeaderContainer">
+            
+            
+<div class="ratingCounter">
+  <div id="ratingCounterContainer" style="display: block; ">
+
+    <span id="rcA" class="ratingText">8 readers found this helpful (14 ratings - <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(v=vs.85).aspx#feedback" title="Rate this content">Rate this content</a>)</span>
+
+  </div>
+  <script type="text/javascript">
+      document.getElementById("ratingCounterContainer").style.display = "block";
+  </script>
+</div>
+
+            
+          </div>
+          <div class="topicContainer">
+              
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="majorTitle">
+    
+  </div>
+  <h1 class="title">Projection Transform (Direct3D 9)</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>You can think of the projection transformation as controlling the camera's internals; it is analogous to choosing a lens for the camera. This is the most complicated of the three transformation types. This discussion of the projection transformation is organized into the following topics.</p>
+<p>The projection matrix is typically a scale and perspective projection. The projection transformation converts the viewing frustum into a cuboid shape. Because the near end of the viewing frustum is smaller than the far end, this has the effect of expanding objects that are near to the camera; this is how perspective is applied to the scene.</p>
+<p>In <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb206341(v=vs.85).aspx">the viewing frustum</a>, the distance between the camera and the origin of the viewing transform space is defined arbitrarily as D, so the projection matrix looks like the following illustration.</p>
+<p><img id="projmat1" alt="Illustration of the projection matrix" src="./Projection Transform (Direct3D 9)_files/IC412652.png" title="Illustration of the projection matrix" xmlns=""></p>
+<p>The viewing matrix translates the camera to the origin by translating in the z direction by - D. The translation matrix is like the following illustration.</p>
+<p><img id="projmat2" alt="Illustration of the translation matrix" src="./Projection Transform (Direct3D 9)_files/IC511467.png" title="Illustration of the translation matrix" xmlns=""></p>
+<p>Multiplying the translation matrix by the projection matrix (T*P) gives the composite projection matrix, as shown in the following illustration.</p>
+<p><img id="projmat3" alt="Illustration of the composite projection matrix" src="./Projection Transform (Direct3D 9)_files/IC511468.png" title="Illustration of the composite projection matrix" xmlns=""></p>
+<p>The perspective transform converts a viewing frustum into a new coordinate space. Notice that the frustum becomes cuboid and also that the origin moves from the upper-right corner of the scene to the center, as shown in the following diagram.</p>
+<p><img id="cuboid" alt="Diagram of how the perspective transform changes the viewing frustum into a new coordinate space" src="./Projection Transform (Direct3D 9)_files/IC511469.png" title="Diagram of how the perspective transform changes the viewing frustum into a new coordinate space" xmlns=""></p>
+<p>In the perspective transform, the limits of the x- and y-directions are -1 and 1. The limits of the z-direction are 0 for the front plane and 1 for the back plane.</p>
+<p>This matrix translates and scales objects based on a specified distance from the camera to the near clipping plane, but it doesn't consider the field of view (fov), and the z-values that it produces for objects in the distance can be nearly identical, making depth comparisons difficult. The following matrix addresses these issues, and it adjusts vertices to account for the aspect ratio of the viewport, making it a good choice for the perspective projection.</p>
+<p><img id="prjmatx1" alt="Illustration of a matrix for the perspective projection" src="./Projection Transform (Direct3D 9)_files/IC511470.png" title="Illustration of a matrix for the perspective projection" xmlns=""></p>
+<p>In this matrix, Z<span class="sub">n</span> is the z-value of the near clipping plane. The variables w, h, and Q have the following meanings. Note that fov<span class="sub">w</span> and fov<span class="sub">k</span> represent the viewport's horizontal and vertical fields of view, in radians.</p>
+<p><img id="prjmatx2" alt="Equations of the variable meanings" src="./Projection Transform (Direct3D 9)_files/IC511471.png" title="Equations of the variable meanings" xmlns=""></p>
+<p>For your application, using field-of-view angles to define the x- and y-scaling coefficients might not be as convenient as using the viewport's horizontal and vertical dimensions (in camera space). As the math works out, the following two equations for w and h use the viewport's dimensions, and are equivalent to the preceding equations.</p>
+<p><img id="prjmatx3" alt="Equations of the w and h variable meanings" src="./Projection Transform (Direct3D 9)_files/IC511472.png" title="Equations of the w and h variable meanings" xmlns=""></p>
+<p>In these formulas, Z<span class="sub">n</span> represents the position of the near clipping plane, and the V<span class="sub">w</span> and V<span class="sub">h</span> variables represent the width and height of the viewport, in camera space.</p>
+<p>For a C++ application, these two dimensions correspond directly to the Width and Height members of the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb172632(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DVIEWPORT9</strong></a> structure.</p>
+<p>Whatever formula you decide to use, be sure to set Z<span class="sub">n</span> to as large a value as possible, because z-values extremely close to the camera don't vary by much. This makes depth comparisons using 16-bit z-buffers somewhat complicated.</p>
+<p>As with the world and view transformations, you call the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb174463(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">IDirect3DDevice9::SetTransform</strong></a> method to set the projection transform.</p>
+<h3><a id="Setting_Up_a_Projection_Matrix"></a>Setting Up a Projection Matrix</h3>
+<p>The following ProjectionMatrix sample function sets the front and back clipping planes, as well as the horizontal and vertical field of view angles. The fields of view should be less than pi radians.</p>
+
+<div class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:CodeSnippet_CopyCode('CodeSnippetContainerCode_69e07d0e-d886-4a51-b4d1-f7aa29ee048f');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_69e07d0e-d886-4a51-b4d1-f7aa29ee048f" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+
+D3DXMATRIX 
+ProjectionMatrix(const float near_plane, // Distance to near clipping 
+                                         // plane
+                 const float far_plane,  // Distance to far clipping 
+                                         // plane
+                 const float fov_horiz,  // Horizontal field of view 
+                                         // angle, in radians
+                 const float fov_vert)   // Vertical field of view 
+                                         // angle, in radians
+{
+    float    h, w, Q;
+
+    w = (float)1/tan(fov_horiz*0.5);  // 1/tan(x) == cot(x)
+    h = (float)1/tan(fov_vert*0.5);   // 1/tan(x) == cot(x)
+    Q = far_plane/(far_plane - near_plane);
+
+    D3DXMATRIX ret;
+    ZeroMemory(&amp;ret, sizeof(ret));
+
+    ret(0, 0) = w;
+    ret(1, 1) = h;
+    ret(2, 2) = Q;
+    ret(3, 2) = -Q*near_plane;
+    ret(2, 3) = 1;
+    return ret;
+}   // End of ProjectionMatrix
+
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<p>After creating the matrix, set it with <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb174463(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">IDirect3DDevice9::SetTransform</strong></a> specifying D3DTS_PROJECTION.</p>
+<p>The D3DX utility library provides the following functions to help you set up your projection matrix.</p>
+<ul>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205352(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveLH</strong></a>
+</li>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205355(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveRH</strong></a>
+</li>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205350(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveFovLH</strong></a>
+</li>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205351(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveFovRH</strong></a>
+</li>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205353(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveOffCenterLH</strong></a>
+</li>
+<li>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205354(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">D3DXMatrixPerspectiveOffCenterRH</strong></a>
+</li>
+</ul>
+<h3><a id="A_W_Friendly_Projection_Matrix"></a>A W-Friendly Projection Matrix</h3>
+<p>Direct3D can use the w-component of a vertex that has been transformed by the world, view, and projection matrices to perform depth-based calculations in depth-buffer or fog effects. Computations such as these require that your projection matrix normalize w to be equivalent to world-space z. In short, if your projection matrix includes a (3,4) coefficient that is not 1, you must scale all the coefficients by the inverse of the (3,4) coefficient to make a proper matrix. If you don't provide a compliant matrix, fog effects and depth buffering are not applied correctly.</p>
+<p>The following illustration shows a noncompliant projection matrix, and the same matrix scaled so that eye-relative fog will be enabled.</p>
+<p><img id="eyerlmx" alt="Illustrations of a noncompliant projection matrix and a matrix with eye-relative fog" src="./Projection Transform (Direct3D 9)_files/IC412659.png" title="Illustrations of a noncompliant projection matrix and a matrix with eye-relative fog" xmlns=""></p>
+<p>In the preceding matrices, all variables are assumed to be nonzero. For more information about eye-relative fog, see <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb205332(v=vs.85).aspx">Eye-Relative vs. Z-Based Depth</a>. For information about w-based depth buffering, see <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb219616(v=vs.85).aspx">Depth Buffers (Direct3D 9)</a>.</p>
+<p>Direct3D uses the currently set projection matrix in its w-based depth calculations. As a result, applications must set a compliant projection matrix to receive the desired w-based features, even if they do not use Direct3D for transforms.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="mailto:wsddocfb@microsoft.com?subject=Documentation%20feedback%20[direct3d9\direct3d9]:%20Projection%20Transform%20(Direct3D%209)%20%20RELEASE:%20(9/6/2011)&body=%0A%0APRIVACY%20STATEMENT%0A%0AThe%20SDK%20team%20uses%20the%20feedback%20submitted%20to%20improve%20the%20SDK%20documentation.%20We%20do%20not%20use%20your%20email%20address%20for%20any%20other%20purpose.%20We%20will%20remove%20your%20email%20address%20from%20our%20system%20after%20the%20issue%20you%20are%20reporting%20has%20been%20resolved.%20While%20we%20are%20working%20to%20resolve%20this%20issue,%20we%20may%20send%20you%20an%20email%20message%20to%20request%20more%20information%20about%20your%20feedback.%20After%20the%20issues%20have%20been%20addressed,%20we%20may%20send%20you%20an%20email%20message%20to%20let%20you%20know%20that%20your%20feedback%20has%20been%20addressed.%0A%0AFor%20more%20information%20about%20Microsoft's%20privacy%20policy,%20see%20http://privacy.microsoft.com/en-us/default.aspx." title="Send comments about this topic to Microsoft">Send comments about this topic to Microsoft</a></p>
+<p>Build date: 9/6/2011</p>
+</div>
+</div>   
+                
+                <div class="contentFeedbackContainer">
+                
+<div class="contentFeedback">
+    <form method="post" action="http://msdn.microsoft.com/en-us/library/windows/desktop/feedback/submit/bb147302(v=vs.85).aspx">
+    <div id="contentFeedbackContainer" style="display: block; ">
+        <div class="FeedbackTitleContainer">
+            <a name="feedback"></a>Did you find this helpful?
+        
+            <input id="rdIsUsefulYes" name="rdIsUseful" type="radio" value="1" onclick="ContentFeedback_DisplayYes();"><label class="rd" for="rdIsUsefulYes">Yes</label>
+            <input id="rdIsUsefulNo" name="rdIsUseful" type="radio" value="0" onclick="ContentFeedback_DisplayNo();"><label class="rd" for="rdIsUsefulNo">No</label>
+        
+        </div>
+        
+        <div id="contentFeedbackQAContainer">
+            <div id="feedbackListYesContainer" class="FeedbackListContainer">
+                <table>
+                    <tbody><tr>
+                    
+                        <td class="Checkbox">
+                            <input id="chkbxYes1" name="chkbxYes" type="checkbox" value="1">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxYes1">but some content is inaccurate, incomplete, or contains broken links</label>
+                        </td>
+                        
+                        <td class="Checkbox">
+                            <input id="chkbxYes2" name="chkbxYes" type="checkbox" value="2">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxYes2">but some content is difficult to understand</label>
+                        </td>
+                        
+                        <td class="Checkbox">
+                            <input id="chkbxYes3" name="chkbxYes" type="checkbox" value="3">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxYes3">but please provide additional code examples</label>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        
+                    </tr>
+                </tbody></table>
+            </div>
+            <div id="feedbackListNoContainer" class="FeedbackListContainer">
+                <table>
+                    <tbody><tr>
+                    
+                        <td class="Checkbox">
+                            <input id="chkbxNo1" name="chkbxNo" type="checkbox" value="1">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxNo1">Not what I was looking for</label>
+                        </td>
+                        
+                        <td class="Checkbox">
+                            <input id="chkbxNo2" name="chkbxNo" type="checkbox" value="2">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxNo2">Inaccurate, incomplete, or contains broken links</label>
+                        </td>
+                        
+                        <td class="Checkbox">
+                            <input id="chkbxNo3" name="chkbxNo" type="checkbox" value="3">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxNo3">Difficult to understand</label>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td class="Checkbox">
+                            <input id="chkbxNo4" name="chkbxNo" type="checkbox" value="4">
+                        </td>
+                        <td class="Label">
+                            <label for="chkbxNo4">Please provide additional code examples</label>
+                        </td>
+                        
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="FeedbackTellUsMoreContainer">
+                <div class="Counter">(<span id="feedbackTextCounter">2000</span> characters remaining)</div>
+                <textarea id="feedbackText" name="feedbackText" class="TellUsMoreTextBoxSearchLoaded" onfocus="WatermarkFocus(this, &#39;Tell us more...&#39;, &#39;TellUsMoreTextBoxSearch&#39;)" onblur="WatermarkBlur(this, &#39;Tell us more...&#39;, &#39;TellUsMoreTextBoxSearchLoaded&#39;)" onkeydown="TextBoxCharactersCounter(this, document.getElementById(&#39;feedbackTextCounter&#39;), 2000)" onkeyup="TextBoxCharactersCounter(this, document.getElementById(&#39;feedbackTextCounter&#39;), 2000)">Tell us more...</textarea>
+            </div>
+            <div class="FeedbackSubmitContainer">
+                <div class="Disclaimer">By clicking Submit you accept the <a href="http://explore.live.com/microsoft-service-agreement?ref=none" title="Microsoft Service Agreement" target="_blank">Microsoft Service Agreement</a></div>
+                <div class="Submit"><input type="submit" id="submit" value="Submit" title="Click to Submit Feedback" onclick="WatermarkOnSubmit(document.getElementById(&#39;feedbackText&#39;), &#39;Tell us more...&#39;, &#39;TellUsMoreTextBoxSearch&#39;)"></div>
+            </div>
+        </div>  
+        
+    </div>
+    <input type="hidden" id="returnUrl" name="returnUrl" value="http://msdn.microsoft.com/en-us/library/windows/desktop/bb147302(v=vs.85).aspx">
+    </form>
+    <script type="text/javascript">
+        document.getElementById("contentFeedbackContainer").style.display = "block";
+    </script>
+</div>
+
+                </div>
+                 
+          </div>
+          
+<div class="communityContentContainer">
+  <div id="CommunityContentHeader" class="communityContentHeader">
+    <div class="communityContentHeaderTitleContainer">
+      <span class="communityContentHeaderTitle h1">Community Additions</span>
+      
+        <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/bb147302(v=vs.85).aspx">
+          <span class="communityContentAddButton" title="Add">
+            ADD
+          </span>
+        </a>
+      
+    </div>
+    <div style="clear: both">
+    </div>
+  </div>
+
+      <div class="communityContentAnnotation">
+        <a name="1"></a>
+        <div class="communityContentAnnotationTitle h3">
+          <span>
+            The whole story...
+          </span>
+        </div>
+        <div class="communityContentAnnotationBody">
+          After multiplication with the projection matrix or after the custom vertex shader, the fixed function pipeline always divides projectedPos.xyz by&nbsp;projectedPos.w, which preserves camera space z. Only this makes the projection work as intended - the projection matrix alone is not enough - try it by setting&nbsp;projectedPos.w = 1 in your VS. The projection will be messed up. Pos.w of the PS input still contains the camera relative z value. You can get linear z values by doing&nbsp;projectedPos.z /=Zfar;&nbsp;projectedPos.z *=&nbsp;projectedPos.w;.
+$0$0
+$0
+$0See&nbsp;<a>http://www.mvps.org/directx/articles/linear_z/linearz.htm</a>&nbsp;for reference.$0
+        </div>
+        <div class="communityContentAnnotationInfo">
+          <div class="communityContentAnnotationAvatarContainer">
+            <a class="communityContentAnnotationAvatar" href="http://social.msdn.microsoft.com/profile/masterxilo/" title=""><img alt="" height="34" src="./Projection Transform (Direct3D 9)_files/avatar.jpg" width="34"></a>
+          </div>
+          <div class="communityContentAnnotationUserDateContainer">
+            <div class="communityContentAnnotationUserContainer">
+              <a href="http://social.msdn.microsoft.com/profile/masterxilo/">
+                Masterxilo</a>
+            </div>
+            <div class="communityContentAnnotationDateContainer">
+              <span>9/14/2011</span>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+  
+</div>
+          
+        </div>
+        <div class="footerContainer">
+            
+<div class="footer">
+    <div>
+        <div class="footerPrimaryBlock">
+            <div class="footerLinksTitles">Network sites</div>
+            <div style="padding-top: 5px; padding-bottom: 14px;"><a href="http://msdn.microsoft.com/" title="MSDN"><img alt="MSDN" class="footerLogoImage" src="./Projection Transform (Direct3D 9)_files/9fb7513b997d4c98cf5e8cd26eea2387.png"></a></div>
+            <div style="padding-bottom: 50px;">
+                <span class="footerLinks">
+                    
+                </span>
+            </div>
+        </div>
+        
+        <div class="footerSubBlock">
+            <div class="footerLinksTitles">Other links</div>
+                <div style="padding-top: 5px;" class="footerLinks"><a href="http://msdn.microsoft.com/en-us/windows/desktop/aa905013" title="Support">Support</a></div><div style="padding-top: 5px;" class="footerLinks"><a href="https://connect.microsoft.com/dashboard/" title="Microsoft Connect">Microsoft Connect</a></div>
+            </div><div class="footerSubBlock">
+            <div class="footerLinksTitles">Windows dev center</div>
+                <div style="padding-top: 5px;" class="footerLinks"><a href="http://msdn.microsoft.com/en-us/windows/apps" title="Metro style apps">Metro style apps</a></div><div style="padding-top: 5px;" class="footerLinks"><a href="http://msdn.microsoft.com/ie" title="Internet Explorer">Internet Explorer</a></div><div style="padding-top: 5px;" class="footerLinks"><a href="http://msdn.microsoft.com/windows/desktop" title="Desktop">Desktop</a></div><div style="padding-top: 5px;" class="footerLinks"><a href="http://msdn.microsoft.com/windows/hardware" title="Hardware">Hardware</a></div>
+            </div>
+
+        <div class="footerFinalBlock">
+            
+        </div>
+    </div>
+    <div class="footerMSLogo">
+        <div class="clip104x17">
+        <img src="./Projection Transform (Direct3D 9)_files/5b56267bbca66252c725ca7ab4fdea87.png" class="footerMsLogo" title="Microsoft" alt="Microsoft">
+        </div>
+    </div>
+    <div class="footerSubLinksContainer">
+        <div class="footerSubLinks">
+          <a href="http://msdn.microsoft.com/en-us/windows/desktop/cc300389" title="Terms of use">Terms of use</a>
+          <span class="footerSubLinksDivider">|</span>
+          <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" title="Trademarks">Trademarks</a>
+          <span class="footerSubLinksDivider">|</span>
+          <a href="http://www.microsoft.com/info/privacy.mspx" title="Privacy Statement">Privacy Statement</a>
+          <span class="footerSubLinksDivider">|</span>
+          <a href="https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fbb147302(v%3dvs.85).aspx" title="Site Feedback" target="_blank" onclick="SiteFeedbackNewWindow(&#39;https://lab.msdn.microsoft.com/mailform/contactus.aspx?refurl=%2fen-us%2flibrary%2fwindows%2fdesktop%2fbb147302(v%3dvs.85).aspx&#39;); return false;">Site Feedback</a>
+          <span class="footerSubLinksDivider">|</span>
+          <a href="http://msdn.microsoft.com/en-us/windows/desktop/SelectLocale?fromPage=%2flibrary%2fwindows%2fdesktop%2fbb147302.aspx" title="United States (English)">United States (English)</a>
+        </div>
+        <div class="footerCopyright" title="© 2011 Microsoft. All rights reserved">© 2011 Microsoft. All rights reserved</div>
+    </div>
+</div>
+
+        </div>
+    </div>
+<script src="./Projection Transform (Direct3D 9)_files/d0c374ba84717dc6caec77608ba0ced7.js" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"></script>
+
+<script src="./Projection Transform (Direct3D 9)_files/broker-config.js"></script><div style="display: none; " id="_WEDCSInsertedData"><iframe id="_msnFrame" src="./Projection Transform (Direct3D 9)_files/Sync.htm" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;" onload="javascript:MscomBeacon();"></iframe></div></body></html>

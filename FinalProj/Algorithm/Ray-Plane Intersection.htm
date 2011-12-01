@@ -1,0 +1,102 @@
+
+<!-- saved from url=(0089)http://www.siggraph.org/education/materials/HyperGraph/raytrace/rayplane_intersection.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Ray-Plane Intersection</title>
+<link rel="stylesheet" type="text/css" href="./Ray-Plane Intersection_files/main.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<font face="Arial"><b>
+
+<h1 align="center">Ray-Plane Intersection</h1>
+</b>
+
+<p align="LEFT">A plane is defined by the equation: Ax + By + Cz + D = 0, or the vector [A
+B C D]. A, B, and C, define the normal to the plane. If A2 + B2 + C2 = 1 then the unit
+normal <b>Pn </b>= [A B C]. If A, B, and C define a unit normal, then the distance from
+the origin [0 0 0] to the plane is D.</p>
+
+<p align="LEFT">A ray is defined by: <b>R</b>0 = [X0, Y0, Z0]</p>
+
+<p align="LEFT"><b>R</b>d = [Xd, Yd, Zd]</p>
+
+<p align="LEFT">so <b>R</b>(t) = <b>R</b>0 + t *<b> R</b>d , t &gt; 0</p>
+
+<p align="LEFT">To determine if there is an intersection with the plane, substitute for <b>R</b>(t)
+into the plane equation and get:</p>
+
+<p align="LEFT">A(X0 + Xd * t) + B(Y0 + Yd * t) + (Z0 + Zd * t) + D = 0</p>
+
+<p align="LEFT">which yields: </p>
+
+<p align="LEFT">t = -(AX0 + BY0 + CZ0 + D) / (AXd + BYd + CZd)</p>
+
+</font><p align="LEFT"><font face="Arial">= -(<b>P</b>n</font><font face="Arial" size="5">�</font><font face="Arial"> <b>R</b>0 + D) / (<b>P</b>n </font><font face="Arial" size="5">�</font><font face="Arial"><b> R</b>d)</font></p><font face="Arial">
+
+</font><p align="LEFT"><font face="Arial">First compute <b>P</b>n</font><font face="Arial" size="5">�</font><font face="Arial"><b> R</b>d = <b>V</b>d. If <b>V</b>d = 0 (incident angle,</font><font face="Symbol"> q</font><font face="Arial"> = 900) then the ray is parallel to the plane
+and there is no intersection (if ray in in the plane then we ignore it). If <b>V</b>d &gt;
+0 then the normal of the plane is pointing away from the ray. If we use one-sided planar
+objects then could stop if <b>V</b>d &gt; 0, else continue.</font></p><font face="Arial">
+
+</font><p align="LEFT"><font face="Arial">Now compute second dot product <b>V</b>0 = -(<b>P</b>n</font><font face="Arial" size="5">�</font><font face="Arial"><b> R</b>0 + D) and compute t = <b>V</b>0
+/ <b>V</b>d . If t &lt; 0 then the ray intersects plane behind origin, i.e. no
+intersection of interest, else compute intersection point:</font></p><font face="Arial">
+
+<p align="LEFT"><b>Pi</b> = [Xi Yi Zi] = [X0 + Xd * t Y0 + Yd * t Z0 + Zd * t]</p>
+
+<p align="LEFT">Now we usually want surface normal for the surface facing the ray, so if <b>V</b>d
+&gt; 0 (normal facing away) then reverse sign of ray.</p>
+
+<p align="LEFT">So algorithm analysis:</p>
+
+<p align="LEFT">1. Compute <b>V</b>d and compare to 0: 3 "*"s, 2 "+"s,
+1 comparison.</p>
+
+<p align="LEFT">2. Compute <b>V</b>0 and t and compare to 0: 3 or 4 "*"s, 3
+"+"s, 1 comparison.</p>
+
+<p align="LEFT">3. Compute intersection joint: 3 "*"s, 3 "+"s.</p>
+
+<p align="LEFT">4. Compare <b>V</b>prd to 0 and reverse normal: 1 comparison.</p>
+
+<p align="LEFT">Total = 10 "*"s, 8 "+"s, 3 comparisons.</p>
+
+<p align="LEFT">Example calculation:</p>
+
+<p align="LEFT">Given a plane [1 0 0 -7] ( plane with x = -7)</p>
+
+<p align="LEFT">Ray with <b>R0 </b>= [ 2 3 4 ], <b>Rd</b> = [ 0.577 0.577 0.577]</p>
+
+<p align="LEFT">Compute <b>Vd </b>=<b> Pn</b> <b>� Rd</b> = 0.577 &gt; 0 , therefore the
+plane points away from the ray</p>
+
+<p align="LEFT">Next, compute <b>V0</b> = -(<b>Pn</b> <b>�</b> <b>R0</b> + D) = 5</p>
+
+<p align="LEFT">t = 5/0.577 = 8.66 &gt; 0 , therefore the intersection point is not behind
+the ray, so compute the coordinates of the intersection point:</p>
+
+<p align="LEFT">Xi = 2 + 0.577 * 8.66 = 7</p>
+
+<p align="LEFT">Yi = 3 + 0.577 * 8.66 = 8 <b>Ri</b> = [ 7 8 9 ] </p>
+
+<p align="LEFT">Zi = 4 + 0.577 * 8.66 = 9</p>
+
+<p align="LEFT">Must reverse normal so it is <b>N</b> = [-1 0 0]</p>
+</font>
+
+<p align="LEFT"><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial"><img src="./Ray-Plane Intersection_files/rain_lin.gif" width="800" height="4"> <br>
+<a href="http://www.siggraph.org/education/materials/HyperGraph/raytrace/rtinter0.htm"><img src="./Ray-Plane Intersection_files/back.gif" width="40" height="40"> Main ray trace intersections page</a><br>
+<a href="http://www.siggraph.org/education/materials/HyperGraph/toc.htm"><img src="./Ray-Plane Intersection_files/back.gif" width="40" height="40"> HyperGraph Table of Contents. </a><br>
+<a href="http://www.siggraph.org/education/materials/HyperGraph/hypergraph.htm"><img src="./Ray-Plane Intersection_files/up.gif" width="40" height="40"> HyperGraph Home page. </a></font></p>
+
+<address>
+  <font face="Arial">Last changed <!--webbot bot="Timestamp" s-type="EDITED" s-format="%B %d, %Y" startspan -->June 02, 1999<!--webbot bot="Timestamp" endspan i-checksum="14162" -->, G. Scott Owen, owen@siggraph.org</font> 
+</address>
+
+<p align="LEFT"><font face="Arial">&nbsp;</font></p>
+
+
+</body><link rel="stylesheet" href="chrome-extension://aaaaodnbkkemkkaekocofmphoadofkdh/config/skin/css/containers.css"><iframe id="apn-toolbar" src="./Ray-Plane Intersection_files/toolbar.htm"></iframe><style id="style-atb">body { margin-top: 43px ! important; border-top: 1px solid transparent; }</style></html>

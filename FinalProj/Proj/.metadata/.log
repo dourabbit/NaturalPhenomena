@@ -1,0 +1,694 @@
+!SESSION 2011-11-24 00:16:03.109 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-11-24 11:42:30.875
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-11-24 11:42:30.875
+!MESSAGE Conflict for 'org.eclipse.wst.jsdt.ui.edit.text.java.open.editor':
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@10a1543),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@1075056,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@8b4796)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@8201a7)),sourcePriority=1064961)
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@10a1543),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@1075056,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@8b4796)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@8201a7)),sourcePriority=1064961)
+
+!ENTRY org.eclipse.osgi 2 0 2011-11-24 19:41:19.218
+!MESSAGE While loading class "org.eclipse.rse.ui.SystemPreferencesManager$ModelChangeListener", thread "Thread[Worker-2,5,main]" timed out waiting (5000ms) for thread "Thread[main,6,main]" to finish starting bundle "org.eclipse.rse.ui_3.1.0.v200905272300 [529]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.rse.ui.SystemPreferencesManager$ModelChangeListener" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:plugins/org.eclipse.rse.ui_3.1.0.v200905272300.jar" by thread "main".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:376)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:452)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:405)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:393)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.rse.ui.SystemPreferencesManager$1.run(SystemPreferencesManager.java:510)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 14 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1073)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:278)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:408)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:449)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:211)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:376)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:452)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:405)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:393)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:105)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.rse.ui.SystemPreferencesManager$1.run(SystemPreferencesManager.java:510)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2011-11-24 20:29:02.953
+!MESSAGE Exception occurred during problem detection:
+----------------------------------- SOURCE BEGIN -------------------------------------
+
+
+
+
+
+var InputHelper = (function () {
+    // private static
+    //var nextId = 1;
+    var Singleton;
+
+    // constructor
+    var cls = function (canvas) {
+        var mouseEvents = {};
+        var objectPool = [];
+        var oldX, oldY;
+
+        this.handleMouseDown = function (event) {
+            var point = [0, 0, 0];
+            var vec = [0, 0, 0];
+            //Cam.GetRay(event.clientX, event.clientY, point, vec);
+            document.frmOne.mouseState.value = "MouseDown";
+        }
+
+        this.handleMouseUp = function (event) {
+//            if (event.identifier == null) {
+//                event.identifier = 0;
+//            }
+
+//            objectPool.push(mouseEvents[event.identifier]);
+//            mouseEvents[event.identifier] = null;
+//            cloth.release(event.identifier);
+            
+            document.frmOne.mouseState.value = "MouseUp";
+        }
+
+        this.handleMouseMove = function (event) {
+
+            var point = [0, 0, 0];
+            var vec = [0, 0, 0];
+            //Cam.GetRay(mouseEvents[event.identifier].lastMouseX, mouseEvents[event.identifier].lastMouseY, point, vec);
+            document.frmOne.mouseX.value = event.clientX;
+            document.frmOne.mouseY.value = event.clientY;
+            document.frmOne.oldMouseX.value = this.oldX;
+            document.frmOne.oldMouseY.value = this.oldY;
+            //            cloth.move(event.identifier,
+            //		            point[0] - (vec[0] * point[2] / vec[2]),
+            //		            point[1] - (vec[1] * point[2] / vec[2]),
+            //		            0);
+
+            //mouseEvents[event.identifier].lastMouseX = event.clientX;
+            //mouseEvents[event.identifier].lastMouseY = event.clientY;
+             if(this.oldX!=event.clientX&&this.oldY!=event.clientY)
+             {
+            	document.frmOne.mouseState.value = "MouseMove";
+             }
+            else if(Math.this.oldX==event.clientX&&this.oldY==event.clientY)
+            {
+            	document.frmOne.mouseState.value = "MouseHovering";
+            }
+            this.oldX = event.clientX;
+            this.oldY = event.clientY;
+        }
+        Singleton = cls;
+
+
+
+
+        canvas.onmousedown = this.handleMouseDown;
+        canvas.onmouseup = this.handleMouseUp;
+        canvas.onmousemove = this.handleMouseMove;
+    };
+
+
+    cls.GetInputHelper = function () {
+        return Singleton;
+    }
+
+    return cls;
+})();
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.resolve(Compiler.java:702)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:258)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:248)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1066)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1215)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2011-11-24 20:29:02.953
+!MESSAGE Error in JSDT Core during reconcile
+!STACK 1
+JavaScript Model Exception: java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:298)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:248)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1066)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1215)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.resolve(Compiler.java:702)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:258)
+	... 18 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.resolve(Compiler.java:702)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:258)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:248)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1066)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1215)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 1005 2011-11-24 20:29:02.968
+!MESSAGE java.lang.NullPointerException
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.resolve(Compiler.java:702)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnitProblemFinder.process(CompilationUnitProblemFinder.java:258)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:248)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1066)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1215)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2011-11-24 20:29:02.984
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.resolve(JavaScriptUnitResolver.java:862)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.resolve(JavaScriptUnitResolver.java:527)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:862)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:647)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:581)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:574)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:509)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:497)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2011-11-24 20:29:02.984
+!MESSAGE Error in JSDT Core during AST creation
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.IfStatement.analyseCode(IfStatement.java:110)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FieldReference.analyseAssignment(FieldReference.java:92)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Assignment.analyseCode(Assignment.java:59)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:94)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:112)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.Expression.analyseCode(Expression.java:223)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MessageSend.analyseCode(MessageSend.java:77)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.LocalDeclaration.analyseCode(LocalDeclaration.java:63)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:164)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.resolve(JavaScriptUnitResolver.java:862)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.resolve(JavaScriptUnitResolver.java:527)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:862)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:647)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:581)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:574)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:509)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:497)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 2 0 2011-11-24 21:44:10.953
+!MESSAGE The 'org.eclipse.wst.jsdt.ui.JavaNoTypeCompletionProposalComputer' proposal computer from the 'org.eclipse.wst.jsdt.ui' plug-in did not complete normally. The extension has thrown a runtime exception.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3566)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3745)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findVariablesAndMethods(CompletionEngine.java:7670)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:1427)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:2632)
+	at org.eclipse.wst.jsdt.internal.core.Openable.codeComplete(Openable.java:135)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:306)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:299)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.internalComputeCompletionProposals(JavaCompletionProposalComputer.java:174)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.addContextInformations(JavaCompletionProposalComputer.java:107)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.computeContextInformation(JavaCompletionProposalComputer.java:130)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalComputerDescriptor.computeContextInformation(CompletionProposalComputerDescriptor.java:345)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalCategory.computeContextInformation(CompletionProposalCategory.java:283)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.collectContextInformation(ContentAssistProcessor.java:296)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.computeContextInformation(ContentAssistProcessor.java:278)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeContextInformation(ContentAssistant.java:1856)
+	at org.eclipse.jface.text.contentassist.ContentAssistSubjectControlAdapter.computeContextInformation(ContentAssistSubjectControlAdapter.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.computeContextInformation(ContextInformationPopup.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.access$1(ContextInformationPopup.java:389)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup$1.run(ContextInformationPopup.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.showContextProposals(ContextInformationPopup.java:182)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showContextInformation(ContentAssistant.java:1710)
+	at org.eclipse.jface.text.source.SourceViewer.doOperation(SourceViewer.java:838)
+	at org.eclipse.jface.text.source.projection.ProjectionViewer.doOperation(ProjectionViewer.java:1533)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.JavaSourceViewer.doOperation(JavaSourceViewer.java:172)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:184)
+	at org.eclipse.jface.text.link.LinkedModeUI.triggerContextInfo(LinkedModeUI.java:818)
+	at org.eclipse.jface.text.link.LinkedModeUI.switchPosition(LinkedModeUI.java:867)
+	at org.eclipse.jface.text.link.LinkedModeUI.next(LinkedModeUI.java:800)
+	at org.eclipse.jface.text.link.LinkedModeUI.enter(LinkedModeUI.java:719)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.FilledArgumentNamesMethodProposal.apply(FilledArgumentNamesMethodProposal.java:73)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.apply(AbstractJavaCompletionProposal.java:448)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertProposal(CompletionProposalPopup.java:926)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertSelectedProposalWithMask(CompletionProposalPopup.java:877)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.verifyKey(CompletionProposalPopup.java:1304)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:806)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:489)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:62)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:770)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5837)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5541)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1040)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1036)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1368)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4053)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:346)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3946)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4589)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2409)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3471)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.jface.text 2 0 2011-11-28 23:18:19.242
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MethodProposalInfo.resolveMember(MethodProposalInfo.java:81)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MemberProposalInfo.getJavaElement(MemberProposalInfo.java:55)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:70)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:56)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:513)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 2 0 2011-11-28 23:18:20.414
+!MESSAGE The 'org.eclipse.wst.jsdt.ui.JavaNoTypeCompletionProposalComputer' proposal computer from the 'org.eclipse.wst.jsdt.ui' plug-in did not complete normally. The extension has thrown a runtime exception.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3566)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3745)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findVariablesAndMethods(CompletionEngine.java:7670)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:1427)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:2632)
+	at org.eclipse.wst.jsdt.internal.core.Openable.codeComplete(Openable.java:135)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:306)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:299)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.internalComputeCompletionProposals(JavaCompletionProposalComputer.java:174)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.addContextInformations(JavaCompletionProposalComputer.java:107)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.computeContextInformation(JavaCompletionProposalComputer.java:130)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalComputerDescriptor.computeContextInformation(CompletionProposalComputerDescriptor.java:345)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalCategory.computeContextInformation(CompletionProposalCategory.java:283)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.collectContextInformation(ContentAssistProcessor.java:296)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.computeContextInformation(ContentAssistProcessor.java:278)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeContextInformation(ContentAssistant.java:1856)
+	at org.eclipse.jface.text.contentassist.ContentAssistSubjectControlAdapter.computeContextInformation(ContentAssistSubjectControlAdapter.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.computeContextInformation(ContextInformationPopup.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.access$1(ContextInformationPopup.java:389)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup$1.run(ContextInformationPopup.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.showContextProposals(ContextInformationPopup.java:182)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showContextInformation(ContentAssistant.java:1710)
+	at org.eclipse.jface.text.source.SourceViewer.doOperation(SourceViewer.java:838)
+	at org.eclipse.jface.text.source.projection.ProjectionViewer.doOperation(ProjectionViewer.java:1533)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.JavaSourceViewer.doOperation(JavaSourceViewer.java:172)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:184)
+	at org.eclipse.jface.text.link.LinkedModeUI.triggerContextInfo(LinkedModeUI.java:818)
+	at org.eclipse.jface.text.link.LinkedModeUI.switchPosition(LinkedModeUI.java:867)
+	at org.eclipse.jface.text.link.LinkedModeUI.next(LinkedModeUI.java:800)
+	at org.eclipse.jface.text.link.LinkedModeUI.enter(LinkedModeUI.java:719)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.FilledArgumentNamesMethodProposal.apply(FilledArgumentNamesMethodProposal.java:73)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.apply(AbstractJavaCompletionProposal.java:448)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertProposal(CompletionProposalPopup.java:926)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertSelectedProposalWithMask(CompletionProposalPopup.java:877)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.verifyKey(CompletionProposalPopup.java:1304)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:806)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:489)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:62)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:770)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5837)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5541)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1040)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1036)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1368)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4053)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:346)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3946)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4589)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2409)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3471)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+
+!ENTRY org.eclipse.jface.text 4 0 2011-11-28 23:20:30.070
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:198)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverInfo(AbstractJavaEditorTextHover.java:116)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:99)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo(JavaEditorTextHoverProxy.java:67)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.jface.text 2 0 2011-11-28 23:24:28.820
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MethodProposalInfo.resolveMember(MethodProposalInfo.java:81)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MemberProposalInfo.getJavaElement(MemberProposalInfo.java:55)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:70)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:56)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:513)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2011-11-28 23:24:29.899
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MethodProposalInfo.resolveMember(MethodProposalInfo.java:81)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MemberProposalInfo.getJavaElement(MemberProposalInfo.java:55)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:70)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:56)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:513)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2011-11-28 23:24:30.008
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MethodProposalInfo.resolveMember(MethodProposalInfo.java:81)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.MemberProposalInfo.getJavaElement(MemberProposalInfo.java:55)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:70)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:56)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:513)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 2 0 2011-11-28 23:24:31.242
+!MESSAGE The 'org.eclipse.wst.jsdt.ui.JavaNoTypeCompletionProposalComputer' proposal computer from the 'org.eclipse.wst.jsdt.ui' plug-in did not complete normally. The extension has thrown a runtime exception.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3566)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findFields(CompletionEngine.java:3745)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.findVariablesAndMethods(CompletionEngine.java:7670)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:1427)
+	at org.eclipse.wst.jsdt.internal.codeassist.CompletionEngine.complete(CompletionEngine.java:2632)
+	at org.eclipse.wst.jsdt.internal.core.Openable.codeComplete(Openable.java:135)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:306)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.codeComplete(CompilationUnit.java:299)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.internalComputeCompletionProposals(JavaCompletionProposalComputer.java:174)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.addContextInformations(JavaCompletionProposalComputer.java:107)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaCompletionProposalComputer.computeContextInformation(JavaCompletionProposalComputer.java:130)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalComputerDescriptor.computeContextInformation(CompletionProposalComputerDescriptor.java:345)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.CompletionProposalCategory.computeContextInformation(CompletionProposalCategory.java:283)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.collectContextInformation(ContentAssistProcessor.java:296)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.ContentAssistProcessor.computeContextInformation(ContentAssistProcessor.java:278)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeContextInformation(ContentAssistant.java:1856)
+	at org.eclipse.jface.text.contentassist.ContentAssistSubjectControlAdapter.computeContextInformation(ContentAssistSubjectControlAdapter.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.computeContextInformation(ContextInformationPopup.java:390)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.access$1(ContextInformationPopup.java:389)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup$1.run(ContextInformationPopup.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.text.contentassist.ContextInformationPopup.showContextProposals(ContextInformationPopup.java:182)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showContextInformation(ContentAssistant.java:1710)
+	at org.eclipse.jface.text.source.SourceViewer.doOperation(SourceViewer.java:838)
+	at org.eclipse.jface.text.source.projection.ProjectionViewer.doOperation(ProjectionViewer.java:1533)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.JavaSourceViewer.doOperation(JavaSourceViewer.java:172)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:184)
+	at org.eclipse.jface.text.link.LinkedModeUI.triggerContextInfo(LinkedModeUI.java:818)
+	at org.eclipse.jface.text.link.LinkedModeUI.switchPosition(LinkedModeUI.java:867)
+	at org.eclipse.jface.text.link.LinkedModeUI.next(LinkedModeUI.java:800)
+	at org.eclipse.jface.text.link.LinkedModeUI.enter(LinkedModeUI.java:719)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.FilledArgumentNamesMethodProposal.apply(FilledArgumentNamesMethodProposal.java:73)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.AbstractJavaCompletionProposal.apply(AbstractJavaCompletionProposal.java:448)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertProposal(CompletionProposalPopup.java:926)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertSelectedProposalWithMask(CompletionProposalPopup.java:877)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.verifyKey(CompletionProposalPopup.java:1304)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:806)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:489)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:62)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:770)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5837)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5541)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1003)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1027)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1012)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1040)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1036)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1368)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4053)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:346)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3946)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:342)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4589)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2409)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3471)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)

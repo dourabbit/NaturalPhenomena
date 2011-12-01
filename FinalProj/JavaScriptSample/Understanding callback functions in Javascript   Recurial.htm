@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)http://recurial.com/programming/understanding-callback-functions-in-javascript/ -->
+<html dir="ltr" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Understanding callback functions in Javascript | Recurial</title>
+<!-- Platform WordPress Framework By PageLines - www.PageLines.com -->
+<link rel="shortcut icon" href="http://recurial.com/wp-content/themes/platform/core/images/favicon-pagelines.ico" type="image/x-icon">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<!--[if lt IE 8]> <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script> <![endif]--><link rel="alternate" type="application/rss+xml" title="Recurial » Feed" href="http://recurial.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Recurial » Comments Feed" href="http://recurial.com/comments/feed/">
+				
+	<script src="./Understanding callback functions in Javascript   Recurial_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript" async="" src="./Understanding callback functions in Javascript   Recurial_files/ga.js"></script><script type="text/javascript">//<![CDATA[
+	// Google Analytics for WordPress by Yoast v4.1.3 | http://yoast.com/wordpress/google-analytics/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-1325016-5']);
+	_gaq.push(['_trackPageview'],['_trackPageLoadTime']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	//]]></script>
+<link rel="alternate" type="application/rss+xml" title="Recurial » Understanding callback functions in Javascript Comments Feed" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/feed/">
+<link rel="stylesheet" id="pagelines-stylesheet-css" href="./Understanding callback functions in Javascript   Recurial_files/style.css" type="text/css" media="all">
+<!--[if IE 7]>
+<link rel='stylesheet' id='ie7-style-css'  href='http://recurial.com/wp-content/themes/platform/css/ie7.css?ver=1.3.6' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="thickbox-css" href="./Understanding callback functions in Javascript   Recurial_files/thickbox.css" type="text/css" media="all">
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/l10n.js"></script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/jquery.js"></script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://recurial.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://recurial.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Recurial" href="http://recurial.com/">
+<link rel="start" title="Tornado" href="http://recurial.com/poetry/tornado/">
+<link rel="prev" title="Gene Roddenberry on God" href="http://recurial.com/philosophy-2/gene-roddenberry-on-god/">
+<link rel="next" title="Amazing pendulum waves" href="http://recurial.com/random/amazing-pendulum-waves/">
+<meta name="generator" content="WordPress 3.2.1">
+<link rel="canonical" href="./Understanding callback functions in Javascript   Recurial_files/Understanding callback functions in Javascript   Recurial.htm">
+<link rel="shortlink" href="http://wp.me/p16G2k-3W">
+<link rel="stylesheet" id="dynamic-css" href="./Understanding callback functions in Javascript   Recurial_files/dynamic.css" type="text/css" media="all">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link rel="stylesheet" type="text/css" href="./Understanding callback functions in Javascript   Recurial_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Understanding callback functions in Javascript   Recurial_files/shThemeDefault.css"><meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Understanding callback functions in Javascript   Recurial_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Understanding callback functions in Javascript   Recurial_files/services.css"></head>
+<body class="single single-post postid-244 single-format-standard full_width ttype-single tmain-single">
+<div id="site" class="one-sidebar-right"> <!-- #site // Wraps #header, #page-main, #footer - closed in footer -->
+	<div id="page"> <!-- #page // Wraps #header, #page-main - closed in footer -->
+		<div id="page-canvas">
+						<div id="header" class="container-group fix">
+				<div class="outline">
+					<div id="branding" class="container fix">
+	<div class="texture">
+		<div class="content">
+			<div class="content-pad">
+<div class="branding_wrap">
+	<div class="title-container"><a class="home site-title" href="http://recurial.com/" title="Home">Recurial</a><h6 class="site-description subhead">A blog of programming, politics and poetry.</h6></div>		
+	
+	<div class="icons" style="bottom: 0px; right: px;">
+
+				<a target="_blank" href="http://recurial.com/feed/" class="rsslink"></a>
+				
+				
+	</div>
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+				</div>
+			</div>
+						<div id="page-main" class="container-group fix"> <!-- #page-main // closed in footer -->
+				<div id="dynamic-content" class="outline fix">
+					<div id="maincontent" class="container fix">
+	<div class="texture">
+		<div class="content">
+			<div class="content-pad">
+<div id="pagelines_content" class="one-sidebar-right fix">
+	
+		<div id="column-wrap" class="fix">
+		
+				<div id="column-main" class="mcolumn fix">
+			<div class="mcolumn-pad">
+				<div id="postnav" class="copy fix">
+	<div class="copy-pad">
+   			<div class="post-nav fix"> 
+			<span class="previous"><a href="http://recurial.com/philosophy-2/gene-roddenberry-on-god/" rel="prev">Gene Roddenberry on God</a></span> 
+			<span class="next"><a href="http://recurial.com/random/amazing-pendulum-waves/" rel="next">Amazing pendulum waves</a></span>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="theloop" class="copy fix">
+	<div class="copy-pad">
+<div class="post-244 post type-post status-publish format-standard hentry category-programming tag-javascript tag-tutorial fpost" id="post-244">
+				
+				
+					
+						<div class="post-meta fix">	
+							
+							<div class="post-header fix post-nothumb" style="">
+																<div class="post-title-section fix">
+
+									<div class="post-title fix">
+										
+										<h1 class="entry-title">Understanding callback functions in Javascript</h1>
+<div class="metabar"><em><span class="sword">By</span> <span class="author vcard"><span class="fn"><a href="http://recurial.com/author/mike/" title="Posts by Mike Vollmer" rel="author">Mike Vollmer</a></span></span> <span class="sword">On</span> <span class="date time published" title="2011-03-22T14:35:52+0000">March 22, 2011</span>  · <span class="post-comments"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comments">15 Comments</a></span>  </em></div>										
+									</div>
+
+
+								</div>
+															</div>				
+						</div>
+					
+					  	
+						<div class="entry_wrap fix">
+						
+							<div class="entry_content">
+								<p>Callback functions are extremely important in Javascript. They’re pretty much everywhere. Originally coming from a more traditional C/Java background I had trouble with this (and the whole idea of asynchronous programming), but I’m starting to get the hang of it. Strangely, I haven’t found any good introductions to callback functions online — I mainly found bits of documentation on the call() and apply() functions, or brief code snippits demonstrating their use — so, after learning the hard way I decided to try to write a simple introduction to callbacks myself.<span id="more-244"></span></p>
+<p><strong>Functions are objects</strong></p>
+<p><strong> </strong>To understand callback functions you first have to understand regular functions. This might seen like a “duh” thing to say, but functions in Javascript are a bit odd.</p>
+<p>Functions in Javascript are actually objects. Specifically, they’re <code>Function</code> objects created with the <code>Function</code> constructor. A <code>Function</code> object contains a string which contains the Javascript code of the function. If you’re coming from a language like C or Java that might seem strange (how can code be a string?!) but it’s actually run-of-the-mill for Javascript. The distinction between code and data is sometimes blurred.</p>
+<div id="highlighter_83690" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_83690_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_83690" menu="false" src="http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</a><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="comments">// you can create a function by passing the Function constructor a string of code</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="keyword">var</code> <code class="plain">func_multiply = </code><code class="keyword">new</code> <code class="plain">Function(</code><code class="string">"arg1"</code><code class="plain">, </code><code class="string">"arg2"</code><code class="plain">, </code><code class="string">"return arg1 * arg2;"</code><code class="plain">);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="plain">func_multiply(5,10); </code><code class="comments">// =&gt; 50</code></td></tr></tbody></table></div></div></div>
+<p>One benefit of this function-as-object concept is that you can pass code to another function in the same way you would pass a regular variable or object (because the code is literally just an object).</p>
+<p><strong>Passing a function as a callback</strong></p>
+<p><strong></strong>Passing a function as an argument is easy.</p>
+<div id="highlighter_902436" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_902436_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_902436" menu="false" src="http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</a><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="comments">// define our function with the callback argument</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">function</code> <code class="plain">some_function(arg1, arg2, callback) {</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// this generates a random number between arg1 and arg2</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">var</code> <code class="plain">my_number = Math.ceil(Math.random() * (arg1 - arg2) + arg2);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// then we're done, so we'll call the callback and pass our result</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">callback(my_number);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="comments">// call the function</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="plain">some_function(5, 15, </code><code class="keyword">function</code><code class="plain">(num) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// this anonymous function will run when the callback is called</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">console.log(</code><code class="string">"callback called! "</code> <code class="plain">+ num);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="plain">});</code></td></tr></tbody></table></div></div></div>
+<p>It might seem silly to go through all that trouble when the value could just be returned normally, but there are situations where that’s impractical and callbacks are necessary.</p>
+<p><strong>Don’t block the way</strong></p>
+<p>Traditionally functions work by taking input in the form of arguments and returning a value using a return statement (ideally a single return statement at the end of the function: one entry point and one exit point). This makes sense. Functions are essentially mappings between input and output.</p>
+<p>Javascript gives us an option to do things a bit differently. Rather than wait around for a function to finish by returning a value, we can use callbacks to do it asynchronously. This is useful for things that take a while to finish, like making an AJAX request, because we aren’t holding up the browser. We can keep on doing other things while waiting for the callback to be called. In fact, very often we are required (or, rather, strongly encouraged) to do things&nbsp;asynchronously in Javascript.</p>
+<p>Here’s a more comprehensive example that uses AJAX to load an XML file, and uses the call() function to call a callback function in the context of the requested object (meaning that when we call the <code>this</code> keyword inside the callback function it will refer to the requested object):</p>
+<div id="highlighter_428072" class="syntaxhighlighter  "><div class="bar   show"><div class="toolbar"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#viewSource" title="view source" style="width: 16px; height: 16px; " class="item viewSource">view source</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_428072_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_428072" menu="false" src="http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf"></div><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#printSource" title="print" style="width: 16px; height: 16px; " class="item printSource">print</a><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">function</code> <code class="plain">some_function2(url, callback) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">var</code> <code class="plain">httpRequest; </code><code class="comments">// create our XMLHttpRequest object</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(window.XMLHttpRequest) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">httpRequest = </code><code class="keyword">new</code> <code class="plain">XMLHttpRequest();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code><code class="keyword">else</code> <code class="keyword">if</code> <code class="plain">(window.ActiveXObject) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Internet Explorer is stupid</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">httpRequest = </code><code class="keyword">new</code> <code class="plain">ActiveXObject(</code><code class="string">"Microsoft.XMLHTTP"</code><code class="plain">);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">httpRequest.onreadystatechange = </code><code class="keyword">function</code><code class="plain">() {</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// inline function to check the status of our request</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// this is called on every state change</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(httpRequest.readyState === 4 &amp;&amp; httpRequest.status === 200) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">callback.call(httpRequest.responseXML); </code><code class="comments">// call the callback function</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">};</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">httpRequest.open(</code><code class="string">'GET'</code><code class="plain">, url);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">httpRequest.send();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="comments">// call the function</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="plain">some_function2(</code><code class="string">"text.xml"</code><code class="plain">, </code><code class="keyword">function</code><code class="plain">() {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">console.log(</code><code class="keyword">this</code><code class="plain">);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>23</code></td><td class="content"><code class="plain">});</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>24</code></td><td class="content"><code class="plain">console.log(</code><code class="string">"this will run before the above callback"</code><code class="plain">);</code></td></tr></tbody></table></div></div></div>
+<p>In this example we create the <code>httpRequest</code> object and load an XML file. The typical paradigm of returning a value at the bottom of the function no longer works here. Our request is handled asynchronously, meaning that we start the request and tell it to call our function when it finishes.</p>
+<p>We’re using two anonymous functions here. It’s important to remember that we could just as easily be using named functions, but for sake of brevity they’re just written inline. The first anonymous function is run every time there’s a state change in our <code>httpRequest</code> object. We ignore it until the state is 4 (meaning it’s done) and the status is 200 (meaning it was successful). In the real world you’d want to check if the request failed, but we’re assuming the file exists and can be loaded by the browser. This anonymous function is assigned to <code>httpRequest.onreadystatechange</code>, so it is not run right away but rather called every time there’s a state change in our request.</p>
+<p>When we finally finish our AJAX request, we not only run the callback function but we use the <code>call()</code> function. This is a different way of calling a callback function. The method we used before of just running the function would work fine here, but I thought it would be worth demonstrating the use of the <code>call()</code> function. Alternatively you could use the <code>apply()</code> function (the difference between the two is beyond the scope of this tutorial, but it involves how you pass arguments to the function).</p>
+<p>The neat thing about using <code>call()</code> is that we set the context in which the function is executed. This means that when we use the <code>this</code> keyword inside our callback function it refers to whatever we passed as the first argument for <code>call()</code>. In this case, when we refer to this inside our anonymous callback function we are referring to the <code>responseXML</code> from the AJAX request.</p>
+<p>Finally, the second console.log statement will run before the first, because the callback isn’t executed until the request is over, and until that happens the rest of the code goes right on ahead and keeps running.</p>
+<p><strong>Wrapping it up</strong></p>
+<p>Hopefully now you should understand callbacks well enough to use them in your own code. I still find it hard to structure code that is based around callbacks (it ends up looking like&nbsp;spaghetti… my mind is too accustomed to regular structured programming), but they’re a very powerful tool and one of the most interesting parts of the Javascript language.</p>
+									<div class="clear"></div> 
+																</div>	
+							<div class="tags">
+								Tagged with: <a href="http://recurial.com/tag/javascript/" rel="tag">javascript</a> • <a href="http://recurial.com/tag/tutorial/" rel="tag">tutorial</a><br>&nbsp;
+							</div>
+						</div>
+								</div>
+
+	<div class="clear"></div>
+	</div>
+</div>
+<div id="sharebar" class="copy fix">
+	<div class="copy-pad">
+			<div class="post-footer">
+
+					<div class="left">
+						If you enjoyed this article, please consider sharing it!	
+					</div>
+					<div class="right">
+																					<a href="http://reddit.com/submit?phase=2&url=http://recurial.com/programming/understanding-callback-functions-in-javascript/&title=Understanding+callback+functions+in+Javascript" title="Share on Reddit" rel="nofollow" target="_blank"><img src="./Understanding callback functions in Javascript   Recurial_files/ico-reddit.png" alt="Reddit"></a>
+														
+															<a href="http://www.facebook.com/sharer.php?u=http://recurial.com/programming/understanding-callback-functions-in-javascript/&t=Understanding+callback+functions+in+Javascript" title="Share on Facebook" rel="nofollow" target="_blank"><img src="./Understanding callback functions in Javascript   Recurial_files/ico-facebook.png" alt="Facebook"></a>
+							 
+
+																							<a href="http://twitter.com/?status=Understanding%20callback%20functions%20in%20Javascript%20-%20http://recurial.com/programming/understanding-callback-functions-in-javascript/" title="Share on Twitter" rel="nofollow" target="_blank"><img src="./Understanding callback functions in Javascript   Recurial_files/ico-twitter.png" alt="Twitter"></a>
+							 
+
+															<a href="http://del.icio.us/post?url=http://recurial.com/programming/understanding-callback-functions-in-javascript/&title=Understanding+callback+functions+in+Javascript" title="Share on Delicious" rel="nofollow" target="_blank"><img src="./Understanding callback functions in Javascript   Recurial_files/ico-del.png" alt="Delicious"></a>
+														
+														
+														
+												</div>
+				<div class="clear"></div>
+			</div>
+	
+	<div class="clear"></div>
+	</div>
+</div>
+<div id="pl_comments" class="copy fix">
+	<div class="copy-pad">
+
+<div id="comments">
+				<h3 id="comments-title">15 Responses to <em>Understanding callback functions in Javascript</em></h3>
+
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="comment-371">
+				<div id="div-comment-371" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/31601fa39fb00f528a3cbbd4fd5e8d1d" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-31601fa39fb00f528a3cbbd4fd5e8d1d-0">		<cite class="fn"><a href="http://muhammadghazali.web.id/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://muhammadghazali.web.id&#39;]);" rel="external nofollow" class="url">Muhammad Ghazali</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-371">
+			June 12, 2011 at 7:35 am</a>		</div>
+
+		<p>Hei, your article is interesting. I’ve got insight after read this and know a lot more than before about callback function, specifically in JavaScript.<br>
+I did not know that if the function in JavaScript are objects, so I’m glad to know that.<br>
+Thanks <img src="./Understanding callback functions in Javascript   Recurial_files/icon_smile.gif" alt=":-)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=371#respond" onclick="return addComment.moveForm(&quot;div-comment-371&quot;, &quot;371&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-454">
+				<div id="div-comment-454" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/0b8f2da594724c6e34347bde26813d10" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-0b8f2da594724c6e34347bde26813d10-0">		<cite class="fn"><a href="http://blog.pkgbox.org/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://blog.pkgbox.org&#39;]);" rel="external nofollow" class="url">Uli</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-454">
+			July 29, 2011 at 4:07 pm</a>		</div>
+
+		<p>AH! AAAAH! I was searching for a tutorial about callbacks, why they are used and what for. I guess I understood a little bit more now. Thanks!</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=454#respond" onclick="return addComment.moveForm(&quot;div-comment-454&quot;, &quot;454&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-460">
+				<div id="div-comment-460" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/1f4f4a868f2d14dc31ade2557e479277" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-1f4f4a868f2d14dc31ade2557e479277-0">		<cite class="fn">kiat</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-460">
+			August 9, 2011 at 6:37 am</a>		</div>
+
+		<p>Great tutorial, I was looking to implement a callback function and now I can try it.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=460#respond" onclick="return addComment.moveForm(&quot;div-comment-460&quot;, &quot;460&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-461">
+				<div id="div-comment-461" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/3f78e57897b1763673469ed6f61a2dda" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-3f78e57897b1763673469ed6f61a2dda-0">		<cite class="fn">sami</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-461">
+			August 9, 2011 at 5:49 pm</a>		</div>
+
+		<p>thanks so much for this. i’ve been searching for a while on a tutorial or an article of sorts to clear up callbacks for me, and this was it. you definitely were not kidding when you said there was nothing out there. thank you!</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=461#respond" onclick="return addComment.moveForm(&quot;div-comment-461&quot;, &quot;461&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-466">
+				<div id="div-comment-466" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/9028518eeee75f59781b3701ccaee90f" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-9028518eeee75f59781b3701ccaee90f-0">		<cite class="fn">Sarah-Jane</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-466">
+			September 3, 2011 at 8:51 am</a>		</div>
+
+		<p>Thanks! You made it so clear</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=466#respond" onclick="return addComment.moveForm(&quot;div-comment-466&quot;, &quot;466&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-468">
+				<div id="div-comment-468" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/d7fe57a81bb38bcfabcefa64c7b826d2" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-d7fe57a81bb38bcfabcefa64c7b826d2-0">		<cite class="fn">PandeySrivastav</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-468">
+			September 23, 2011 at 1:57 am</a>		</div>
+
+		<p>Hello Everyone,<br>
+We can create function in Java Script to perform some specific task when needed. We can use function in java script to keep some scripts inside it and is used to perform an action on the click event of any object. We can use function keyword to create function in java script………. for more details check this link…… <a href="http://mindstick.com/Articles/0864994b-563d-4180-87bd-b6e3bea77c26/?Function%20in%20Java%20Script" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-comment&#39;,&#39;http://mindstick.com&#39;]);" rel="nofollow"></a><a href="http://mindstick.com/Articles/0864994b-563d-4180-87bd-b6e3bea77c26/?Function%20in%20Java%20Script" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-comment&#39;,&#39;http://mindstick.com&#39;]);" rel="nofollow">http://mindstick.com/Articles/0864994b-563d-4180-87bd-b6e3bea77c26/?Function%20in%20Java%20Script</a> </p>
+<p>Thanks !!!!!</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=468#respond" onclick="return addComment.moveForm(&quot;div-comment-468&quot;, &quot;468&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-470">
+				<div id="div-comment-470" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/999d8772ad64a4c24480d7decf8994c9" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-999d8772ad64a4c24480d7decf8994c9-0">		<cite class="fn">Sidney</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-470">
+			September 23, 2011 at 4:48 pm</a>		</div>
+
+		<p>very clear! thank you.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=470#respond" onclick="return addComment.moveForm(&quot;div-comment-470&quot;, &quot;470&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-474">
+				<div id="div-comment-474" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/67c077fd553e492b72e916f61fd3bff0" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-67c077fd553e492b72e916f61fd3bff0-0">		<cite class="fn">rogical</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-474">
+			October 14, 2011 at 9:44 pm</a>		</div>
+
+		<p>good js project to solve serial callback functions<br>
+<a href="https://github.com/JacksonTian/eventproxy" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-comment&#39;,&#39;http://github.com&#39;]);" rel="nofollow">https://github.com/JacksonTian/eventproxy</a></p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=474#respond" onclick="return addComment.moveForm(&quot;div-comment-474&quot;, &quot;474&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-476">
+				<div id="div-comment-476" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/742f7de0e77b1259d4ec5843179d1092" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-742f7de0e77b1259d4ec5843179d1092-0">		<cite class="fn"><a href="http://discusstech.org/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://discusstech.org&#39;]);" rel="external nofollow" class="url">Techie Salsan</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-476">
+			October 18, 2011 at 9:32 pm</a>		</div>
+
+		<p>Callback methods are widely used in Jquery. It will solve the issue browser freezing while running long scripts.. Anyway thanks for the article.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=476#respond" onclick="return addComment.moveForm(&quot;div-comment-476&quot;, &quot;476&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-477">
+				<div id="div-comment-477" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/1409406b325c277f982c8a2671912518" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-1409406b325c277f982c8a2671912518-0">		<cite class="fn">v9</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-477">
+			October 19, 2011 at 5:35 am</a>		</div>
+
+		<p>Nice one …keep it up</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=477#respond" onclick="return addComment.moveForm(&quot;div-comment-477&quot;, &quot;477&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-483">
+				<div id="div-comment-483" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/270e3508aa991e3969e1410fd70f5533" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-270e3508aa991e3969e1410fd70f5533-0">		<cite class="fn"><a href="http://www.touchinspiration.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://www.touchinspiration.com&#39;]);" rel="external nofollow" class="url">SirBertly</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-483">
+			November 2, 2011 at 1:04 pm</a>		</div>
+
+		<p>Wow! I love this article!! I love you!!! Thanks a lot man! I’ve been using callbacks rather unconfidently, this really helps explain it!</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=483#respond" onclick="return addComment.moveForm(&quot;div-comment-483&quot;, &quot;483&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-488">
+				<div id="div-comment-488" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/f6ff065b4cbb42ca76bf5a5523756983" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-f6ff065b4cbb42ca76bf5a5523756983-0">		<cite class="fn">Blanka Bouskova</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-488">
+			November 10, 2011 at 6:42 am</a>		</div>
+
+		<p>Thank you very much!</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=488#respond" onclick="return addComment.moveForm(&quot;div-comment-488&quot;, &quot;488&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-491">
+				<div id="div-comment-491" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/d5325316cc796f8baa12e644b18b88a5" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-d5325316cc796f8baa12e644b18b88a5-0">		<cite class="fn">Jannik Olsen</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-491">
+			November 14, 2011 at 6:33 am</a>		</div>
+
+		<p>Hiya,</p>
+<p>thanks for the article, that cleared up the subject for me, allowing me to properly sequence my functions in collaboration with jquery queue/dequeue functions. Actually, it made the task stupidly simple.</p>
+<p>Seeing as I’d been browsing the net for a solution, finding a jqeury plugin for sequencing functions which I scrapped as being too convoluted, I’m *very* pleased to finally be able to use the callback aspect of js. The concept is familiar as jquery uses it all the time – I’ve just been clueless as to how I can use it myself <img src="./Understanding callback functions in Javascript   Recurial_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p>As an aside: if you want the callback parameter to be optional you can do a simple ‘if’ in your function:</p>
+<p>if(typeof(callback) === ‘function’)<br>
+    callback();</p>
+<p>//Jannik</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=491#respond" onclick="return addComment.moveForm(&quot;div-comment-491&quot;, &quot;491&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-492">
+				<div id="div-comment-492" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/5cde3b246b705ba3c53a2d5331e43892" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-5cde3b246b705ba3c53a2d5331e43892-0">		<cite class="fn">Gaurav Thakur</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-492">
+			November 14, 2011 at 7:19 am</a>		</div>
+
+		<p>Very clear@@@@ Was useful and understood it now <img src="./Understanding callback functions in Javascript   Recurial_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=492#respond" onclick="return addComment.moveForm(&quot;div-comment-492&quot;, &quot;492&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-497">
+				<div id="div-comment-497" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Understanding callback functions in Javascript   Recurial_files/dcf1cb3583f3d3a89e861cbe5f324b9e" class="avatar avatar-45 photo grav-hashed grav-hijack" height="45" width="45" id="grav-dcf1cb3583f3d3a89e861cbe5f324b9e-0">		<cite class="fn"><a href="http://aswinteja.com/" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-commentauthor&#39;,&#39;http://aswinteja.com&#39;]);" rel="external nofollow" class="url">Aswin</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#comment-497">
+			November 23, 2011 at 9:47 am</a>		</div>
+
+		<p>Thanks ! That was just what I wanted. I’ve walked on the same route of being a C/Java/PHP dev and I’ve always found it confusing to use callbacks (Though I manage to pull out code with callbacks). I guess it is just a mindstate that fails to comprehend the concept of callbacks and closures.</p>
+
+		<div class="reply">
+		<a class="comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/?replytocom=497#respond" onclick="return addComment.moveForm(&quot;div-comment-497&quot;, &quot;497&quot;, &quot;respond&quot;, &quot;244&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+			</ol>
+			
+			
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://recurial.com/programming/understanding-callback-functions-in-javascript/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://recurial.com/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="244" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="3e969e55fc"></p>					</form>
+							</div><!-- #respond -->
+			<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#commentform').submit(function() {
+            _gaq.push(
+                ['_setAccount','UA-1325016-5'],
+                ['_trackEvent','comment']
+            );
+        });
+    });    
+</script>
+			</div>
+	<div class="clear"></div>
+	</div>
+</div>
+<div id="pagination" class="copy fix">
+	<div class="copy-pad">
+				
+		<div class="clear"></div>
+	</div>
+</div>
+			</div>
+		</div>
+		
+				
+	</div>	
+	
+	
+	<div id="sidebar-wrap" class="fix">
+			<div id="sidebar1" class="scolumn fix">
+				<div class="scolumn-pad">
+					<div id="sidebar_primary" class="copy fix">
+	<div class="copy-pad">
+	<ul id="list_sidebar_primary" class="sidebar_widgets fix">
+		<li id="pages-3" class="widget_pages widget fix"><div class="widget-pad"><h3 class="widget-title">Pages</h3>		<ul>
+			<li class="page_item page-item-2"><a href="http://recurial.com/about/" title="About Me">About Me</a></li>
+		</ul>
+		</div></li><li id="categories-3" class="widget_categories widget fix"><div class="widget-pad"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-44"><a href="http://recurial.com/category/philosophy-2/" title="View all posts filed under Philosophy">Philosophy</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://recurial.com/category/poetry/" title="View all posts filed under Poetry">Poetry</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://recurial.com/category/politics/" title="View all posts filed under Politics">Politics</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://recurial.com/category/programming/" title="View all posts filed under Programming">Programming</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://recurial.com/category/random/" title="View all posts filed under Random">Random</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="http://recurial.com/category/thoughts/" title="View all posts filed under Thoughts">Thoughts</a>
+</li>
+		</ul>
+</div></li><li id="archives-3" class="widget_archive widget fix"><div class="widget-pad"><h3 class="widget-title">Archives</h3>		<ul>
+			<li><a href="http://recurial.com/2011/10/" title="October 2011">October 2011</a></li>
+	<li><a href="http://recurial.com/2011/09/" title="September 2011">September 2011</a></li>
+	<li><a href="http://recurial.com/2011/08/" title="August 2011">August 2011</a></li>
+	<li><a href="http://recurial.com/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://recurial.com/2011/06/" title="June 2011">June 2011</a></li>
+	<li><a href="http://recurial.com/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://recurial.com/2011/03/" title="March 2011">March 2011</a></li>
+	<li><a href="http://recurial.com/2011/01/" title="January 2011">January 2011</a></li>
+	<li><a href="http://recurial.com/2010/12/" title="December 2010">December 2010</a></li>
+	<li><a href="http://recurial.com/2010/11/" title="November 2010">November 2010</a></li>
+	<li><a href="http://recurial.com/2010/10/" title="October 2010">October 2010</a></li>
+		</ul>
+</div></li><li id="linkcat-2" class="widget_links widget fix"><div class="widget-pad"><h3 class="widget-title">Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://andrewsullivan.theatlantic.com/" target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://andrewsullivan.theatlantic.com/&#39;]);">Andrew Sullivan</a></li>
+<li><a href="http://digbysblog.blogspot.com/" target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://digbysblog.blogspot.com/&#39;]);">Digby</a></li>
+<li><a href="http://www.salon.com/news/opinion/glenn_greenwald/index.html" title="One of the best blogs on the web." target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://www.salon.com/news/opinion/glenn_greenwald/index.html&#39;]);">Glenn Greenwald</a></li>
+<li><a href="http://maddowblog.msnbc.msn.com/" title="Rachel Maddow’s blog" target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://maddowblog.msnbc.msn.com/&#39;]);">Maddow blog</a></li>
+<li><a href="http://npc.talkingincircles.net/" rel="friend met" title="My friend’s blog" target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://npc.talkingincircles.net&#39;]);">NPC's blog</a></li>
+<li><a href="http://scienceblogs.com/pharyngula/" target="" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://scienceblogs.com/pharyngula/&#39;]);">Pharyngula</a></li>
+<li><a href="http://www.aaronsw.com/weblog/" target="" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://www.aaronsw.com/weblog/&#39;]);">Raw Thought</a></li>
+<li><a href="http://weblog.rubyonrails.org/" target="_blank" onclick="javascript:_gaq.push([&#39;_trackEvent&#39;,&#39;outbound-blogroll&#39;,&#39;http://weblog.rubyonrails.org/&#39;]);">Riding Rails</a></li>
+
+	</ul>
+</div></li>
+	</ul>
+	<div class="clear"></div>
+	</div>
+</div>
+	
+				</div>
+			</div>
+			</div>		
+
+</div>				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div> <!-- END #dynamic-content -->
+
+<div id="morefoot_area"><div id="morefoot" class="container fix">
+	<div class="texture">
+		<div class="content">
+			<div class="content-pad">
+								<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="twitterbar" class="container fix">
+	<div class="texture">
+		<div class="content">
+			<div class="content-pad">
+<div class="tbubble"><span class="twitter">"Direct the Patent Office to Cease Issuing Software Patents http://t.co/fURyyymZ" —&nbsp;<a class="twitteraccount" href="http://twitter.com/#!/probabilityzero">probabilityzero</a></span></div>				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="clear"></div>
+				
+</div> <!-- END #page-main from header -->
+</div> <!-- END #page-canvas from header -->
+</div> <!-- END #page from header -->
+
+<div id="footer">
+	<div class="outline fix"><div id="simple_footer_nav" class="container fix">
+	<div class="texture">
+		<div class="content">
+			<div class="content-pad">
+	<div id="logo">
+					<h1 class="site-title">
+				<a class="home" href="http://recurial.com/" title="Home">
+					Recurial				</a>
+			</h1>
+			</div>
+	
+				<ul id="simple_footer">
+			  	<li class="page_item page-item-2"><a href="http://recurial.com/about/" title="About Me">About Me</a></li>
+			</ul>	
+	<span class="terms">
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="./Understanding callback functions in Javascript   Recurial_files/80x15.png"></a><br>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">work</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.	</span>	
+
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="cred" class="pagelines"><a class="plimage" target="_blank" href="http://www.pagelines.com/" title="PageLines"><img src="./Understanding callback functions in Javascript   Recurial_files/pagelines.png" alt="Platform by PageLines"></a></div><div class="clear"></div></div>
+</div>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var thickboxL10n = {
+	next: "Next &gt;",
+	prev: "&lt; Prev",
+	image: "Image",
+	of: "of",
+	close: "Close"
+};
+try{convertEntities(thickboxL10n);}catch(e){};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/thickbox.js"></script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {
+	my_hash: ""
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/wpgroho.js"></script>
+	<div style="display:none">
+	<div class="grofile-hash-map-31601fa39fb00f528a3cbbd4fd5e8d1d">
+	</div>
+	<div class="grofile-hash-map-0b8f2da594724c6e34347bde26813d10">
+	</div>
+	<div class="grofile-hash-map-1f4f4a868f2d14dc31ade2557e479277">
+	</div>
+	<div class="grofile-hash-map-3f78e57897b1763673469ed6f61a2dda">
+	</div>
+	<div class="grofile-hash-map-9028518eeee75f59781b3701ccaee90f">
+	</div>
+	<div class="grofile-hash-map-d7fe57a81bb38bcfabcefa64c7b826d2">
+	</div>
+	<div class="grofile-hash-map-999d8772ad64a4c24480d7decf8994c9">
+	</div>
+	<div class="grofile-hash-map-67c077fd553e492b72e916f61fd3bff0">
+	</div>
+	<div class="grofile-hash-map-742f7de0e77b1259d4ec5843179d1092">
+	</div>
+	<div class="grofile-hash-map-1409406b325c277f982c8a2671912518">
+	</div>
+	<div class="grofile-hash-map-270e3508aa991e3969e1410fd70f5533">
+	</div>
+	<div class="grofile-hash-map-f6ff065b4cbb42ca76bf5a5523756983">
+	</div>
+	<div class="grofile-hash-map-d5325316cc796f8baa12e644b18b88a5">
+	</div>
+	<div class="grofile-hash-map-5cde3b246b705ba3c53a2d5331e43892">
+	</div>
+	<div class="grofile-hash-map-dcf1cb3583f3d3a89e861cbe5f324b9e">
+	</div>
+	</div>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/shCore.js"></script>
+<script type="text/javascript" src="./Understanding callback functions in Javascript   Recurial_files/shBrushJScript.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shCore.css?ver=2.1.364";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shThemeDefault.css?ver=2.1.364";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://recurial.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.all();
+</script>
+
+<script type="text/javascript">
+var tb_pathToImage = "http://recurial.com/wp-includes/js/thickbox/loadingAnimation.gif";
+var tb_closeImage = "http://recurial.com/wp-includes/js/thickbox/tb-close.png";
+</script>
+
+	<script src="./Understanding callback functions in Javascript   Recurial_files/e-201147.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1',blog:'16367896',post:'244'});
+	var load_cmc = function(){linktracker_init(16367896,244,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./Understanding callback functions in Javascript   Recurial_files/g.gif" alt="">
+
+<!-- This Quick Cache file was built for (  recurial.com/programming/understanding-callback-functions-in-javascript/ ) in 3.04969 seconds, on Nov 25th, 2011 at 7:28 am UTC. -->
+<!-- This Quick Cache file will automatically expire ( and be re-built automatically ) on Nov 25th, 2011 at 8:28 am UTC --></body></html>

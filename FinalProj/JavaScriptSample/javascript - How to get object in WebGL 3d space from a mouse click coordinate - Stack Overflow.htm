@@ -1,0 +1,749 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0108)http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/ga.js"></script>
+    
+    <title>javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <script type="text/javascript" async="" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44"></script><script type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/all.css">
+    
+    <link rel="canonical" href="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow.htm">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to get object in WebGL 3d space from a mouse click coordinate&#39;" href="http://stackoverflow.com/feeds/question/7364693">
+    <meta name="title" content="javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow">
+    <link rel="image_src" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:3,shownCommentCount:3,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:7364693});
+
+            styleCode();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"http://stackauth.com","serverTime":1321911879,"styleCode":true,"newTagEditor":true,"enableUserHovercards":true,"enableTabCompletion":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers"},"user":{"isAnonymous":true,"fkey":"2e47d95fc3d9294acd62ddc1968ea986","inboxUnviewedCount":-1}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"0324556b7bf7","js/moderator.js":"a38ca3c6143d","js/full-anon.js":"8fcefa158ad3","js/full.js":"a168b3deac0f","js/wmd.js":"688233b2af68","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"97644ef9b7d4","js/help.js":"7f83495f785a","js/tageditor.js":"75954ba7b6f1","js/tageditornew.js":"9d9998359a54","js/inline-tag-editing.js":"364e12111b4b","js/mathjax-editing.js":"a47e02eb0282","js/revisions.js":"63c88065da1f"});
+    </script>
+
+<script async="" type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/full-anon.js"></script><link href="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/sidebar.min.css" type="text/css" rel="stylesheet"></head>
+<body class="question-page" style="margin-top: 2.5em; ">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"><div id="notify--1" style=""><span class="notify-close"><a title="dismiss this notification">×</a></span><span class="notify-text">Welcome to Q&amp;A for professional and enthusiast programmers — check out the <a onclick="StackExchange.notify.closeFirstTime(); return false;" href="http://stackoverflow.com/faq">FAQ</a>!</span></div></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f7364693%2fhow-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate">log in</a>
+ <span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com/">careers</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.stackoverflow.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+
+
+
+<div id="question-header">
+    <h1><a href="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow.htm" class="question-hyperlink">How to get object in WebGL 3d space from a mouse click coordinate</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question">
+
+    <div class="everyonelovesstackoverflow" id="adzerk1"><a href="http://engine.adzerk.net/redirect/0/5916/2444/8277/0ed48966144f4c2c859d8909b09d7a73/43/1178/8802/634575086798021040?keywords=javascript%2c3d%2cmouse%2cwebgl%2ccoordinate" rel="nofollow" target="_blank" title=""><img src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/d31c8d7d3cf640a6b29d9ad71788dd4a.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input type="hidden" value="7364693">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">2</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>3</b></div>    
+
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var shareUrl = "http%3a%2f%2fstackoverflow.com%2fq%2f7364693";
+            var shareMsg = "How+to+get+object+in+WebGL+3d+space+from+a+mouse+click+coordinate";
+            StackExchange.share.facebook($("#fb-share-7364693"), shareUrl, shareMsg);
+            StackExchange.share.twitter($("#twitter-share-7364693"), shareUrl, shareMsg);
+        });
+    </script>
+    <a id="fb-share-7364693" class="fb-share" title="share link to this question on Facebook">share [fb]</a>
+    <a id="twitter-share-7364693" class="twitter-share" title="share link to this question on Twitter">share [tw]</a>    
+
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text">
+        <p>I'm building a boardgame in WebGL. The board can be rotated/zoomed. I need a way to translate a click on the canvas element (x,y) into the relevant point in 3D space (x, y, z). The ultimate result is that I want to know the (x, y, z) coordinate that contains the point that touches the object closest to the user. For instance, the user clicks a piece, and you imagine a ray traveling through 3D space that goes through both the piece and the game board, but I want the (x, y, z) coord of the piece at the point where it was touched.</p>
+
+<p>I feel like this must be a very common problem, but I can't seem to find a solution in my googles. There must be some way to project the current view of the 3D space into 2D so you can map each point in 2D space to the relevant point in 3D space. I want to the user to be able to mouse over a space on the board, and have the spot change color.</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/3d" class="post-tag" title="show questions tagged &#39;3d&#39;" rel="tag">3d</a> <a href="http://stackoverflow.com/questions/tagged/mouse" class="post-tag" title="show questions tagged &#39;mouse&#39;" rel="tag">mouse</a> <a href="http://stackoverflow.com/questions/tagged/webgl" class="post-tag" title="show questions tagged &#39;webgl&#39;" rel="tag">webgl</a> <a href="http://stackoverflow.com/questions/tagged/coordinate" class="post-tag" title="show questions tagged &#39;coordinate&#39;" rel="tag">coordinate</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/q/7364693" title="short permalink to this question" id="link-post-7364693">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/7364693/edit">improve this question</a></div>
+    </td>
+    <td class="post-signature owner">
+    <div class="user-info"><div class="user-action-time">asked <span title="2011-09-09 16:26:20Z" class="relativetime">Sep 9 at 16:26</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/850647/seibelj"><div class=""><img src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/ccb2ce04705d9a22abc024341ab3e373" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/850647/seibelj">seibelj</a><br><span class="reputation-score" title="reputation score">53</span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-7364693" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-8890742" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">You're not talking about this are you? <a href="http://www.3dkingdoms.com/selection.html#ray" rel="nofollow">3dkingdoms.com/selection.html#ray</a> Just drop a normal from the camera lens to the plane and figure out the POI.</span> –&nbsp;<a href="http://stackoverflow.com/users/257493/incognito" title="3981 reputation" class="comment-user">Incognito</a> <span class="comment-date"><span title="2011-09-09 19:54:47Z">Sep 9 at 19:54</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-8891151" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">I think <a href="http://stackoverflow.com/questions/2532693/converting-2d-mouse-coordinates-to-3d-space-in-opengl-es/2532701#2532701">this</a> is the general description of what I want to do but I can't figure out an algorithm from his description.</span> –&nbsp;<a href="http://stackoverflow.com/users/850647/seibelj" title="53 reputation" class="comment-user owner">seibelj</a> <span class="comment-date"><span title="2011-09-09 20:21:39Z">Sep 9 at 20:21</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-8891394" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">There must be some sort of calculation from imagining the viewport as a flat plane, located at (0,0,0) and the center of the rectangle at the origin. I will ponder this more, I'm confident there is an elegant solution.</span> –&nbsp;<a href="http://stackoverflow.com/users/850647/seibelj" title="53 reputation" class="comment-user owner">seibelj</a> <span class="comment-date"><span title="2011-09-09 20:39:12Z">Sep 9 at 20:39</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(132, 132, 132); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>2 Answers</h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="7373739"></a>
+    <div id="answer-7373739" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="7373739">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer Sep 19 at 17:38">accepted</span>
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>You're looking for an unproject function, which converts screen coordinates into a ray cast from the camera position into the 3D world. You must then perform ray/triangle intersection tests to find the closest triangle to the camera which also intersects the ray.</p>
+
+<p>I have an example of unprojecting available at <a href="https://github.com/sinisterchipmunk/jax/blob/5d392c9d67cb9ae5623dc03846027c473f625925/src/jax/webgl/camera.js#L568" rel="nofollow">jax/camera.js#L568</a> -- but you'll still need to implement ray/triangle intersection. I have an implementation of that at <a href="https://github.com/sinisterchipmunk/jax/blob/5d392c9d67cb9ae5623dc03846027c473f625925/src/jax/geometry/triangle.js#L113" rel="nofollow">jax/triangle.js#L113</a>.</p>
+
+<p>There is a simpler and (usually) faster alternative, however, called 'picking'. Use this if you want to select an entire object (for instance, a chess piece), and if you don't care about where the mouse actually clicked. The WebGL way to do this is to render the entire scene in various shades of blue (the blue is a key, while red and green are used for unique IDs of the objects in the scene) to a texture, then read back a pixel from that texture. Decoding the RGB into the object's ID will give you the object that was clicked. Again, I've implemented this and it's available at <a href="https://github.com/sinisterchipmunk/jax/blob/5d392c9d67cb9ae5623dc03846027c473f625925/src/jax/webgl/world.js#L82" rel="nofollow">jax/world.js#L82</a>. (See also lines 146, 162, 175.)</p>
+
+<p>Both approaches have pros and cons (discussed <a href="http://learningwebgl.com/blog/?p=1879&cpage=1#comment-12130" rel="nofollow">here</a> and in some of the comments after) and you'll need to figure out which approach best serves your needs. Picking is slower with huge scenes, but unprojecting in pure JS is extremely slow (since JS itself isn't all that fast) so my best recommendation would be to experiment with both.</p>
+
+<p>FYI, you could also look at the GLU project and unproject code, which I based my code loosely upon: <a href="http://www.opengl.org/wiki/GluProject_and_gluUnProject_code" rel="nofollow">http://www.opengl.org/wiki/GluProject_and_gluUnProject_code</a></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate/7373739#7373739" title="permalink to this answer" id="link-post-7373739">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/7373739/edit">improve this answer</a></div>
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info"><div class="user-action-time">edited <a href="http://stackoverflow.com/posts/7373739/revisions" title="show all edits to this post"><span title="2011-09-10 18:36:01Z" class="relativetime">Sep 10 at 18:36</span></a></div><div class="user-gravatar32"></div><div class="user-details"><br></div></div>    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2011-09-10 18:27:51Z" class="relativetime">Sep 10 at 18:27</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/367371/sinisterchipmunk"><div class=""><img src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/5d8c7a8d951a28e10bd7407f33df6d63" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/367371/sinisterchipmunk">sinisterchipmunk</a><br><span class="reputation-score" title="reputation score">181</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-7373739" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-8900648" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">To clarify: picking in WebGL is usually faster than unprojecting purely because JS is slow, and picking takes advantage of the GPU for hardware acceleration, thus bypassing the JS bottleneck. In a traditional C implementation, unprojecting is probably the way to go, especially if you only need to check a very small number of triangles.</span> –&nbsp;<a href="http://stackoverflow.com/users/367371/sinisterchipmunk" title="181 reputation" class="comment-user">sinisterchipmunk</a> <span class="comment-date"><span title="2011-09-10 18:30:17Z">Sep 10 at 18:30</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-8944428" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Wow, thanks so much, I'll look into all of this. This perfectly answered my question.</span> –&nbsp;<a href="http://stackoverflow.com/users/850647/seibelj" title="53 reputation" class="comment-user owner">seibelj</a> <span class="comment-date"><span title="2011-09-13 14:40:49Z">Sep 13 at 14:40</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-9052458" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">So if I need to know exact triangle/vertice, picking is not sufficient?</span> –&nbsp;<a href="http://stackoverflow.com/users/217965/drew" title="899 reputation" class="comment-user">Drew</a> <span class="comment-date"><span title="2011-09-20 03:01:33Z">Sep 20 at 3:01</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-9058831" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Correct. You could hack your way around this by drawing each triangle with a different picking color, but this would be horribly slow (I doubt it would be viable in JavaScript, but stranger things have happened) since it would require a new pass for each triangle. For exact triangle/vertex information, your best bet is unprojection.</span> –&nbsp;<a href="http://stackoverflow.com/users/367371/sinisterchipmunk" title="181 reputation" class="comment-user">sinisterchipmunk</a> <span class="comment-date"><span title="2011-09-20 11:42:32Z">Sep 20 at 11:42</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+    <div class="everyonelovesstackoverflow" id="adzerk3"><a href="http://engine.adzerk.net/redirect/0/5918/7472/8277/780ebd9db67a4fc3803688b235709288/44/1178/10183/634575086798021040?keywords=javascript%2c3d%2cmouse%2cwebgl%2ccoordinate" rel="nofollow" target="_blank" title=""><img src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/030883e15a374ba397b57b8d4bf1033e.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+  
+    <a name="7784657"></a>
+    <div id="answer-7784657" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="7784657">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>I'm working on this problem at the moment - the approach I'm taking is</p>
+
+<ol>
+<li>Render objects to pick buffer each with unique colour</li>
+<li>Read buffer pixel, map back to picked object</li>
+<li>Render picked object to buffer with each pixel colour a function of Z-depth</li>
+<li>Read buffer pixel, map back to Z-depth</li>
+<li>We have picked object and approximate Z for the pick coords</li>
+</ol>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate/7784657#7784657" title="permalink to this answer" id="link-post-7784657">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/7784657/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2011-10-16 13:44:53Z" class="relativetime">Oct 16 at 13:44</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/572036/lindsay-kay"><div class=""><img src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/262e7280dd396cdd68a2481a508f515e" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/572036/lindsay-kay">Lindsay Kay</a><br><span class="reputation-score" title="reputation score">141</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-7784657" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/7364693/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+       
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+    
+        initTagRenderer("".split(" "), "".split(" "));
+
+              
+            prepareEditor({
+                
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                onDemand: true                ,immediatelyShowMarkdownHelp:true
+            });
+            
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px; "><span style="background-position: 0px -20px; "></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px; "><span style="background-position: -20px -20px; "></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px; "><span style="background-position: -60px -20px; "></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px; "><span style="background-position: -80px -20px; "></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px; "><span style="background-position: -100px -20px; "></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px; "><span style="background-position: -140px -20px; "></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px; "><span style="background-position: -160px -20px; "></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px; "><span style="background-position: -180px -20px; "></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px; "><span style="background-position: -220px -20px; "></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="2e47d95fc3d9294acd62ddc1968ea986">
+        <input id="author" name="author" type="text">
+    </div>
+</div>   
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+        <td class="vm open-id-login">
+            <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f7364693%2fhow-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate">log in</a>
+            <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.onClickDraftSave('#login-link');
+                });
+            </script>
+        </td>
+
+    
+        <td class="orcell">
+            <div class="orword">or</div>
+            <div class="orline"></div>
+        </td>
+        <td class="vm">
+            <div>
+                <label for="display-name">Name</label>
+                <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+            </div>
+            <div>
+                <label for="m-address">Email</label>
+                <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                <span class="edit-field-overlay">required, but never shown</span>
+            </div>
+            <div>
+                <label for="home-page">Home Page</label>
+                <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+            </div>
+        </td>
+    
+        </tr>
+        </tbody></table>
+    </div>
+               
+        <div class="form-submit cbt"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"></div>
+    </form>
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/3d" class="post-tag" title="show questions tagged &#39;3d&#39;" rel="tag">3d</a> <a href="http://stackoverflow.com/questions/tagged/mouse" class="post-tag" title="show questions tagged &#39;mouse&#39;" rel="tag">mouse</a> <a href="http://stackoverflow.com/questions/tagged/webgl" class="post-tag" title="show questions tagged &#39;webgl&#39;" rel="tag">webgl</a> <a href="http://stackoverflow.com/questions/tagged/coordinate" class="post-tag" title="show questions tagged &#39;coordinate&#39;" rel="tag">coordinate</a> 
+                or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+    <div class="module newuser newuser-greeting" style="">
+        <h4>Hello World!</h4>
+        <div>
+            <p></p><p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p><p></p>
+            <p class="ar"><a href="http://stackoverflow.com/about">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq">faq »</a>
+            </p>
+        </div>
+    </div>
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a>&nbsp;<span class="item-multiplier">×&nbsp;149745</span><br>
+<a href="http://stackoverflow.com/questions/tagged/3d" class="post-tag" title="show questions tagged &#39;3d&#39;" rel="tag">3d</a>&nbsp;<span class="item-multiplier">×&nbsp;2087</span><br>
+<a href="http://stackoverflow.com/questions/tagged/mouse" class="post-tag" title="show questions tagged &#39;mouse&#39;" rel="tag">mouse</a>&nbsp;<span class="item-multiplier">×&nbsp;1054</span><br>
+<a href="http://stackoverflow.com/questions/tagged/webgl" class="post-tag" title="show questions tagged &#39;webgl&#39;" rel="tag">webgl</a>&nbsp;<span class="item-multiplier">×&nbsp;283</span><br>
+<a href="http://stackoverflow.com/questions/tagged/coordinate" class="post-tag" title="show questions tagged &#39;coordinate&#39;" rel="tag">coordinate</a>&nbsp;<span class="item-multiplier">×&nbsp;46</span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-09-09 16:26:20Z"><b>2 months ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px"><p class="label-key"><b>352 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://stackoverflow.com/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate?lastactivity" class="lastactivity-link" title="2011-10-16 13:44:53Z">1 month ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+    
+        <script type="text/javascript">
+            var scriptSrc = "http://engine2.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=javascript,3d,mouse,webgl,coordinate";
+            if (document.referrer) {
+                if (/\?/.test(scriptSrc))
+                    scriptSrc += "&";
+                else
+                    scriptSrc += "?";
+                scriptSrc += "xReferrer=" + document.referrer;
+            }
+            var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = scriptSrc; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);
+        </script>
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2"><div id="a51-ad-container" style="height: 250px; width: 220px;">
+<style type="text/css">
+#a51-ad { background: url("http://sstatic.net/area51/Img/bg-area51-ad-commitment.png") no-repeat bottom center; }
+#a51-ad, #a51-ad a { display:block; height: 250px; width: 220px; text-decoration: none; }
+#a51-ad table { position: relative; top: 55px; }
+#a51-ad-title-row { height: 95px; }
+#a51-ad-title { padding: 0 5px; text-align: center; font-size: 30.8px; line-height: 34.8px; font-family: Impact,'Futura-CondensedExtraBold',sans-serif; color: #FBF9E2; text-shadow: 3px 3px 3px #000; width: 220px; vertical-align: middle; }
+#a51-ad-subtitle { padding:3px; text-align: center; color: white; font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif; font-size: 14px; font-weight: bold; }
+</style>
+<!--[if lte IE 7]>
+<style type-"text/css">
+#a51-ad { background: url(http://sstatic.net/area51/Img/bg-area51-ad-commitment.png) no-repeat bottom center; }
+</style>
+<![endif]-->
+<div id="a51-ad">
+    <a href="http://engine.adzerk.net/redirect/0/2971/2841/8277/afa12c2d1cd4438584f8ee3b8b400da4/45/1178/3087/634575086798021040?keywords=javascript%2c3d%2cmouse%2cwebgl%2ccoordinate&url=http%3A%2F%2Farea51.stackexchange.com%2Fproposals%2F16617%2Facademia%3Fcommit%3D1">
+        <table>
+            <tbody><tr id="a51-ad-title-row"><td id="a51-ad-title">Academia Q&amp;A</td></tr>
+            <tr><td id="a51-ad-subtitle">58% committed</td></tr>
+        </tbody></table>        
+    </a>
+</div>
+</div><script type="text/javascript">window._a51AdUrl = "http://engine.adzerk.net/redirect/0/2971/2841/8277/afa12c2d1cd4438584f8ee3b8b400da4/45/1178/3087/634575086798021040?keywords=javascript%2c3d%2cmouse%2cwebgl%2ccoordinate";</script><script type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/js"></script></div>
+
+    
+    <div>
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/ad/js",careers_cssurl="http://cdn.sstatic.net/careers/ads/sidebar.min.css?33df70",careers_leaderboardcssurl="http://cdn.sstatic.net/careers/ads/ninja.min.css?33cf39",careers_companycssurl="http://cdn.sstatic.net/careers/ads/company";(function(){var b="min-height:220px;margin:15px 0",c=$("<div>").addClass("hireme").attr("style",b),a=$("<div>").html(c);document.write(a.html());$.ajax({url:"http://cdn.sstatic.net/careers/ads/adloader.min.js?33df70",dataType:"script",cache:true})})();
+        </script><div class="hireme" style="min-height:220px;margin:15px 0"> <a href="http://careers.stackoverflow.com/jobs?a=12" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/9702/google-software-engineer-pittsburgh-google?a=bsIb1Yc" target="_blank" title="Google: Software Engineer - Pittsburgh at Google Inc.. Click to learn more."> Google: Software Engineer - Pittsburgh <br> <span class="company">Google</span> <span class="location">Pittsburgh, PA</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/13539/net-software-development-engineer-sde-kiboo?a=fZMstr2" target="_blank" title=".NET Software Development Engineer (SDE) at Kiboo. Click to learn more."> .NET Software Development Engineer (SDE)<br> <span class="company">Kiboo</span> <span class="location">New York, NY</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/14617/software-development-engineer-amazon?a=hgKlOVO" target="_blank" title="Software Development Engineer at Amazon. Click to learn more."> Software Development Engineer<br> <span class="company">Amazon</span> <span class="location">Seattle, WA</span> </a> </li> </ul> <img alt="" class="impression" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/bsIb1Yc-fZMstr2-hgKlOVO-12" style="display:none"></div>
+    </div>
+
+      
+
+    <div class="module">
+    <h4 id="h-linked">Linked</h4>
+    <div class="linked">
+    <div class="spacer">
+<a href="http://stackoverflow.com/questions/2532693/converting-2d-mouse-coordinates-to-3d-space-in-opengl-es" class="question-hyperlink">converting 2D mouse coordinates to 3D space in OpenGL ES</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7437482/gluunproject-android-opengl-es-1-1-usage" class="question-hyperlink">gluUnProject Android OpenGL ES 1.1 Usage</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7327544/how-can-i-read-the-depth-buffer-in-webgl" class="question-hyperlink">How can I read the depth buffer in WebGL?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6354720/screen-to-world-coordinates-in-javascript-webgl" class="question-hyperlink">screen to world coordinates in javascript webgl</a>
+</div>
+
+    </div>
+    </div>
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="http://stackoverflow.com/questions/1232796/cool-applications-for-webgl" class="question-hyperlink">Cool applications for WebGL?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2068822/what-language-should-i-learn-to-prepare-for-webgl" class="question-hyperlink">What language should I learn to prepare for WebGL?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2580079/from-a-maya-scene-to-a-webgl-animation-where-to-start" class="question-hyperlink">From a Maya scene to a WebGL animation, where to start?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3093177/javascriptget-coordinate-from-openlayers-map" class="question-hyperlink">[Javascript]Get coordinate from openlayers map</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3522701/pyqt-get-pixel-position-and-value-when-mouse-click-on-the-image" class="question-hyperlink">Pyqt get pixel position and value when mouse click on the image</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3890183/webgl-framework" class="question-hyperlink">WebGL Framework</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4476560/multitexture-gl-texture1-issue-on-webgl" class="question-hyperlink">Multitexture GL_TEXTURE1 issue on WebGL</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4549493/computing-half-vector-on-webgl" class="question-hyperlink">Computing half vector on WebGL</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4607838/how-do-i-create-a-program-that-will-click-on-certain-x-y-coordinates-on-the-scre" class="question-hyperlink">How do I create a program that will click on certain x/y coordinates on the screen when a hotkey is pressed? JAVA/Windows 7</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4776913/freeing-loaded-texture-on-webgl" class="question-hyperlink">Freeing loaded texture on WebGL</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5282629/good-file-format-for-webgl" class="question-hyperlink">good file format for WebGL</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5441121/how-to-find-point-by-input-search-in-webgl" class="question-hyperlink">How to find point by input search in WebGL?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5768783/how-can-i-implement-a-fps-view-with-webgl-inside-a-browser" class="question-hyperlink">How can I implement a FPS view with webgl, inside a browser?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6078008/3d-coordinate-graphing" class="question-hyperlink">3d coordinate graphing</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6613241/webgl-frustum-view" class="question-hyperlink">Webgl Frustum view </a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6837198/handling-camera-style-mouse-movement-in-javascript-enabling-continuous-mouse-mo" class="question-hyperlink">Handling Camera-Style Mouse Movement in Javascript (enabling continuous mouse movement)</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7039693/is-it-possible-to-create-a-polarized-3d-website" class="question-hyperlink">Is it possible to create a polarized 3d website?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7134843/z-axis-coordination-in-webgl-and-three-js" class="question-hyperlink">Z-Axis Coordination in WebGL and Three.js</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7493987/best-books-to-learn-webgl" class="question-hyperlink">Best books to learn WebGL</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7646124/creating-a-3d-free-camera-in-webgl-why-do-neither-of-these-methods-work" class="question-hyperlink">Creating a 3D free-camera in WebGL - why do neither of these methods work?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7910912/jittery-webgl-scroller" class="question-hyperlink">Jittery WebGL Scroller</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7919516/using-textures-in-three-js" class="question-hyperlink">Using textures in THREE.js</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7927505/weird-behaviour-of-shadows-in-three-js" class="question-hyperlink">Weird behaviour of shadows in THREE.js</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/8013676/webgl-vs-3rd-party-plugin-unity3d-best-option-in-browser" class="question-hyperlink">webgl vs. 3rd party plugin (unity3d), best option in browser</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/8036302/any-3d-framework-for-browser-that-can-read-in-terrain-data-webgl-related" class="question-hyperlink">Any 3d framework for browser that can read in terrain data? WebGL related?</a>
+</div>
+
+    </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/7364693" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/ec4a"></script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/7364693/ivc/ec4a" class="dno" alt=""&gt;&lt;/div&gt;
+</noscript>
+<div style="display:none" id="prettify-lang">default</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about">about</a> |
+                <a href="http://stackoverflow.com/faq">faq</a> |
+                
+                    <span onclick="if(window.localStorage){localStorage.setItem(&#39;blog-new&#39;,1321926175000); $(&#39;.new-blog-post&#39;).fadeOut();}">
+                        <script type="text/javascript">if(!window.localStorage || new Date(+localStorage.getItem('blog-new'))<new Date())document.write('<span title="Review early, review often, by Sam Saffron - 20 hours ago" class="new-blog-post">new<\/span>');</script><span title="Review early, review often, by Sam Saffron - 20 hours ago" class="new-blog-post">new</span>
+                        <a href="http://blog.stackexchange.com/">blog</a>
+                    </span> |
+                    <a href="http://chat.stackoverflow.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://blog.stackoverflow.com/category/podcasts/">podcast</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/7364693/how-to-get-object-in-webgl-3d-space-from-a-mouse-click-coordinate&#39;)">mobile</a> |
+
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#b5cda4;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2011.11.20.1</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2011 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();_qoptions={qacct:"p-c1rF4kxgLUzNc"};</script>
+    <script type="text/javascript" src="./javascript - How to get object in WebGL 3d space from a mouse click coordinate - Stack Overflow_files/quant.js"></script>
+    
+
+
+</body></html>

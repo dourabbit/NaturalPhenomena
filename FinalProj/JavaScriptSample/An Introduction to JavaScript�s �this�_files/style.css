@@ -1,0 +1,522 @@
+/*
+
+Theme Name: helvetica
+Theme URI: justin.harmonize.fm
+Description: A clean, lightweight template.
+Version: .1
+Author: Justin Tulloss
+Tags: white, fixed width, two columns, widgets, helvetica
+
+This template is being distributed under Creative Commons Attribution Unported 3.0:
+http://creativecommons.org/licenses/by/3.0/
+
+Please leave a link back to our site at the bottom of yours. Aside from that, you can do whatever you want with it. Thanks!
+
+*/
+
+* {
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+html {
+  background: white;
+}
+
+body {
+  width:960px;
+  margin:0 auto;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font: 14pt;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size:1.2em;
+}
+
+code {
+    font-family: "Courier New", "Courier", monospace;
+}
+
+img {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #CCC;
+}
+
+#masthead {
+  padding-top:50px;
+  padding-bottom:5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, sans-serif;
+}
+
+h1 {
+  font-size:2.4em;
+  margin-left:30px;
+  margin-right:5px;
+  text-transform: lowercase;
+  /*display:inline;*/
+}
+
+h1 a {
+  text-decoration:none;
+}
+
+h1 a:hover {
+    color: #D02B55;
+    text-decoration: none;
+}
+
+#masthead p {
+  font-weight:bold;
+  display:inline;
+  font-size:.6em;
+  float: right;
+}
+
+p, li {
+  color:black;
+}
+
+a {
+  color: black;
+  outline:none;
+}
+
+a:hover {
+    color: #D02B55;
+    text-decoration: underline;
+}
+
+div#content {
+  padding:30px 30px 0px;
+}
+
+/*-----------------------------------------------------------------------------
+
+  Main Content
+
+-----------------------------------------------------------------------------*/
+
+#disqus_thread {
+    /*font-size: 12px;*/
+}
+
+.gist {
+    font-size: 12pt;
+}
+
+#main_content {
+  width:620px;
+  float:left;
+}
+
+#main_content h2 {
+  color: #D02B55;
+  font-size:1.5em;
+  margin-bottom:10px;
+}
+
+#main_content h2 a {
+  color: #D02B55;
+  text-decoration:none;
+}
+
+#main_content h2 a:hover {
+    text-decoration: underline;
+}
+
+#main_content p {
+  font-size:1em;
+  line-height:1.3em;
+  margin:10px 0;
+}
+
+#main_content ul {
+  margin:10px 0 10px 30px;
+}
+
+#main_content li{
+    /*font-size:1.4em;*/
+    list-style: circle outside;
+    margin: 15px 0;
+}
+.article {
+  margin-bottom:30px;
+}
+
+blockquote {
+  padding-left:10px;
+  margin:15px 10px;
+  border-left:5px solid rgb(208, 43, 85);
+}
+
+.article ul, .article ol {
+  margin:10px;
+}
+
+.article ul li {
+  margin:5px 0 5px 10px;
+  list-style:square;
+}
+
+.article ul li li, .article ol li li {
+  font-size:1em;
+  list-style:circle;
+}
+
+.article ol li {
+  font-size:1.4em;
+  margin:5px 0 5px 20px;
+  list-style:decimal;
+}
+
+#main_content p.byline {
+  font-size:.7em;
+}
+
+ul.article_footer {
+  text-align:right;
+  padding:15px 0 15px 10px;
+  margin:20px 0 0;
+}
+
+ul.article_footer li {
+  display:inline;
+  margin:0 10px 0 0;
+  padding-right:10px;
+}
+
+ul.article_footer li.last {
+  border-right:0;
+}
+
+/*-----------------------------------------------------------------------------
+
+  Secondary Content
+
+-----------------------------------------------------------------------------*/
+
+#secondary_content {
+  width:280px;
+  float:right;
+  margin-bottom:30px;
+}
+
+#secondary_content p {
+  font-size:1em;
+  width:100px;
+  line-height:1.75em;
+  margin-bottom:10px;
+  font-style:italic;
+}
+
+ul#nav {
+  margin-left:60px;
+}
+
+ul#nav li {
+  display:inline; /* Prevents weird line-break issue with IE6 */
+}
+
+ul#nav li a {
+  display:block;
+  padding:10px 15px;
+  text-decoration:none;
+  font-size:1em;
+  border-left:11px solid #FFF;
+}
+
+ul#nav li.current_page_item a, ul#nav li.current_page_item a:hover {
+    font-weight: bold;
+}
+
+ul#nav li a:hover {
+    text-decoration: underline;
+}
+
+#secondary_content h2 {
+  text-transform: lowercase;
+  font-size:1.2em;
+  margin-bottom:8px;
+}
+
+#search {
+  padding:15px;
+  margin-left: 29px;
+}
+
+#search input {
+  margin-right:5px;
+  width:125px;
+  height:14px;
+  padding:5px;
+}
+
+#search input#submit {
+  width:auto;
+  height:30px;
+  margin-right:0;
+}
+
+#secondary_nav {
+  padding:15px;
+  margin-left: 60px;
+  list-style: none;
+}
+
+#secondary_nav h2 a {
+  text-decoration:none;
+}
+
+#secondary_nav ul ul {
+  margin:8px 0 20px;
+  padding-left:10px;
+  /*font-size:1.2em;*/
+}
+
+#secondary_nav ul ul li {
+  margin:5px 0;
+}
+
+#secondary_nav a {
+  color:#D02B55;
+  text-decoration:none;
+}
+
+#secondary_nav a:hover {
+  text-decoration: underline;
+}
+
+#secondary_content hr {
+  margin-bottom:10px;
+}
+
+/*-----------------------------------------------------------------------------
+
+  Footer
+
+-----------------------------------------------------------------------------*/
+
+ul#footer {
+  clear:both;
+  font-size:.6em;
+  width:960px;
+  height:9px;
+  text-align:center;
+  padding:20px 0;
+}
+
+ul#footer li {
+  display:inline;
+  margin-right:10px;
+}
+
+ul#footer li a {
+  text-decoration:none;
+  font-weight:bold;
+}
+
+ul#footer li a:hover {
+  color: #D02B55;
+  text-decoration:underline;
+}
+
+
+/*-----------------------------------------------------------------------------
+
+  Wordpress Specific Stuff
+
+-----------------------------------------------------------------------------*/
+
+h3.pagetitle {
+  margin-bottom:15px;
+}
+
+.entry p small {
+  line-height:1.5;
+}
+
+h3#comments {
+  margin:30px 0 20px;
+}
+
+ol.commentlist {
+  margin:20px 0;
+  padding-bottom:10px;
+}
+
+ol.commentlist li {
+  margin:30px 0;
+}
+
+ol.commentlist li div.comment_bubble {
+  margin:10px 0;
+  border:1px solid #EAEAEA;
+  background:#FAFAFA;
+  padding:5px 15px 0;
+  clear:both;
+}
+
+ol.commentlist li cite {
+  font-size:1.4em;
+  margin-left:5px;
+}
+
+textarea#comment {
+  width:550px;
+  margin:10px 0;
+  padding:10px;
+}
+
+#main_content p.comment_meta {
+  font-size:.9em;
+  text-align:right;
+  float:right;
+  margin:0;
+}
+
+form#commentform {
+  margin:10px 0;
+  padding:10px 20px;
+  border:1px solid #EAEAEA;
+  background:#FAFAFA;
+}
+
+form#commentform label {
+  margin-left:5px;
+}
+
+.navigation {
+  margin:0 0 20px;
+  font-size:.7em;
+}
+
+#main_content ul.links_page li {
+  margin:15px 0;
+}
+
+#main_content li.linkcat h2 {
+  font-size:1.3em;
+  margin-bottom:5px;
+  color:#4F647B;
+}
+
+#main_content li.linkcat li {
+  font-size:1.1em;
+  margin:3px 0;
+}
+
+ul.archives {
+  margin-bottom:20px;
+}
+
+ul.archives li {
+  font-size:1em;
+  margin:3px 0;
+  font-weight:bold;
+}
+
+ul.archives li a {
+  font-weight:normal;
+}
+
+ul.archives li li {
+  font-size:0.8em;
+  font-weight:normal;
+}
+
+body#commentspopup {
+  padding:10px;
+  width:360px;
+}
+
+body#commentspopup h1 {
+  font-size:2em;
+  margin-left:0;
+}
+
+body#commentspopup h2 {
+  margin:10px 0;
+}
+
+body#commentspopup p {
+  margin:10px 0;
+}
+
+body#commentspopup label {
+  margin:0;
+}
+
+body#commentspopup textarea {
+  width:295px;
+  height:50px;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.wp-caption {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #f3f3f3;
+  padding-top: 4px;
+  margin: 10px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+
+.wp-caption-dd {
+  font-size: 11px;
+  line-height: 17px;
+  padding: 0 4px 5px;
+  margin: 0;
+}
+
+div.navigation {
+  display:block;
+  height:1em;
+}
+
+/*-----------------------------------------------------------------------------
+
+  Clearfix
+
+-----------------------------------------------------------------------------*/
+
+.clearfix:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+  .clearfix {
+      display:block;}
+/* End hide from IE Mac */
+

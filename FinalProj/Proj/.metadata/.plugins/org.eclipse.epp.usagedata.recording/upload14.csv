@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.copy",1322187451765
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1322187452796
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1322187457125
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1322187459625
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322187463953
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322187641046
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\n\r\n\r\n\r\n\r\n\r\nvar InputHelper = (function () {\r\n    // private static\r\n    //var nextId = 1;\r\n    var Singleton;\r\n\r\n    // constructor\r\n    var cls = function (canvas) {\r\n        var mouseEvents = {};\r\n        var objectPool = [];\r\n        var oldX, oldY;\r\n\r\n        this.handleMouseDown = function (event) {\r\n            var point = [0, 0, 0];\r\n            var vec = [0, 0, 0];\r\n            //Cam.GetRay(event.clientX, event.clientY, point, vec);\r\n            document.frmOne.mouseState.value = ""MouseDown"";\r\n        }\r\n\r\n        this.handleMouseUp = function (event) {\r\n//            if (event.identifier == null) {\r\n//                event.identifier = 0;\r\n//            }\r\n\r\n//            objectPool.push(mouseEvents[event.identifier]);\r\n//            mouseEvents[event.identifier] = null;\r\n//            cloth.release(event.identifier);\r\n            \r\n            document.frmOne.mouseState.value = ""MouseUp"";\r\n        }\r\n\r\n        this.handleMouseMove = function (event) {\r\n\r\n            var point = [0, 0, 0];\r\n            var vec = [0, 0, 0];\r\n            //Cam.GetRay(mouseEvents[event.identifier].lastMouseX, mouseEvents[event.identifier].lastMouseY, point, vec);\r\n            document.frmOne.mouseX.value = event.clientX;\r\n            document.frmOne.mouseY.value = event.clientY;\r\n            document.frmOne.oldMouseX.value = this.oldX;\r\n            document.frmOne.oldMouseY.value = this.oldY;\r\n            //            cloth.move(event.identifier,\r\n            //\t\t            point[0] - (vec[0] * point[2] / vec[2]),\r\n            //\t\t            point[1] - (vec[1] * point[2] / vec[2]),\r\n            //\t\t            0);\r\n\r\n            //mouseEvents[event.identifier].lastMouseX = event.clientX;\r\n            //mouseEvents[event.identifier].lastMouseY = event.clientY;\r\n             if(this.oldX!=event.clientX&&this.oldY!=event.clientY)\r\n             {\r\n            \tdocument.frmOne.mouseState.value = ""MouseMove"";\r\n             }\r\n            else if(Math.this.oldX==event.clientX&&this.oldY==event.clientY)\r\n            {\r\n            \tdocument.frmOne.mouseState.value = ""MouseHovering"";\r\n            }\r\n            this.oldX = event.clientX;\r\n            this.oldY = event.clientY;\r\n        }\r\n        Singleton = cls;\r\n\r\n\r\n\r\n\r\n        canvas.onmousedown = this.handleMouseDown;\r\n        canvas.onmouseup = this.handleMouseUp;\r\n        canvas.onmousemove = this.handleMouseMove;\r\n    };\r\n\r\n\r\n    cls.GetInputHelper = function () {\r\n        return Singleton;\r\n    }\r\n\r\n    return cls;\r\n})();\r\n\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1322188142953
+error,log,,,"Error in JSDT Core during reconcile",1322188142968
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.wst.jsdt.ui"".",1322188142984
+error,log,,,"Error in JSDT Core during AST creation",1322188142984
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.copy",1322188200796
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.paste",1322188206453
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.file.save",1322188217218
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322188820484
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322190813109
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322190813171
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322192206796
+activated,view,org.eclipse.ui.ide,3.5.0.I20090525-2000,"org.eclipse.ui.views.AllMarkersView",1322192222125
+activated,editor,org.eclipse.wst.jsdt.ui,1.0.200.v200905242047,"org.eclipse.wst.jsdt.ui.CompilationUnitEditor",1322192224078
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.delete",1322192583078
+executed,command,org.eclipse.ui,3.5.0.I20090604-2000,"org.eclipse.ui.edit.delete",1322192583265
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322192624250
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322192640359
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322192650984
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1322192655515

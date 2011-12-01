@@ -1,0 +1,1000 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0077)http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./oop - Constructors in Javascript objects - Stack Overflow_files/ga.js"></script>
+    
+    <title>oop - Constructors in Javascript objects - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <script type="text/javascript" async="" src="./oop - Constructors in Javascript objects - Stack Overflow_files/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44"></script><script type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="./oop - Constructors in Javascript objects - Stack Overflow_files/all.css">
+    
+    <link rel="canonical" href="./oop - Constructors in Javascript objects - Stack Overflow_files/oop - Constructors in Javascript objects - Stack Overflow.htm">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Constructors in Javascript objects&#39;" href="http://stackoverflow.com/feeds/question/1114024">
+    <meta name="title" content="oop - Constructors in Javascript objects - Stack Overflow">
+    <link rel="image_src" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:1114024});
+
+            styleCode();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"http://stackauth.com","serverTime":1321861569,"styleCode":true,"newTagEditor":true,"enableUserHovercards":true,"enableTabCompletion":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers"},"user":{"isAnonymous":true,"fkey":"8f4fc106ba4f6e30ab8012fb53cce335","inboxUnviewedCount":-1}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"0324556b7bf7","js/moderator.js":"a38ca3c6143d","js/full-anon.js":"8fcefa158ad3","js/full.js":"a168b3deac0f","js/wmd.js":"688233b2af68","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"97644ef9b7d4","js/help.js":"7f83495f785a","js/tageditor.js":"75954ba7b6f1","js/tageditornew.js":"9d9998359a54","js/inline-tag-editing.js":"364e12111b4b","js/mathjax-editing.js":"a47e02eb0282","js/revisions.js":"63c88065da1f"});
+    </script>
+
+<script async="" type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/full-anon.js"></script><script async="" type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/prettify-full.js"></script><link href="./oop - Constructors in Javascript objects - Stack Overflow_files/sidebar.min.css" type="text/css" rel="stylesheet"></head>
+<body class="question-page" style="margin-top: 2.5em; ">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"><div id="notify--1" style=""><span class="notify-close"><a title="dismiss this notification">×</a></span><span class="notify-text">Welcome to Q&amp;A for professional and enthusiast programmers — check out the <a onclick="StackExchange.notify.closeFirstTime(); return false;" href="http://stackoverflow.com/faq">FAQ</a>!</span></div></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f1114024%2fconstructors-in-javascript-objects">log in</a>
+ <span class="lsep">|</span>
+<a href="http://careers.stackoverflow.com/">careers</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackoverflow.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.stackoverflow.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://stackoverflow.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+
+
+
+<div id="question-header">
+    <h1><a href="./oop - Constructors in Javascript objects - Stack Overflow_files/oop - Constructors in Javascript objects - Stack Overflow.htm" class="question-hyperlink">Constructors in Javascript objects</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question">
+
+    <div class="everyonelovesstackoverflow" id="adzerk1"><a href="http://engine.adzerk.net/redirect/0/5925/7472/8277/22f4a1ad0a1a4bb5b98fdf4aca199c0a/43/1178/10190/634574583702267791?keywords=javascript%2coop" rel="nofollow" target="_blank" title=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/719b64475d504c6ba9d692a472e2b1be.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input type="hidden" value="1114024">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">11</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>3</b></div>    
+
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var shareUrl = "http%3a%2f%2fstackoverflow.com%2fq%2f1114024";
+            var shareMsg = "Constructors+in+Javascript+objects";
+            StackExchange.share.facebook($("#fb-share-1114024"), shareUrl, shareMsg);
+            StackExchange.share.twitter($("#twitter-share-1114024"), shareUrl, shareMsg);
+        });
+    </script>
+    <a id="fb-share-1114024" class="fb-share" title="share link to this question on Facebook">share [fb]</a>
+    <a id="twitter-share-1114024" class="twitter-share" title="share link to this question on Twitter">share [tw]</a>    
+
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text">
+        <p>Can Javascript classes/objects have constructors and how are they created? Any examples?</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/oop" class="post-tag" title="show questions tagged &#39;oop&#39;" rel="tag">oop</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/q/1114024" title="short permalink to this question" id="link-post-1114024">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1114024/edit">improve this question</a></div>
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover"><div class="user-action-time">edited <a href="http://stackoverflow.com/posts/1114024/revisions" title="show all edits to this post"><span title="2009-07-11 16:40:21Z" class="relativetime">Jul 11 '09 at 16:40</span></a></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/113570/philippe-leybaert"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/ddb70db3da6c927a557ed3f9a3395f41" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/113570/philippe-leybaert">Philippe Leybaert</a><br><span class="reputation-score" title="reputation score 28005">28k</span><span title="61 silver badges"><span class="badge2"></span><span class="badgecount">61</span></span><span title="107 bronze badges"><span class="badge3"></span><span class="badgecount">107</span></span></div></div>    </td>
+    <td class="post-signature owner">
+    <div class="user-info"><div class="user-action-time">asked <span title="2009-07-11 16:11:42Z" class="relativetime">Jul 11 '09 at 16:11</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/49153/click-upvote"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/833df8cee775eea743cb1172dfcd3809" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/49153/click-upvote">Click Upvote</a><br><span class="reputation-score" title="reputation score">9,553</span><span title="28 gold badges"><span class="badge1"></span><span class="badgecount">28</span></span><span title="105 silver badges"><span class="badge2"></span><span class="badgecount">105</span></span><span title="216 bronze badges"><span class="badge3"></span><span class="badgecount">216</span></span></div></div>
+        <br class="cbt">
+        <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 413 of 432 eligible questions">96% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1114024" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-9385346" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">If you have an hour or so this is an excellent lecture the covers this topic. &lt;br /&gt;
+<a href="http://video.yahoo.com/watch/111585/1027823" rel="nofollow">Douglas Crockford: "Advanced JavaScript"</a></span> –&nbsp;<a href="http://stackoverflow.com/users/86295/x13" title="523 reputation" class="comment-user">x13</a> <span class="comment-date"><span title="2009-07-11 16:39:09Z">Jul 11 '09 at 16:39</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>6 Answers</h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="1115565"></a>
+    <div id="answer-1115565" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="1115565">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">11</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer Jul 12 &#39;09 at 11:23">accepted</span>
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Click Upvote, your code sample is wrong. You're alerting an object, not the colour. Also the getColor function is defined locally to the constructor, not to the class.</p>
+
+<pre class="default prettyprint"><code><span class="kwd">function</span><span class="pln"> </span><span class="typ">Box</span><span class="pun">(</span><span class="pln">color</span><span class="pun">)</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">color</span><span class="pun">=</span><span class="pln">color</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp;</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getColor </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp;</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">color</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp;</span><span class="pun">}</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br><br></span><span class="kwd">var</span><span class="pln"> blueBox</span><span class="pun">=</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Box</span><span class="pun">(</span><span class="str">"blue"</span><span class="pun">);</span><span class="pln"><br>alert</span><span class="pun">(</span><span class="pln">blueBox</span><span class="pun">.</span><span class="pln">getColor</span><span class="pun">());</span><span class="pln"> </span><span class="com">//wlll print blue</span><span class="pln"><br><br></span><span class="kwd">var</span><span class="pln"> greenBox</span><span class="pun">=</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Box</span><span class="pun">(</span><span class="str">"green"</span><span class="pun">);</span><span class="pln"><br>alert</span><span class="pun">(</span><span class="pln">greenBox</span><span class="pun">.</span><span class="pln">getColor</span><span class="pun">());</span><span class="pln"> </span><span class="com">//wlll print green</span><span class="pln"><br></span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/1115565#1115565" title="permalink to this answer" id="link-post-1115565">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1115565/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-07-12 08:29:31Z" class="relativetime">Jul 12 '09 at 8:29</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/4949/nick"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/a79d36d41f755cb20f6c478a261be9c7" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/4949/nick">Nick</a><br><span class="reputation-score" title="reputation score">1,607</span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1115565" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-931758" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Thanks       :).</span> –&nbsp;<a href="http://stackoverflow.com/users/49153/click-upvote" title="9553 reputation" class="comment-user owner">Click Upvote</a> <span class="comment-date"><span title="2009-07-12 11:24:09Z">Jul 12 '09 at 11:24</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(44, 44, 44); ">Was this post useful to you? &nbsp;&nbsp;<input style="opacity: 0.7477293342162038; " class="anon-vote" type="button" value="Yes"> &nbsp;<input style="opacity: 0.7408768370508577; " class="anon-vote" type="button" value="No"></div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+    <div class="everyonelovesstackoverflow" id="adzerk3"><a href="http://engine.adzerk.net/redirect/0/5920/2444/8277/0535ea3fcba74b47bd62aaf20f29f8af/44/1178/8806/634574583702267791?keywords=javascript%2coop" rel="nofollow" target="_blank" title=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/60abb4b317034aa2af0bc697e6f02963.png" title="" alt="" border="0" height="90" width="728"></a></div>
+
+    
+  
+    <a name="1114037"></a>
+    <div id="answer-1114037" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="1114037">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">6</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Here are a couple of excellent explanations:</p>
+
+<ul>
+<li><a href="http://www.javascriptkit.com/javatutors/oopjs2.shtml" rel="nofollow">http://www.javascriptkit.com/javatutors/oopjs2.shtml</a></li>
+<li><a href="http://www.c-point.com/javascript_tutorial/constructor.htm" rel="nofollow">http://www.c-point.com/javascript_tutorial/constructor.htm</a></li>
+</ul>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/1114037#1114037" title="permalink to this answer" id="link-post-1114037">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1114037/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-07-11 16:15:47Z" class="relativetime">Jul 11 '09 at 16:15</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/95267/james-skidmore"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/b7ff00aa80a34e87a3b587c620d85d64" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/95267/james-skidmore">James Skidmore</a><br><span class="reputation-score" title="reputation score">5,831</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="21 silver badges"><span class="badge2"></span><span class="badgecount">21</span></span><span title="54 bronze badges"><span class="badge3"></span><span class="badgecount">54</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1114037" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(66, 66, 66); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="1114121"></a>
+    <div id="answer-1114121" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="1114121">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">6</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>Here's a template I sometimes use for OOP-similar behavior in JavaScript. As you can see, you can simulate private (both static and instance) members using closures. What <code>new MyClass()</code> will return is an object with only the properties assigned to the <code>this</code> object and in the <code>prototype</code> object of the "class."</p>
+
+<pre class="default prettyprint"><code><span class="kwd">var</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com">// private static</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> nextId </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">// constructor</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> cls </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// private</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> nextId</span><span class="pun">++;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Unknown'</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// public (this instance only)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">get_id </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> id</span><span class="pun">;</span><span class="pln"> </span><span class="pun">};</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">get_name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span><span class="pln"> </span><span class="pun">};</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">set_name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">typeof</span><span class="pln"> value </span><span class="pun">!=</span><span class="pln"> </span><span class="str">'string'</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">throw</span><span class="pln"> </span><span class="str">'Name must be a string'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> value</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">20</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">throw</span><span class="pln"> </span><span class="str">'Name must be 2-20 characters long.'</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">};</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">};</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">// public static</span><span class="pln"><br>&nbsp; &nbsp; cls</span><span class="pun">.</span><span class="pln">get_nextId </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> nextId</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">};</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">// public (shared across instances)</span><span class="pln"><br>&nbsp; &nbsp; cls</span><span class="pun">.</span><span class="pln">prototype </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; announce</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert</span><span class="pun">(</span><span class="str">'Hi there! My id is '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">get_id</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">' and my name is "'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">get_name</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'"!\r\n'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="str">'The next fellow\'s id will be '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="typ">MyClass</span><span class="pun">.</span><span class="pln">get_nextId</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">'!'</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">};</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> cls</span><span class="pun">;</span><span class="pln"><br></span><span class="pun">})();</span><span class="pln"><br></span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/1114121#1114121" title="permalink to this answer" id="link-post-1114121">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1114121/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2009-07-11 16:53:12Z" class="relativetime">Jul 11 '09 at 16:53</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/119081/blixt"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/a7cf1a5c477ad556bc8abd24e73470fe" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/119081/blixt">Blixt</a><br><span class="reputation-score" title="reputation score 11555">11.6k</span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="47 bronze badges"><span class="badge3"></span><span class="badgecount">47</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1114121" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-930016" class="comment">
+        <td class="comment-actions"><table><tbody><tr>
+<td class="comment-score">
+<span title="number of &#39;great comment&#39; votes received" class="cool">3</span>
+</td>
+<td>
+&nbsp;
+</td></tr>
+</tbody></table></td>
+        <td class="comment-text"><div><span class="comment-copy">Just a note about the <code>cls.prototype</code> part: "shared across instances" is only for reading the value (calling <code>announce</code>). If you set <code>myClassInstance.announce</code> to another value, it creates a new property in <code>myClassInstance</code>, so it only applies to that object, not other instances of the class. Assigning to <code>MyClass.prototype.announce</code> will affect all instances though.</span> –&nbsp;<a href="http://stackoverflow.com/users/2214/matthew-crumley" title="13680 reputation" class="comment-user">Matthew Crumley</a> <span class="comment-date"><span title="2009-07-11 18:55:38Z">Jul 11 '09 at 18:55</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-8018523" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@Blixt - have used your example extensively - thanks!</span> –&nbsp;<a href="http://stackoverflow.com/users/662063/cc-young" title="776 reputation" class="comment-user">cc young</a> <span class="comment-date"><span title="2011-07-20 13:12:08Z">Jul 20 at 13:12</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-8025045" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">No problem, glad to be of help! :)</span> –&nbsp;<a href="http://stackoverflow.com/users/119081/blixt" title="11555 reputation" class="comment-user">Blixt</a> <span class="comment-date"><span title="2011-07-20 18:50:54Z">Jul 20 at 18:50</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="5292835"></a>
+    <div id="answer-5292835" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="5292835">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><blockquote>
+  <p>So what is the point of "constructor"
+  property? Cannot figure out where it
+  could be useful, any ideas?</p>
+</blockquote>
+
+<p>The point of the constructor property is to provide some way of pretending JavaScript has classes. One of the things you <strong>cannot</strong> usefully do is change an object's constructor after it's been created. It's complicated.</p>
+
+<p>I wrote a fairly comprehensive piece on it a few years ago: <a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html" rel="nofollow">http://joost.zeekat.nl/constructors-considered-mildly-confusing.html</a></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/5292835#5292835" title="permalink to this answer" id="link-post-5292835">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5292835/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2011-03-13 22:16:41Z" class="relativetime">Mar 13 at 22:16</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/657965/joost-diepenmaat"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/76006c10b0773e69a6fcd70614ac258f" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/657965/joost-diepenmaat">Joost Diepenmaat</a><br><span class="reputation-score" title="reputation score">31</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-5292835" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-6857952" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Hi! Thanks for the article. That's more clear now.</span> –&nbsp;<a href="http://stackoverflow.com/users/497648/igor" title="230 reputation" class="comment-user">igor</a> <span class="comment-date"><span title="2011-05-10 10:03:28Z">May 10 at 10:03</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="1114038"></a>
+    <div id="answer-1114038" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="1114038">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p><a href="http://msdn.microsoft.com/en-us/library/202863ha%28VS.85%29.aspx" rel="nofollow">http://msdn.microsoft.com/en-us/library/202863ha%28VS.85%29.aspx</a></p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/1114038#1114038" title="permalink to this answer" id="link-post-1114038">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1114038/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2009-07-11 16:15:49Z" class="relativetime">Jul 11 '09 at 16:15</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/121064/antreality"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/a3314f9599575008c31d5a51d5621563" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/121064/antreality">antreality</a><br><span class="reputation-score" title="reputation score">191</span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-1114038" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="5109268"></a>
+    <div id="answer-5109268" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="5109268">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>So what is the point of "constructor" property? Cannot figure out where it could be useful, any ideas?</p>
+
+<pre class="default prettyprint"><code><span class="kwd">var</span><span class="pln"> myObj </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">s</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my string'</span><span class="pun">,</span><span class="pln"> n</span><span class="pun">:</span><span class="pln"> </span><span class="lit">123</span><span class="pun">};</span><span class="pln"><br>myObj</span><span class="pun">.</span><span class="pln">constructor </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">foo</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">};</span><span class="pln"><br></span></code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects/5109268#5109268" title="permalink to this answer" id="link-post-5109268">link</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5109268/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2011-02-24 19:08:24Z" class="relativetime">Feb 24 at 19:08</span></div><div class="user-gravatar32"><a href="http://stackoverflow.com/users/497648/igor"><div class=""><img src="./oop - Constructors in Javascript objects - Stack Overflow_files/63c9aa5dc11195c3a595d6d35b0ea5ed" alt=""></div></a></div><div class="user-details"><a href="http://stackoverflow.com/users/497648/igor">igor</a><br><span class="reputation-score" title="reputation score">230</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-5109268" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/1114024/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+       
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+    
+        initTagRenderer("".split(" "), "".split(" "));
+
+              
+            prepareEditor({
+                
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                onDemand: true                ,immediatelyShowMarkdownHelp:true
+            });
+            
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px; "><span style="background-position: 0px -20px; "></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px; "><span style="background-position: -20px -20px; "></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px; "><span style="background-position: -60px -20px; "></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px; "><span style="background-position: -80px -20px; "></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px; "><span style="background-position: -100px -20px; "></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px; "><span style="background-position: -140px -20px; "></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px; "><span style="background-position: -160px -20px; "></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px; "><span style="background-position: -180px -20px; "></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px; "><span style="background-position: -220px -20px; "></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="8f4fc106ba4f6e30ab8012fb53cce335">
+        <input id="author" name="author" type="text">
+    </div>
+</div>   
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+        <td class="vm open-id-login">
+            <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f1114024%2fconstructors-in-javascript-objects">log in</a>
+            <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.onClickDraftSave('#login-link');
+                });
+            </script>
+        </td>
+
+    
+        <td class="orcell">
+            <div class="orword">or</div>
+            <div class="orline"></div>
+        </td>
+        <td class="vm">
+            <div>
+                <label for="display-name">Name</label>
+                <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+            </div>
+            <div>
+                <label for="m-address">Email</label>
+                <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                <span class="edit-field-overlay">required, but never shown</span>
+            </div>
+            <div>
+                <label for="home-page">Home Page</label>
+                <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+            </div>
+        </td>
+    
+        </tr>
+        </tbody></table>
+    </div>
+               
+        <div class="form-submit cbt"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"></div>
+    </form>
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/oop" class="post-tag" title="show questions tagged &#39;oop&#39;" rel="tag">oop</a> 
+                or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+    <div class="module newuser newuser-greeting" style="">
+        <h4>Hello World!</h4>
+        <div>
+            <p></p><p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p><p></p>
+            <p class="ar"><a href="http://stackoverflow.com/about">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq">faq »</a>
+            </p>
+        </div>
+    </div>
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a>&nbsp;<span class="item-multiplier">×&nbsp;149483</span><br>
+<a href="http://stackoverflow.com/questions/tagged/oop" class="post-tag" title="show questions tagged &#39;oop&#39;" rel="tag">oop</a>&nbsp;<span class="item-multiplier">×&nbsp;10500</span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2009-07-11 16:11:42Z"><b>2 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px"><p class="label-key"><b>10,712 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://stackoverflow.com/questions/1114024/constructors-in-javascript-objects?lastactivity" class="lastactivity-link" title="2011-03-13 22:16:41Z">8 months ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+    
+        <script type="text/javascript">
+            var scriptSrc = "http://engine2.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=javascript,oop";
+            if (document.referrer) {
+                if (/\?/.test(scriptSrc))
+                    scriptSrc += "&";
+                else
+                    scriptSrc += "?";
+                scriptSrc += "xReferrer=" + document.referrer;
+            }
+            var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = scriptSrc; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);
+        </script>
+    
+    <div class="everyonelovesstackoverflow" id="adzerk2"><div id="a51-ad-container" style="height: 250px; width: 220px;">
+<style type="text/css">
+#a51-ad { background: url("http://sstatic.net/area51/Img/bg-area51-ad-commitment.png") no-repeat bottom center; }
+#a51-ad, #a51-ad a { display:block; height: 250px; width: 220px; text-decoration: none; }
+#a51-ad table { position: relative; top: 55px; }
+#a51-ad-title-row { height: 95px; }
+#a51-ad-title { padding: 0 5px; text-align: center; font-size: 29.2px; line-height: 33.2px; font-family: Impact,'Futura-CondensedExtraBold',sans-serif; color: #FBF9E2; text-shadow: 3px 3px 3px #000; width: 220px; vertical-align: middle; }
+#a51-ad-subtitle { padding:3px; text-align: center; color: white; font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif; font-size: 14px; font-weight: bold; }
+</style>
+<!--[if lte IE 7]>
+<style type-"text/css">
+#a51-ad { background: url(http://sstatic.net/area51/Img/bg-area51-ad-commitment.png) no-repeat bottom center; }
+</style>
+<![endif]-->
+<div id="a51-ad">
+    <a href="http://engine.adzerk.net/redirect/0/2971/2841/8277/3b69c7af235643f78673656561a8f994/45/1178/3087/634574583702267791?keywords=javascript%2coop&url=http%3A%2F%2Farea51.stackexchange.com%2Fproposals%2F12383%2Fcloud-computing%3Fcommit%3D1">
+        <table>
+            <tbody><tr id="a51-ad-title-row"><td id="a51-ad-title">Cloud Computing Q&amp;A</td></tr>
+            <tr><td id="a51-ad-subtitle">54% committed</td></tr>
+        </tbody></table>        
+    </a>
+</div>
+</div><script type="text/javascript">window._a51AdUrl = "http://engine.adzerk.net/redirect/0/2971/2841/8277/3b69c7af235643f78673656561a8f994/45/1178/3087/634574583702267791?keywords=javascript%2coop";</script><script type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/js"></script></div>
+
+    
+    <div>
+        <script type="text/javascript">
+            var careers_adurl="http://careers.stackoverflow.com/ad/js",careers_cssurl="http://cdn.sstatic.net/careers/ads/sidebar.min.css?33df70",careers_leaderboardcssurl="http://cdn.sstatic.net/careers/ads/ninja.min.css?33cf39",careers_companycssurl="http://cdn.sstatic.net/careers/ads/company";(function(){var b="min-height:220px;margin:15px 0",c=$("<div>").addClass("hireme").attr("style",b),a=$("<div>").html(c);document.write(a.html());$.ajax({url:"http://cdn.sstatic.net/careers/ads/adloader.min.js?33df70",dataType:"script",cache:true})})();
+        </script><div class="hireme" style="min-height:220px;margin:15px 0"> <a href="http://careers.stackoverflow.com/jobs?a=12" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/14896/software-developer-twochop?a=hBbtbzO" target="_blank" title="Software Developer at TwoChop. Click to learn more."> Software Developer<br> <span class="company">TwoChop</span> <span class="location">New York, NY</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/9646/web-mobile-net-software-engineer-telecommute-trackabout?a=boBPVss" target="_blank" title="Web/Mobile .NET Software Engineer, Telecommute at TrackAbout. Click to learn more."> Web/Mobile .NET Software Engineer, Telecommute<br> <span class="company">TrackAbout</span> <span class="location">United States</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/9702/google-software-engineer-pittsburgh-google?a=bsIb1Yc" target="_blank" title="Google: Software Engineer - Pittsburgh at Google Inc.. Click to learn more."> Google: Software Engineer - Pittsburgh <br> <span class="company">Google</span> <span class="location">Pittsburgh, PA</span> </a> </li> </ul> <img alt="" class="impression" src="./oop - Constructors in Javascript objects - Stack Overflow_files/hBbtbzO-boBPVss-bsIb1Yc-12" style="display:none"></div>
+    </div>
+
+    
+<div class="module" id="chat-feature">
+
+
+
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link">Visit Chat</a></h4>
+
+
+<div class="related" id="ad502-rooms"></div>
+
+<script type="text/javascript">
+// <!--
+    
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: null,tagBased:true
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+
+
+</div>  
+
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="http://stackoverflow.com/questions/309680/how-to-create-establish-inheritance-between-objects-in-javascript" class="question-hyperlink">How to Create Establish Inheritance Between Objects in JavaScript?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/850781/object-oriented-programming-with-javascript-constructors" class="question-hyperlink">Object oriented programming with Javascript - Constructors</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1111725/javascript-calling-public-method-from-private-one-within-same-object" class="question-hyperlink">Javascript calling public method from private one within same object </a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1442786/creating-coexisting-objects-in-javascript" class="question-hyperlink">Creating coexisting objects in javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1866881/calling-functions-in-objects-with-javascript" class="question-hyperlink">Calling Functions in Objects with Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2280912/what-is-the-proper-way-to-control-related-objects-in-javascript" class="question-hyperlink">What is the proper way to control related objects in javascript?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2362779/copy-and-extend-global-objects-in-javascript" class="question-hyperlink">Copy and extend global objects in javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2479349/constructors-and-inheritance-in-js" class="question-hyperlink">constructors and inheritance in JS</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2616688/javascript-constructor-reset-what-is-it" class="question-hyperlink">javascript constructor reset: What is it?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2693021/how-to-count-javascript-array-objects" class="question-hyperlink">How to count JavaScript array objects?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3220721/javascript-pattern-for-multiple-constructors" class="question-hyperlink">JavaScript pattern for multiple constructors</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3427435/javascript-objects-and-jquery" class="question-hyperlink">Javascript Objects and jQuery</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3561570/javascript-objects-questions" class="question-hyperlink">javascript objects questions</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4088405/pros-and-cons-of-inheritance-modeling-in-javascript" class="question-hyperlink">Pros and cons of inheritance modeling in Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4239408/javascript-constructors" class="question-hyperlink">JavaScript constructors</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4746435/javascript-inheritance-from-multiple-objects" class="question-hyperlink">javascript inheritance from multiple objects</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5168078/is-the-best-approach-to-reduce-complexity-in-a-javascript-application-to-build-u" class="question-hyperlink">Is the best approach to reduce complexity in a JavaScript application to build/use an OOP framework on top?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6478023/how-should-i-handle-this-in-javascript-objects-that-contain-other-javascript-o" class="question-hyperlink">How should I handle 'this' in javascript objects that contain other javascript objects?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6599787/how-to-use-jquery-callback-functions-with-javascript-objects" class="question-hyperlink">How to use JQuery callback functions with Javascript objects</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6732616/javascript-creation-of-objects" class="question-hyperlink">Javascript creation of objects</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6765193/passing-arguments-from-inside-a-javascript-object-to-another-function" class="question-hyperlink">Passing arguments from inside a Javascript object to another function</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6884925/how-to-efficiently-update-objects-in-javascript" class="question-hyperlink">How to Efficiently Update Objects in Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7097722/instantiate-object-by-type-in-javascript" class="question-hyperlink">Instantiate object by type in JavaScript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7590151/mimicking-class-based-oop-constructors-in-javascript" class="question-hyperlink">Mimicking class-based OOP constructors in Javascript</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7640177/objects-as-properties-in-javascript" class="question-hyperlink">Objects as properties in Javascript</a>
+</div>
+
+    </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/1114024" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/7c18"></script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/1114024/ivc/7c18" class="dno" alt=""&gt;&lt;/div&gt;
+</noscript>
+<div style="display:none" id="prettify-lang">default</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about">about</a> |
+                <a href="http://stackoverflow.com/faq">faq</a> |
+                
+                    <span onclick="if(window.localStorage){localStorage.setItem(&#39;blog-new&#39;,1321926175000); $(&#39;.new-blog-post&#39;).fadeOut();}">
+                        <script type="text/javascript">if(!window.localStorage || new Date(+localStorage.getItem('blog-new'))<new Date())document.write('<span title="Review early, review often, by Sam Saffron - 6 hours ago" class="new-blog-post">new<\/span>');</script><span title="Review early, review often, by Sam Saffron - 6 hours ago" class="new-blog-post">new</span>
+                        <a href="http://blog.stackexchange.com/">blog</a>
+                    </span> |
+                    <a href="http://chat.stackoverflow.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://blog.stackoverflow.com/category/podcasts/">podcast</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/1114024/constructors-in-javascript-objects&#39;)">mobile</a> |
+
+                <b><a href="mailto:team@stackoverflow.com">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#b5cda4;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2011.11.20.1</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2011 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();_qoptions={qacct:"p-c1rF4kxgLUzNc"};</script>
+    <script type="text/javascript" src="./oop - Constructors in Javascript objects - Stack Overflow_files/quant.js"></script>
+    
+
+
+</body></html>

@@ -1,0 +1,21 @@
+﻿Build started 2011/10/18 15:32:17.
+     1>Project "C:\Users\Jimmy\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\NaturalPhenomena.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+       Manifest:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "Debug\NaturalPhenomena.unsuccessfulbuild".
+         Touching "Debug\NaturalPhenomena.lastbuildstate".
+     1>Done Building Project "C:\Users\Jimmy\Dropbox\CMUDev\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena\NaturalPhenomena.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.21

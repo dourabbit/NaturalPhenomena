@@ -1,0 +1,54 @@
+Body {
+font-family: verdana;
+}
+
+Listing {
+font-size: 14px;
+}
+
+.doTable {
+border: 1px solid black;
+border-collapse: collapse;
+background-color: white;
+margin-bottom: 5px;
+}
+
+.doTable TD {
+border:1px solid black;
+vertical-align: top;
+padding: 4px;
+}
+
+.doTitle {
+background-color: tan;
+color: black;
+font-weight: bold;
+}
+
+.doProto {
+background-color: tan;
+color: black;
+font-weight: bold;
+}
+
+.doName {
+font-weight: bold;
+font-size: 16px;
+}
+
+.doValue {
+font-size: 16px;
+}
+
+.codeOutput {
+background-color: tan;
+border: 1px solid black;
+padding: 5px;
+width: 480px;
+margin-bottom: 5px;
+}
+
+.citation {
+text-indent: -20px;
+margin-left: 20px;
+}

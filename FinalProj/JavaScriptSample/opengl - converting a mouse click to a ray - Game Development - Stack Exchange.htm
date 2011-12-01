@@ -1,0 +1,844 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0081)http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>opengl - converting a mouse click to a ray - Game Development - Stack Exchange</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/gamedev/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/gamedev/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Game Development - Stack Exchange" href="http://gamedev.stackexchange.com/opensearch.xml">
+    <script type="text/javascript" async="" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/ga.js"></script><script type="text/javascript" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/all.css">
+    
+    <link rel="canonical" href="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/opengl - converting a mouse click to a ray - Game Development - Stack Exchange.htm">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;converting a mouse click to a ray&#39;" href="http://gamedev.stackexchange.com/feeds/question/8974">
+    <meta name="title" content="opengl - converting a mouse click to a ray - Game Development - Stack Exchange">
+    <link rel="image_src" href="http://sstatic.net/gamedev/img/apple-touch-icon.png">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:8,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8974});
+
+            styleCode();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"http://stackauth.com","serverTime":1322268901,"styleCode":true,"newTagEditor":true,"enableUserHovercards":true,"enableTabCompletion":true,"site":{"name":"Game Development","description":"Q&A for professional and independent game developers"},"user":{"isAnonymous":true,"fkey":"a59fea88b5c8dc09e06d0c9c67a029f4","inboxUnviewedCount":-1}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"0324556b7bf7","js/moderator.js":"a38ca3c6143d","js/full-anon.js":"8fcefa158ad3","js/full.js":"52ea185759b7","js/wmd.js":"688233b2af68","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"97644ef9b7d4","js/help.js":"7f83495f785a","js/tageditor.js":"75954ba7b6f1","js/tageditornew.js":"9d9998359a54","js/inline-tag-editing.js":"364e12111b4b","js/mathjax-editing.js":"a47e02eb0282","js/revisions.js":"63c88065da1f"});
+    </script>
+
+<script async="" type="text/javascript" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/full-anon.js"></script></head><link rel="stylesheet" href="chrome-extension://aaaaodnbkkemkkaekocofmphoadofkdh/config/skin/css/containers.css"><iframe id="apn-toolbar" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/toolbar.htm"></iframe>
+<body class="question-page" style="margin-top: 2.5em; ">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container" apn-was-fixed-top="-1" style="top: 34px; "><div id="notify--1" style=""><span class="notify-close"><a title="dismiss this notification">×</a></span><span class="notify-text">Welcome to Q&amp;A for professional and independent game developers — check out the <a onclick="StackExchange.notify.closeFirstTime(); return false;" href="http://gamedev.stackexchange.com/faq">FAQ</a>!</span></div></div>
+    <div id="overlay-header" apn-was-fixed-top="-1" style="top: 34px; "></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    <span id="hlinks-user">
+                  
+                  </span>
+                  <span id="hlinks-nav">
+                  <a href="http://gamedev.stackexchange.com/users/login?returnurl=%2fquestions%2f8974%2fconverting-a-mouse-click-to-a-ray">log in</a>
+ <span class="lsep">|</span>
+
+                  </span>
+                  <span id="hlinks-custom">
+                  <a href="http://chat.stackexchange.com/">chat</a>
+ <span class="lsep">|</span>
+<a href="http://meta.gamedev.stackexchange.com/">meta</a>
+ <span class="lsep">|</span>
+<a href="http://gamedev.stackexchange.com/about">about</a>
+ <span class="lsep">|</span>
+<a href="http://gamedev.stackexchange.com/faq">faq</a>
+                  </span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://gamedev.stackexchange.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://gamedev.stackexchange.com/">Game Development</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://gamedev.stackexchange.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://gamedev.stackexchange.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://gamedev.stackexchange.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://gamedev.stackexchange.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://gamedev.stackexchange.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://gamedev.stackexchange.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <div id="content">
+            
+
+
+
+<div id="question-header">
+    <h1><a href="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/opengl - converting a mouse click to a ray - Game Development - Stack Exchange.htm" class="question-hyperlink">converting a mouse click to a ray</a></h1>
+</div>
+<div id="mainbar">
+
+
+<div class="question" id="question">
+
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+<div class="vote">
+    <input type="hidden" value="8974">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post">4</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+    <a class="star-off" href="http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>2</b></div>    
+
+    <script type="text/javascript">
+        StackExchange.ready(function() {
+            var shareUrl = "http%3a%2f%2fgamedev.stackexchange.com%2fq%2f8974";
+            var shareMsg = "converting+a+mouse+click+to+a+ray";
+            StackExchange.share.facebook($("#fb-share-8974"), shareUrl, shareMsg);
+            StackExchange.share.twitter($("#twitter-share-8974"), shareUrl, shareMsg);
+        });
+    </script>
+    <a id="fb-share-8974" class="fb-share" title="share link to this question on Facebook">share [fb]</a>
+    <a id="twitter-share-8974" class="twitter-share" title="share link to this question on Twitter">share [tw]</a>    
+
+</div>
+
+    </td>
+<td class="postcell">
+<div>          
+    <div class="post-text">
+        <p>I have a perspective projection.  When the user clicks on the screen, I want to compute the ray between the near and far planes that projects from the mouse point, so I can do some ray intersection code with my world.</p>
+
+<p>I am using my own matrix and vector and ray classes and they all work as expected.</p>
+
+<p>However, when I try and convert the ray to world coordinates my far always ends up as 0,0,0 and so my ray goes from the mouse click to the centre of the object space, rather than through it.  (The x and y coordinates of near and far are identical, they differ only in the z coordinates where they are negatives of each other)</p>
+
+<pre><code>GLint vp[4];
+glGetIntegerv(GL_VIEWPORT,vp);
+matrix_t mv, p;
+glGetFloatv(GL_MODELVIEW_MATRIX,mv.f);
+glGetFloatv(GL_PROJECTION_MATRIX,p.f);
+const matrix_t inv = (mv*p).inverse();
+const float
+    unit_x = (2.0f*((float)(x-vp[0])/(vp[2]-vp[0])))-1.0f,
+    unit_y = 1.0f-(2.0f*((float)(y-vp[1])/(vp[3]-vp[1])));
+const vec_t near(vec_t(unit_x,unit_y,-1)*inv);
+const vec_t far(vec_t(unit_x,unit_y,1)*inv);
+ray = ray_t(near,far-near);
+</code></pre>
+
+<p>What have I got wrong?  (How do you unproject the mouse-point?)</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://gamedev.stackexchange.com/questions/tagged/opengl" class="post-tag" title="show questions tagged &#39;opengl&#39;" rel="tag">opengl</a> <a href="http://gamedev.stackexchange.com/questions/tagged/camera" class="post-tag" title="show questions tagged &#39;camera&#39;" rel="tag">camera</a> <a href="http://gamedev.stackexchange.com/questions/tagged/geometry" class="post-tag" title="show questions tagged &#39;geometry&#39;" rel="tag">geometry</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://gamedev.stackexchange.com/q/8974" title="short permalink to this question" id="link-post-8974">link</a><span class="lsep">|</span><a href="http://gamedev.stackexchange.com/posts/8974/edit">improve this question</a></div>
+    </td>
+    <td class="post-signature owner">
+    <div class="user-info"><div class="user-action-time">asked <span title="2011-02-24 13:18:04Z" class="relativetime">Feb 24 at 13:18</span></div><div class="user-gravatar32"><a href="http://gamedev.stackexchange.com/users/4129/will"><div class=""><img src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/4f5c51f41af7b385236610802a5e50b2" alt=""></div></a></div><div class="user-details"><a href="http://gamedev.stackexchange.com/users/4129/will">Will</a><br><span class="reputation-score" title="reputation score">2,179</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span></div></div>
+        <br class="cbt">
+        <div class="accept-rate cool" title="this user has accepted an answer for 14 of 18 eligible questions">78% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8974" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-11855" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Just out of curiosity, is there a reason you aren't using the built-in GL_SELECTION mode? <a href="http://www.opengl.org/resources/faq/technical/selection.htm" rel="nofollow">(info here)</a></span> –&nbsp;<a href="http://gamedev.stackexchange.com/users/189/ricket" title="8197 reputation" class="comment-user">Ricket<span class="mod-flair" title="moderator">♦</span></a> <span class="comment-date"><span title="2011-02-24 15:03:40Z">Feb 24 at 15:03</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-11863" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@Ricket  Isn't it deprecated? Don't know, but quite sure.</span> –&nbsp;<a href="http://gamedev.stackexchange.com/users/3794/notabene" title="4374 reputation" class="comment-user">Notabene</a> <span class="comment-date"><span title="2011-02-24 18:22:47Z">Feb 24 at 18:22</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-11864" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">Are the x and y in pixels? that would be the problem...</span> –&nbsp;<a href="http://gamedev.stackexchange.com/users/3794/notabene" title="4374 reputation" class="comment-user">Notabene</a> <span class="comment-date"><span title="2011-02-24 18:28:34Z">Feb 24 at 18:28</span></span><span class="edited-yes" title="this comment was edited"></span></div></td>
+    </tr>
+            
+    <tr id="comment-11867" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">And you are multiplying vec3 by matrix4. That is not good... what number goes into 4th position when you do vec_t(1st,2nd,3th,4th)?</span> –&nbsp;<a href="http://gamedev.stackexchange.com/users/3794/notabene" title="4374 reputation" class="comment-user">Notabene</a> <span class="comment-date"><span title="2011-02-24 19:13:53Z">Feb 24 at 19:13</span></span></div></td>
+    </tr>
+            
+    <tr id="comment-11868" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">@notebene Wow, I guess it is, I had no clue. <a href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showflat&Number=236015#Post236015" rel="nofollow">This discussion</a> is good and provides an alternative which I'll have to look into, and now I'm REALLY hoping for a good answer to this question.</span> –&nbsp;<a href="http://gamedev.stackexchange.com/users/189/ricket" title="8197 reputation" class="comment-user">Ricket<span class="mod-flair" title="moderator">♦</span></a> <span class="comment-date"><span title="2011-02-24 19:18:39Z">Feb 24 at 19:18</span></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    <a id="comments-link-8974" class="comments-link" title="expand to show all comments on this post">show <b>3</b> more comments</a>
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>    
+</div>
+
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>2 Answers</h2>
+            <div id="tabs">
+                <a href="http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+  
+    <a name="9091"></a>
+    <div id="answer-9091" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="9091">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">4</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+<span class="vote-accepted-on" title="The question owner accepted this as the best answer Feb 27 at 21:03">accepted</span>
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>I recently had to solve this myself for a WebGL application. I've attached the complete source code, but incase it doesn't work right off the bat for you here are some debugging tips:</p>
+
+<ol>
+<li>Don't debug your unproject method in your game. If possible, try to write unit-test style tests to make it easier to isolate what is going wrong.</li>
+<li>Be sure to print the output rays for both the near and far clipping planes.</li>
+<li>Remember that matrix math is NOT communicative. A x C != C x A. Double check your math.</li>
+</ol>
+
+<p>Also, to reply to some comments above, you almost never want to use OpenGL's selection APIs. That helps you pick existing items, like if you were creating a menu, however it fails to perform most real-world scenarios like 3D model editing. Where you need to add geometry as a result of the click. </p>
+
+<p>Here is my implementation. There is nothing magic going on here. Just JavaScript and Google's Closure library.</p>
+
+<h3>gluUnProject</h3>
+
+<pre><code>/**
+ * Port of gluUnProject. Unprojects a 2D screen coordinate into the model-view
+ * coordinates.
+ * @param {Number} winX The window point for the x value.
+ * @param {Number} winY The window point for the y value.
+ * @param {Number} winZ The window point for the z value. This should range
+ *    between 0 and 1. 0 meaning the near clipping plane and 1 for the far.
+ * @param {goog.math.Matrix} modelViewMatrix The model-view matrix.
+ * @param {goog.math.Matrix} projectMatrix The projection matrix.
+ * @param {Array.&lt;Number&gt;} view the viewport coordinate array.
+ * @param {Array.&lt;Number&gt;} objPos the model point result.
+ * @return {Boolean} Whether or not the unprojection was successful.
+ */
+octorok.math.Matrix.gluUnProject = function(winX, winY, winZ,
+                        modelViewMatrix, projectionMatrix,
+                        viewPort, objPos) {
+  // Compute the inverse of the perspective x model-view matrix.
+  /** @type {goog.math.Matrix} */
+  var transformMatrix =
+    projectionMatrix.multiply(modelViewMatrix).getInverse();
+
+  // Transformation of normalized coordinates (-1 to 1).
+  /** @type {Array.&lt;Number&gt;} */
+  var inVector = [
+    (winX - viewPort[0]) / viewPort[2] * 2.0 - 1.0,
+    (winY - viewPort[1]) / viewPort[3] * 2.0 - 1.0,
+    2.0 * winZ - 1.0,
+    1.0 ];
+
+  // Now transform that vector into object coordinates.
+  /** @type {goog.math.Matrix} */
+  // Flip 1x4 to 4x1. (Alternately use different matrix ctor.
+  var inMatrix = new goog.math.Matrix([ inVector ]).getTranspose();
+  /** @type {goog.math.Matrix} */
+  var resultMtx = transformMatrix.multiply(inMatrix);
+  /** @type {Array.&lt;Number&gt;} */
+  var resultArr = [
+    resultMtx.getValueAt(0, 0),
+    resultMtx.getValueAt(1, 0),
+    resultMtx.getValueAt(2, 0),
+    resultMtx.getValueAt(3, 0) ];
+
+  if (resultArr[3] == 0.0) {
+    return false;
+  }
+
+  // Invert to normalize x, y, and z values.
+  resultArr[3] = 1.0 / resultArr[3];
+
+  objPos[0] = resultArr[0] * resultArr[3];
+  objPos[1] = resultArr[1] * resultArr[3];
+  objPos[2] = resultArr[2] * resultArr[3];
+
+  return true;
+};
+</code></pre>
+
+<h3>Usage</h3>
+
+<pre><code>  this.sys.event_mouseClicked = function(event) {
+    // Relative x and y are computed via magic by SystemModule.
+    // Should range from 0 .. viewport width/height.
+    var winX = event.relativeX;
+    var winY = event.relativeY;
+    window.console.log('Camera at [' + me.camera.position_ + ']');
+    window.console.log('Clicked [' + winX + ', ' + winY + ']');
+
+    // viewportOriginX, viewportOriginY, viewportWidth, viewportHeight
+    var viewPort = [0, 0, event.viewPortWidth, event.viewPortHeight];
+    var objPos = [];  // out parameter.
+
+    // The camera's model-view matrix is the result of gluLookAt.
+    var modelViewMatrix = me.camera.getCameraMatrix();
+    // The perspective matrix is the result of gluPerspective.
+    var perspectiveMatrix = pMatrix.get();
+
+    // Ray start
+    var result1 = octorok.math.Matrix.gluUnProject(
+      winX, winY, 0.0,
+      modelViewMatrix, perspectiveMatrix,
+      viewPort, objPos);
+    window.console.log('Seg start: ' + objPos + ' (result:' + result1 + ')');
+
+    // Ray end
+    var result2 = octorok.math.Matrix.gluUnProject(
+      winX, winY, 1.0,
+      modelViewMatrix, perspectiveMatrix,
+      viewPort, objPos);
+    window.console.log('Seg end: ' + objPos + ' (result:' + result2 + ')');
+  };
+};
+</code></pre>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://gamedev.stackexchange.com/q/9091" title="short permalink to this answer" id="link-post-9091">link</a><span class="lsep">|</span><a href="http://gamedev.stackexchange.com/posts/9091/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info"><div class="user-action-time">answered <span title="2011-02-27 16:56:25Z" class="relativetime">Feb 27 at 16:56</span></div><div class="user-gravatar32"><a href="http://gamedev.stackexchange.com/users/5050/chris-smith"><div class=""><img src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/cb77a675b8fdc07459304ef682a30ef2" alt=""></div></a></div><div class="user-details"><a href="http://gamedev.stackexchange.com/users/5050/chris-smith">Chris Smith</a><br><span class="reputation-score" title="reputation score">234</span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-9091" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136); ">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+
+  
+    <a name="8997"></a>
+    <div id="answer-8997" class="answer">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+<div class="vote">
+    <input type="hidden" value="8997">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+</div>
+
+        </td>
+
+
+<td class="answercell">
+    <div class="post-text"><p>I dont see any problems with your code. So i only have some suggestions: </p>
+
+<pre><code>unit_x = (2.0f*((float)(x-vp[0])/(vp[2]-vp[0])))-1.0f,
+unit_y = (2.0f*((float)(y-vp[1])/(vp[3]-vp[1])))-1.0f;
+</code></pre>
+
+<p>And trying to change matrix multiplacation to <code>(p*mv).inverse();</code>. Just because glMatrices are nutaraly transposed in memory. (this is one big maybe, sorry)</p>
+
+<p><strong>Another raycasting</strong><br>
+Unprojecting is not only way how to get ray from the pixel. This is my code for raycaster:</p>
+
+<pre><code>//works for right handed coordinates. So it is opengl friendly.
+float mx = (float)((pixel.x - screenResolution.x * 0.5) * (1.0 / screenResolution.x) * camera.fovX * 0.5);
+float my = (float)((pixel.y - screenResolution.y * 0.5) * (1.0 / screenResolution.x) * camera.fovX * 0.5);
+float4 dx = cameraRight * mx;
+float4 dy = cameraUp * my;
+
+float3 dir = normalize(cameraDir + (dx + dy).xyz * 2.0);
+</code></pre>
+
+<p>You can get cameraRight, Up and Direction from view matrix (which is mostly useful in shader) <a href="http://gamedev.stackexchange.com/questions/8839/view-matrix-in-opengl/8845#8845">View matrix in opengl</a></p>
+
+<p><strong>Color Picking</strong><br>
+Color picking is a technique where you render every clickable object with another (solid) color and then read the value of color at clicked point. It worked as GL_SELECTION in opengl. But it is deprecated now. But color picking is easy to code as 1 additional render pass. </p>
+
+<p>Use frame buffer and render to texture with same resolution as screen resolution, use simple shader which just return color in fragment shader. After "color pass", read the value from a texture addressing with clickedPoint x and y. Find object with color which you read. Easy and quite fast.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+        <div class="post-menu"><a href="http://gamedev.stackexchange.com/q/8997" title="short permalink to this answer" id="link-post-8997">link</a><span class="lsep">|</span><a href="http://gamedev.stackexchange.com/posts/8997/edit">improve this answer</a></div>
+    </td>
+            
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover"><div class="user-action-time">answered <span title="2011-02-25 01:15:23Z" class="relativetime">Feb 25 at 1:15</span></div><div class="user-gravatar32"><a href="http://gamedev.stackexchange.com/users/3794/notabene"><div class=""><img src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/a065b5db738a7e049074d3f3e0705fc4" alt=""></div></a></div><div class="user-details"><a href="http://gamedev.stackexchange.com/users/3794/notabene">Notabene</a><br><span class="reputation-score" title="reputation score">4,374</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="23 bronze badges"><span class="badge3"></span><span class="badgecount">23</span></span></div></div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-8997" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>    </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://gamedev.stackexchange.com/questions/8974/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+       
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+    
+        initTagRenderer("".split(" "), "".split(" "));
+
+              
+            prepareEditor({
+                
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                onDemand: true                ,immediatelyShowMarkdownHelp:true
+            });
+            
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px; "><span style="background-position: 0px -20px; "></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px; "><span style="background-position: -20px -20px; "></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px; "><span style="background-position: -40px -20px; "></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px; "><span style="background-position: -60px -20px; "></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px; "><span style="background-position: -80px -20px; "></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px; "><span style="background-position: -100px -20px; "></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px; "><span style="background-position: -120px -20px; "></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px; "><span style="background-position: -140px -20px; "></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px; "><span style="background-position: -160px -20px; "></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px; "><span style="background-position: -180px -20px; "></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px; "><span style="background-position: -200px -20px; "></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px; "><span style="background-position: -220px -20px; "></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="a59fea88b5c8dc09e06d0c9c67a029f4">
+        <input id="author" name="author" type="text">
+    </div>
+</div>   
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+        <td class="vm open-id-login">
+            <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://gamedev.stackexchange.com/users/login?returnurl=%2fquestions%2f8974%2fconverting-a-mouse-click-to-a-ray">log in</a>
+            <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.onClickDraftSave('#login-link');
+                });
+            </script>
+        </td>
+
+    
+        <td class="orcell">
+            <div class="orword">or</div>
+            <div class="orline"></div>
+        </td>
+        <td class="vm">
+            <div>
+                <label for="display-name">Name</label>
+                <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+            </div>
+            <div>
+                <label for="m-address">Email</label>
+                <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                <span class="edit-field-overlay">required, but never shown</span>
+            </div>
+            <div>
+                <label for="home-page">Home Page</label>
+                <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+            </div>
+        </td>
+    
+        </tr>
+        </tbody></table>
+    </div>
+               
+        <div class="form-submit cbt"><input id="submit-button" type="submit" value="Post Your Answer" tabindex="110"></div>
+    </form>
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://gamedev.stackexchange.com/questions/tagged/opengl" class="post-tag" title="show questions tagged &#39;opengl&#39;" rel="tag">opengl</a> <a href="http://gamedev.stackexchange.com/questions/tagged/camera" class="post-tag" title="show questions tagged &#39;camera&#39;" rel="tag">camera</a> <a href="http://gamedev.stackexchange.com/questions/tagged/geometry" class="post-tag" title="show questions tagged &#39;geometry&#39;" rel="tag">geometry</a> 
+                or <a href="http://gamedev.stackexchange.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+    <div class="module newuser newuser-greeting" style="">
+        <h4>Welcome!</h4>
+        <div>
+            <p></p><p>This is a collaboratively edited question and answer site for <b>professional and independent game developers</b>. It's 100% free, no registration required.</p><p>Got a question about the site itself? <a href="http://meta.gamedev.stackexchange.com/">meta</a> is the place to talk about things like what questions are appropriate, what tags we should use, etc.</p><p></p>
+            <p class="ar"><a href="http://gamedev.stackexchange.com/about">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://gamedev.stackexchange.com/faq">faq »</a>
+&nbsp; <a href="http://meta.gamedev.stackexchange.com/">meta »</a>            </p>
+        </div>
+    </div>
+    <div class="module">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://gamedev.stackexchange.com/questions/tagged/opengl" class="post-tag" title="show questions tagged &#39;opengl&#39;" rel="tag">opengl</a>&nbsp;<span class="item-multiplier">×&nbsp;427</span><br>
+<a href="http://gamedev.stackexchange.com/questions/tagged/camera" class="post-tag" title="show questions tagged &#39;camera&#39;" rel="tag">camera</a>&nbsp;<span class="item-multiplier">×&nbsp;70</span><br>
+<a href="http://gamedev.stackexchange.com/questions/tagged/geometry" class="post-tag" title="show questions tagged &#39;geometry&#39;" rel="tag">geometry</a>&nbsp;<span class="item-multiplier">×&nbsp;38</span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2011-02-24 13:18:04Z"><b>9 months ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px"><p class="label-key"><b>1,120 times</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://gamedev.stackexchange.com/questions/8974/converting-a-mouse-click-to-a-ray?lastactivity" class="lastactivity-link" title="2011-02-27 16:56:25Z">9 months ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+    
+<style type="text/css">
+    .ads { margin-left: 60px; }
+    .ad-container { width: 220px; height: 250px; margin-right: 20px; margin-bottom: 20px; }
+    .ad-container .ad { height: 250px; }
+    .ad-container .footer-container { overflow: hidden; height: 30px; position: relative; top: -30px; }
+    .ad-container .footer-container .footer { font-family: Arial,Helvetic,Sans-Serif; font-size: 12px; text-align: center; padding-top: 9px; background-color: #000; color: #EFF; opacity: 0.9; filter: alpha(opacity=90); top: 30px; height: 30px; position: relative; }
+    .ad-container a:hover { text-decoration: underline; }
+    #adzerk2 { height: 250px; }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".ad-container").hover(
+            function () {
+                $(".ad-container .footer-container .footer").animate({ top: "0px" }, "fast") 
+            },
+            function () {
+                $(".ad-container .footer-container .footer").animate({ top: "30px" }, "fast") 
+            });
+    });
+</script>
+    <div class="ad-container">    
+        <div class="ad">    
+        <a href="http://meta.gamedev.stackexchange.com/ads/ct/458?url=http%3a%2f%2fwww.scirra.com%2fconstruct-classic" rel="nofollow" target="_blank"><img src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/paKvY.png" alt="Make games with Construct Classic" title="Make games with Construct Classic" width="220" height="250"></a>
+        </div>
+        <div class="footer-container">
+            <div class="footer">
+                14 votes · <a href="http://meta.gamedev.stackexchange.com/questions/456#458" title="click to comment on this ad" target="_blank">comment</a> · <a href="http://meta.gamedev.stackexchange.com/ads/display/456" target="_blank">stats</a>
+            </div>
+        </div>
+    </div>
+
+      
+
+    <div class="module">
+    <h4 id="h-linked">Linked</h4>
+    <div class="linked">
+    <div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/10858/rendering-collections-of-light-sources" class="question-hyperlink">Rendering collections of light sources</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/6940/3d-ray-casting-picking" class="question-hyperlink">3D Ray Casting / Picking</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/8839/view-matrix-in-opengl" class="question-hyperlink">View matrix in opengl</a>
+</div>
+
+    </div>
+    </div>
+    <div class="module">
+    <h4 id="h-related">Related</h4>
+    <div class="related">
+    <div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/5766/camera-rotation-using-angles" class="question-hyperlink">Camera Rotation using angles</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/6631/what-does-it-mean-to-strafe-the-camera" class="question-hyperlink">What does it mean to “strafe” the camera?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/6940/3d-ray-casting-picking" class="question-hyperlink">3D Ray Casting / Picking</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/7189/morph-a-sphere-to-a-cube-and-a-a-cube-to-a-sphere-with-glsl" class="question-hyperlink">morph a sphere to a cube and a a cube to a sphere with GLSL</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/7374/frenet-frame-and-application" class="question-hyperlink">Frenet frame and application</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/7812/mouse-aim-in-an-fps" class="question-hyperlink">Mouse aim in an FPS</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/7898/implementing-camera-for-2d-side-scroller-game" class="question-hyperlink">Implementing camera for 2d side scroller game?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/9406/exact-point-on-a-rotating-sphere" class="question-hyperlink">exact point on a rotating sphere</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/9704/generating-geometry-when-using-vbo" class="question-hyperlink">Generating geometry when using VBO</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/10734/why-doesnt-the-y-axis-work-with-superbible-frame-reference-or-glulookat" class="question-hyperlink">Why doesn't the y Axis work with SuperBible frame reference or GluLookAt</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/12276/opengl-es-2-0-moving-camera-in-orthogonal-2d-projection" class="question-hyperlink">OpenGL ES 2.0: Moving Camera in Orthogonal (2D) Projection</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/12429/opengl-3d-camera" class="question-hyperlink">OpenGL 3D Camera</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/12442/mouse-location-is-off-due-to-camera" class="question-hyperlink">Mouse location is off due to camera</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/13198/how-to-generate-a-rotation-matrix-or-a-quaternion-properly-rotated-in-regards-t" class="question-hyperlink">How to generate a rotation matrix or a quaternion (properly rotated in regards to texture coordinates) for each triangle of a mesh?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/14510/cuberealm-opengl-rotation-problems-need-help" class="question-hyperlink">CubeRealm OpenGL rotation problems, need help. :\</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/15054/what-algorithms-exist-for-combining-multiple-triangle-meshes-into-one-mesh" class="question-hyperlink">what algorithms exist for combining multiple triangle meshes into one mesh</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/15383/opengl-camera-causes-spatial-distortion" class="question-hyperlink">OpenGL Camera causes spatial distortion</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/15814/what-is-the-purpose-of-gledgeflagv" class="question-hyperlink">What is the purpose of glEdgeFlagv?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/16317/geometry-system-of-populous-the-beginning" class="question-hyperlink">Geometry System of Populous: The Beginning</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/16745/moving-a-particle-around-an-archimedean-spiral-at-a-constant-speed" class="question-hyperlink">Moving a particle around an Archimedean spiral at a constant speed</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/16869/creating-similar-effects-of-geometry-wars-in-2d-only" class="question-hyperlink">Creating similar effects of Geometry Wars in 2D only</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/17643/can-someone-help-me-implement-a-camera-and-mouse-clicks-java-slick2d-tiled" class="question-hyperlink">Can someone help me implement a camera and mouse clicks (Java, Slick2d, Tiled)?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/18406/how-can-i-determine-the-first-visible-tile-in-an-isometric-perspective" class="question-hyperlink">How can I determine the first visible tile in an isometric perspective?</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/18933/camera-movement-along-with-model" class="question-hyperlink">camera movement along with model</a>
+</div>
+<div class="spacer">
+<a href="http://gamedev.stackexchange.com/questions/19115/why-isnt-my-mouse-input-working-as-expected-in-a-dx10-game" class="question-hyperlink">Why isn't my mouse input working as expected in a DX10 game?</a>
+</div>
+
+    </div>
+    </div>
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://gamedev.stackexchange.com/feeds/question/8974" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/4a19"></script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/8974/ivc/4a19" class="dno" alt=""&gt;&lt;/div&gt;
+</noscript>
+<div style="display:none" id="prettify-lang"></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://gamedev.stackexchange.com/about">about</a> |
+                <a href="http://gamedev.stackexchange.com/faq">faq</a> |
+                <a href="http://blog.stackexchange.com/">blog</a> |
+                    <a href="http://chat.stackexchange.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://blog.stackoverflow.com/category/podcasts/">podcast</a> |
+                <a href="http://shop.stackexchange.com/">shop</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/about/contact">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/8974/converting-a-mouse-click-to-a-ray&#39;)">mobile</a> |
+
+                <b><a href="mailto:team%2bgamedev@stackexchange.com">contact us</a></b>
+                  | <b><a href="http://meta.gamedev.stackexchange.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#b5cda4;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electronics</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2011.11.24.2</div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2011 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    <iframe id="global-auth-frame" style="display:none" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/read.htm"></iframe></div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Game Development - Stack Exchange works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-24']);_gaq.push(['_setDomainName','.stackexchange.com']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src='http://www.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();_qoptions={qacct:"p-c1rF4kxgLUzNc"};</script>
+    <script type="text/javascript" src="./opengl - converting a mouse click to a ray - Game Development - Stack Exchange_files/quant.js"></script>
+    
+
+
+</body><style id="style-atb">body { margin-top: 35px ! important; border-top: 1px solid transparent; }</style></html>
